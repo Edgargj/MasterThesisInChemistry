@@ -1,49 +1,16 @@
 \chapter{Introducción}
 
-Los cristal\'{o}grafos han observado durante mucho tiempo que las prote\'{i}nas son pol\'{i}meros muy compactos. 
-Si bien, la estructura nativa que se captura en un cristal es, aunque representativa, solo  una de las muchas formas
-que una prote\'{i}na puede adoptar durante el curso de su funci\'{o}n en la c\'{e}lula viva. Por lo tanto, la noci\'{o}n de que
- las prote\'{i}nas son simplemente objetos tridimensionales extremadamente compactos puede ser demasiado simple. 
- Desde hace tiempo, se ha señalado la posibilidad de que las prote\'{i}nas puedan estar mejor caracterizadas 
- por una geometr\'{i}a fractal en lugar de considerlas simplemente como objetos tridimensionales compactos \cite{Enright2005, Dewey1997}. Adicionalmente, 
- el problema de cuantificar las diferencia entre dos estructuras de una misma prote\'{i}na no es trivial y contin\'{u}a 
- evolucionando \cite{Kufareva2012}. Una de las medidas  cuantitativas m\'{a}s comunes para 
-determinar la similitud entre dos conjuntos de coordenadas at\'{o}micas 
-es la Desviaci\'{o}n Cuadr\'{a}tica Media 
-(RMSD, por sus siglas en ingl\'{e}s). El uso del RMSD es crucial en campos como la bioqu\'{i}mica 
-y la qu\'{i}mica computacional porque permite comparar modelos generados por 
-simulaciones o experimentos para verificar su similitud con estructuras 
-conocidas, como prote\'{i}nas o complejos moleculares. 
-Sin embargo, el RMSD puede ser engañoso cuando se trata de diferencias
- locales significativas. Por ejemplo, al analizar dos estructuras que difieren solo 
- en un segmento pequeño, deben tener un RMSD global similar, a pesar de que existan partes
- altamente movibles (lo que dificulta el an\'{a}lisis). Por esta raz\'{o}n, encontrar
-  m\'{e}todos alternativos o enfoques complementarios para comparar estructuras 
-  es fundamental. Estas alternativas o nuevos m\'{e}todos podr\'{i}an enfocarse en las regiones clave de las estructuras,
-   permitiendo a los investigadores ignorar las variaciones menores y 
-  centrarse en las partes cr\'{i}ticas de las estructuras \cite{Kufareva2012}. ´Dicho lo anterior, la dimensi\'{o}n fractal surge como una medida que podr\'{i}a sintetizar toda la informaci\'{o}n que contienen los sistemas proteicos. 
-
-Porque desde hace varios años, la dimensi\'{o}n fractal de masa se ha utilizado para identificar la distribuci\'{o}n de distintos patrones de agregaci\'{o}n, \textit{v. gr.}, sistemas magnetoreol\'{o}gicos  \cite{Carrillo2003}. Donde se ha observado, que las distintas etapas del proceso de agregaci\'{o}n de estos sistemas, presentaron una variaci\'{o}n en la dimensi\'{o}n fractal.
-
-
-Regresando a las prote\'{i}nas, autores como Matthew \textit{et al.} \cite{Enright2005}, y Vicsek han calculado la dimensi\'{o}n fractal de varias 
-prote\'{i}nas de forma global, sin el an\'{a}lisis de varias etapas de agregaci\'{o}n. Es decir, sin analizar c\'{o}mo cambian los patrones 
-de agregaci\'{o}n cuando se cambia la escala de an\'{a}lisis o estudio.
-
-El an\'{a}lisis multifractal encontrado por Carrillo \textit{et al.} \cite{Carrillo2003}, aplicado a diferentes tipos de estructuras 
-(no simplemente a geles envejecidos), podr\'{i}a servir para extraer informaci\'{o}n de los patrones de agregaci\'{o}n de otros objetos 
-en diferentes etapas. Se sabe que, en las prote\'{i}nas existe m\'{a}s de una etapa de agregaci\'{o}n o de conformaci\'{o}n. Esto plantea 
-la siguiente pregunta; ¿Se podr\'{i}an detectar estos patrones de agregaci\'{o}n en las prote\'{i}nas midiendo la dimensi\'{o}n fractal de 
-masa en este esquema de objetos multifractales? De ser cierto lo anterior, ¿ser\'{i}a esta medida lo suficientemente precisa para distinguir 
-entre dos prote\'{i}nas con secuencias gen\'{e}ticas similares pero estructuralmente diferentes? Para responder a estas interrogantes, es 
-fundamental desarrollar una herramienta computacional que nos permita calcular la dimensi\'{o}n fractal de masa y llevar a cabo pruebas 
-exhaustivas. Es importante resaltar que, de ser cierto lo anterior, se podr\'{i}a abrir la puerta a futuras aplicaciones en enfermedades. 
-No obstante, a\'{u}n no se sabe con certeza si es posible observar la multifractalidad en prote\'{i}nas, por lo que este trabajo 
-se enfocar\'{a} en determinar si se observa.
+Desde hace tiempo, se sabe que las prote\'{i}nas son pol\'{i}meros compactos. Si bien, la estructura que se captura en un cristal es representativa, en ella s\'{o}lo se observa una de las muchas formas que una prote\'{i}na puede adoptar durante el transcurso de su funci\'{o}n biol\'{o}gica. Por lo tanto, la noci\'{o}n tradicional que concibe a las prote\'{i}nas como objetos tridimensionales compactos resulta insuficiente para describir la complejidad estructural de estos sistemas macromoleculares. Es por esto que, en los últimos años se ha señalado la posibilidad de que las prote\'{i}nas puedan estar mejor caracterizadas mediante conceptos provenientes de la geometría fractal en lugar de recurrir únicamente a modelos tridimensionales convencionales \cite{Dewey1997}.
 
 
 
+En este contexto, la dimensión fractal emerge como un parámetro relevante para cuantificar la complejidad geométrica inherente en las estructuras proteicas. Investigaciones como las de \textit{Enright et al.}, han mostrado que la dimensión fractal de masa varía en función del tamaño de la proteína analizada, lo que sugiere que dicha magnitud puede capturar aspectos no evidentes bajo descripciones usuales. Cabe señalar que las proteínas, al igual que otros sistemas complejos, presentan múltiples niveles de agregación y conformación que no se distribuyen homogéneamente en el espacio. Esta heterogeneidad podría sugerir la existencia de comportamientos multifractales, como se ha observado en sistemas magnetorreológicos \cite{Carrillo2003}, en los que la dimensión fractal varía a lo largo de diferentes etapas del proceso de formación.\\
 
+\clearpage
+
+Por otra parte, el problema de comparar diferentes estructuras de una misma proteína continúa siendo un desafío relevante en la química computacional \cite{Kufareva2012}. Una de las métricas más utilizadas para este propósito es la Desviación Cuadrática Media (\textit{RMSD}, por sus siglas en inglés). Esta medida resulta fundamental en áreas como la bioquímica computacional y la modelación molecular, ya que permite evaluar el grado de similitud entre estructuras obtenidas por experimentos o simulaciones moleculares. Sin embargo, el \textit{RMSD} presenta limitaciones importantes, especialmente cuando las diferencias estructurales son locales. Por ejemplo, cuando dos estructuras con diferencias en segmentos específicos pueden presentar valores globales de \textit{RMSD}, ocultando variaciones funcionalmente relevantes. Por esta razón, es necesario desarrollar métodos alternativos o complementarios que permitan comparar estructuras a nivel local, enfocándose en regiones críticas que eviten pequeñas fluctuaciones estructurales que distorsionan la comparación global \cite{Kufareva2012}.\\
+
+Dado que las proteínas presentan múltiples niveles de organización estructural y etapas de agregación, surge la interrogante de si es posible detectar estos patrones estructurales mediante el análisis de la dimensión fractal de masa, bajo un esquema de objetos multifractales. De confirmarse esta hipótesis, cabría preguntarse además si esta magnitud es lo suficientemente sensible para distinguir entre proteínas con secuencias genéticas similares pero estructuralmente diferentes. Para abordar estas preguntas, es esencial el desarrollo de una herramienta computacional que permita calcular de manera eficiente la dimensión fractal de masa en proteínas, con el fin de llevar a cabo un análisis sistemático que explore el potencial de esta metodología como un descriptor estructural alternativo.
 
 
 
