@@ -1,22 +1,54 @@
 \chapter{Marco te\'{o}rico}
 
+
+
+\section{Ley de potencias} 
+
+Existe una estrecha relación entre la ley de potencia y el estudio de fractales. La ley de potencia es una relación matemática de la siguiente forma:
+
+\begin{equation}
+	y(x) = cx^{a}
+	\label{eq:3.1}
+\end{equation}
+
+Donde:\\
+$c$ es una constante.\\
+$a$ es exponente de la ley de potencias.\\
+$x$ y $y$ son las variables dependientes e independientes. 
+
+La ecuación \ref{eq:3.1} es una función matemática que relaciona dos cantidades, donde el cambio en una cantidad que da como resultado un cambio en la otra cantidad que es proporcional al cambio elevado a un exponente constante. Es decir, una cantidad varía como potencia de otra. El cambio es independiente del tamaño inicial de dichas cantidades.
+
+
+
 \section{Fractales}
 
-Los fractales son objetos matem\'{a}ticos investigados en los años setenta por el matem\'{a}tico polaco B.  Mandelbrot. Su principal caracter\'{i}stica es la autosimilitud o autosemejanza. En palabras simples, la autosimilitud implica observar como las mismas propiedades o caracter\'{i}sticas de un objeto se replican a distintas escalas.
+Los fractales son objetos geométricos que presentan una estructura fragmentada y aparentemente irregular que se manifiestan en muchos contextos tanto naturales como los copos de nieve, como artísticos por ejemplo, en las obras de M. C. Escher, así como en fenómenos físicos, \textit{vervi gratia} los anillos de Saturno, entre otras áreas. El término fractal  proviene del latín \textit{fractus} que significa ``roto o quebrado'' y fue acuñada por el matem\'{a}tico polaco B. Mandelbrot, padre de los fractales.
 
-En fractales matem\'{a}ticos o puros como el conjunto de Mandelbrot, la autosimilitud es exactamente igual sin importar el n\'{u}mero de veces que se amplie, siempre se ver\'{a} lo mismo. A la autosimilitud anterior se le conoce como autosimilitud exacta.
+La definición de fractal depende del área en la que se esté trabajando, sin embargo existen varias propiedades que tienen estos objetos y si alguna de ellas se cumple entonces se dice que es un objeto fractal:
 
-Existen diferentes tipos de autosimilitud, como la autosimilitud aproximada que normalmente aparece en objetos donde sus partes o conjuntos de esas partes son muy similares (aunque no ind\'{e}nticas) y en su mayor\'{i}a, aparecen en la naturaleza, como en las arterias y venas de la retina de un ojo \cite{Liebovitch1998}. La autosimilitud aproximada solo se puede replicar una cierta cantidad de veces y despu\'{e}s, se pierde esa autosimilitud.
+\begin{itemize}
+	\item Es autosimilar.
+	\item Su dimensión de Hausdorff-Besicovich es mayor que su dimensión topológica.
+	\item No es diferenciable en ningún punto.
+	\item Tiene una longitud o complejidad infinita.
+\end{itemize}
 
-Dicho todo lo anterior, podríamos definir a un fractal como un objeto geom\'{e}trico en el que una misma estructura fragmentada o aparentemente irregular se repite a diferentes escalas y tamaños. 
+\clearpage
+
+La  propiedad mas importante en fractales es la autosimilitud. La autosimilitud implica observar como las mismas propiedades o caracter\'{i}sticas de un objeto se replican a distintas escalas. En fractales matem\'{a}ticos o puros como el conjunto de Mandelbrot, la autosimilitud es exactamente igual sin importar el n\'{u}mero de veces que se amplie, siempre se ver\'{a} lo mismo. A la autosimilitud anterior se le conoce como autosimilitud exacta. Otro tipo de autosimilitud, es la autosimilitud aproximada que normalmente aparece en objetos donde sus partes o conjuntos de esas partes son muy similares (aunque no ind\'{e}nticas) y en su mayor\'{i}a, aparecen en la naturaleza, como en las arterias o venas de la retina de un ojo. A diferencia de la autosimilitud exacta, la autosimilitud aproximada solo se puede replicar una cierta cantidad de veces y despu\'{e}s, se pierde esa autosimilitud.
+
+Dicho todo lo anterior, podríamos decir que un fractal es un objeto geométrico en el que una misma estructura irregular o aparentemente fragmentada se repite a diferentes escalas y tamaños. 
 
 \section{Dimensi\'{o}n fractal}
 
-En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{o}n fractal, que es una generalizaci\'{o}n del concepto de dimensi\'{o}n en geometr\'{i}a Euclidiana.La dimensi\'{o}n fractal es una medida de cu\'{a}nto aparenta llenar el espacio un objeto conforme aumentamos o disminuimos la escala de an\'{a}lisis.
+En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{o}n fractal, que es una generalizaci\'{o}n del concepto de dimensi\'{o}n en geometr\'{i}a Euclidiana. La dimensi\'{o}n fractal es una medida de cu\'{a}nto aparenta llenar el espacio un objeto conforme aumentamos o disminuimos la escala de an\'{a}lisis.
 
-B. Mandelbrot utiliz\'{o} la dimensi\'{o}n fractal para calcular la longitud de la costa de Inglaterra. Demostró que al usar reglas de diferentes tamaños para medir detalladamente los contornos de la costa, se obtienen longitudes mayores, sugiriendo así, que la costa tiene una longitud infinitamente compleja, contrario a lo que se pensar\'{i}a. 
+%B. Mandelbrot utiliz\'{o} la dimensi\'{o}n fractal para calcular la longitud de la costa de Gran Bretaña, a este problema se le conoce como paradoja de la costa. Demostró que al usar reglas de diferentes tamaños para medir detalladamente los contornos de la costa, se obtienen longitudes mayores (tal como se observa en la Figura ), sugiriendo que la costa tiene una longitud infinitamente compleja, contrario a lo que se pensar\'{i}a. 
 
-Existen multiples formas de determinar la dimesi\'{o}n fractal, una muy conocida en ciencias de materiales es la dimensi\'{o}n fractal de masa, y es \'{u}til porque permite cuantificar la cantidad masa que hay dentro de la estructura que se desea analizar. La dimensi\'{o}n fractal de masa consiste en elegir un punto o centro al azar dentro de la estructura, trazar un c\'{i}rculo alrededor de ese punto y contar el n\'{u}mero de objetos que hay dentro de ese c\'{i}rculo. Nuevamente, se repite el mismo proceso pero con un nuevo c\'{i}rculo que se encuentra dentro del que primero c\'{i}rculo y se procede a contar el n\'{u}mero de objetos que dentro de \'{e}l.
+
+De la  amplia variedad de dimensiones fractales que existen la definición de la dimensión fractal de Hausdorff-Besicovich es probablemente la más importante porque puede definirse para cualquier conjunto y es matemáticamente práctica, ya que se basa en medidas relativamente faciles de manipular.
+
+Existen diferentes formas de determinar la dimesi\'{o}n fractal, una muy conocida en ciencias de materiales es la dimensi\'{o}n fractal de masa, y es \'{u}til porque permite cuantificar la cantidad masa que hay dentro de la estructura que se desea analizar. La dimensi\'{o}n fractal de masa consiste en elegir un punto o centro al azar dentro de la estructura, trazar un c\'{i}rculo alrededor de ese punto y contar el n\'{u}mero de objetos que hay dentro de ese c\'{i}rculo. Nuevamente, se repite el mismo proceso pero con un nuevo c\'{i}rculo que se encuentra dentro del que primero c\'{i}rculo y se procede a contar el n\'{u}mero de objetos que dentro de \'{e}l.
 
  Al repetir el proceso anterior, con diferentes centros y c\'{i}rculos, se puede observar en una gr\'{a}fica, como el n\'{u}mero de objetos \textit{versus} el radio de los distintos c\'{i}rculos sigue la caracteristica ley de potencias. Donde la gr\'{a}fica obtenida a partir de ajustes lineales, resulta tener una pendiente igual a D, donde D es la dimensi\'{o}n fractal de masa. 
 
