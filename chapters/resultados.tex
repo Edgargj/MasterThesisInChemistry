@@ -1,13 +1,33 @@
 \chapter{Resultados y discusión}
 
+El propósito principal del programa es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema molecular. Esto se logra construyendo una tabla de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), donde;
 
-\section{Algoritmo (diseño del programa)}
+\begin{itemize}
+	\item \(r_i\) es l radio de medida centrado en posiciones aleatorias de una proteína.
+	\item \( \bar{N}(r_i)\) es el número promedio de partículas contenidas dentro de un radio \(r_i\). 
+	\item  \( \bar{M}(r_i)\) es l n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio \(r_i\).
+\end{itemize}
 
-\section{Código}
+Posteriormente, los valores de \( \bar{N}(r_i) \) y \( \bar{M}(r_i)\) pueden analizarse mediante ajuste logarítmico para determinar la dimensión fractal de masa del sistema. Para calcular los valores de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), el algoritmo sigue los siguientes pasos:
 
-
-
-
-
-
-
+\begin{enumerate}
+	\item Inicialización\\
+	 Se carga un objeto llamado Molecule que contiene la información estructural del sistema (coordenadas y masas de los elementos prosentes en la estructura molecular).
+	
+	\item Configuración de parámetros\\
+	Se definen los radios mínimo y máximo de medida (mrmin y mrmax).\\
+	Se calcula el número de divisiones (nr) y el incremento radial (dr).\\
+	Se define el número de medidas por centro (nMeas) y el número total de círculos a considerar.
+	
+	\item Generación de puntos de medida\\
+	Se eligen de manera aleatoria partículas del sistema como centros de las circunferencias de medida.\\
+	Para cada centro, se identifican las partículas contenidas dentro del radio máximo mrmax.
+	
+	\item Acumulación de datos\\
+	Para cada radio \( r_i \), se cuenta cuántas partículas están contenidas dentro de ese radio respecto al centro actual.\\
+	Esta cuenta se repite para múltiples centros y se promedia para obtener \( \bar{N}(r_i) \).
+	
+	
+	\item Salida de resultados\\
+	Los vectores \( r \), \( \bar{N}(r_i) \) y \( \bar{M}(r_i)\) pueden visualizarse en pantalla o guardarse en un archivo externo.
+\end{enumerate}
