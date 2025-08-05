@@ -1,14 +1,14 @@
 \chapter{Resultados y discusión}
 
-El propósito principal del programa es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema molecular. Esto se logra construyendo una tabla de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), donde;
+El propósito principal del programa \textit{molmassfractaldim} es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema proteico. Esto se logra construyendo una tabla de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), donde;
 
 \begin{itemize}
 	\item \(r_i\) es el radio de medida centrado en posiciones aleatorias de una prote\'{i}na con valores m\'{i}nimos y m\'{a}ximos definidos como \(mr_{min}\) y \(mr_{max}\).
 	\item \( \bar{N}(r_i)\) es el número promedio de partículas contenidas dentro de un radio \(r_i\). 
-	\item  \( \bar{M}(r_i)\) es l n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio \(r_i\).
+	\item  \( \bar{M}(r_i)\) es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio \(r_i\).
 \end{itemize}
 
-Posteriormente, los valores de \( \bar{N}(r_i) \) y \( \bar{M}(r_i)\) pueden analizarse mediante ajuste logarítmico para determinar la dimensión fractal de masa del sistema. Para calcular los valores de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), el algoritmo sigue los siguientes pasos:
+Posteriormente, los valores de \( \bar{N}(r_i) \) y \( \bar{M}(r_i)\) pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. Para calcular los valores de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), el algoritmo sigue los siguientes pasos:
 
 
 \begin{enumerate}
@@ -19,10 +19,10 @@ Posteriormente, los valores de \( \bar{N}(r_i) \) y \( \bar{M}(r_i)\) pueden ana
 	Se calcula el centro de masas del cl\'{u}ster.\\
 	Se recentran las part\'{i}culas de la prote\'{i}na en el origen del sistema de coordenadas.\\
 	Se define el radio m\'{a}ximo del cluster \(R_{max}\) (la mayor distancia entre un \'{a}tomo y el origen).\\
-	Se define el radio m\'{a}ximo de b\'{u}squeda de semillas \(seekR_{max}\) (evita que los c\'{i}rculos de medici\'{o}n se salgan del cl\'{u}ster).\\
-	Se definen los radios m\'{i}nimo y m\'{a}ximo de medida (\(mr_{min}\) y \(mr_{max}\)).\\
-	Se calcula el n\'{u}mero de divisiones (\(nr\)) y el incremento radial (\(dr\)).\\
-	Se define el n\'{u}mero de medidas por centro (nMeas) y el n\'{u}mero total de c\'{i}rculos a considerar.
+	Se define el radio m\'{a}ximo de b\'{u}squeda de semillas como \(seekR_{max}\) para evitar que los c\'{i}rculos de medici\'{o}n se salgan del cl\'{u}ster.\\
+	Se definen los radios m\'{i}nimo y m\'{a}ximo de medida como \(mr_{min}\) y \(mr_{max}\).\\
+	Se calcula el n\'{u}mero de divisiones como \(nr\) y el incremento radial \(dr\).\\
+	Se define el n\'{u}mero de medidas por centro como nMeas y el n\'{u}mero total de c\'{i}rculos a considerar.
 	
 	\item Generaci\'{o}n de puntos de medida\\
 	Se eligen de manera aleatoria part\'{i}culas del sistema como centros de las circunferencias de medida. Para cada centro, se identifican las part\'{i}culas contenidas dentro del radio m\'{a}ximo (\(R_{max}\)).
