@@ -1,5 +1,76 @@
 \chapter{Resultados y discusión}
 
+La esencia de esta tesis es desarrollar un programa de cómputo científico para explorar la posible aplicación del análisis multifractal en estructuras proteicas. Este programa podría ser una herramienta útil para caracterizar las distintas etapas del plegamiento proteico, describiéndolas en términos de la dinámica de formación de agregados estructurales, lo que permitiría una comprensión más profunda de estos procesos. En consecuencia, es necesaria una explicación detallada de todo esto. Por lo que he dividido esta descripción en dos secciones; el algoritmo y su uso para la obtención de resultados. 
+ 
+ \clearpage
+ 
+\section{Algoritmo (diseño del programa)}
+
+ El procedimiento general del programa \textbf{\textit{molmassfractaldim}} se describe en el diagrama de flujo de la figura \ref{dfMolFractalDim}), cuyos pasos se explican a detalle en las siguientes subsecciones.
+ 
+ 
+ \begin{figure}[h!]
+ 	\begin{center}
+ 		\includegraphics[width=\textwidth]{graphs/dfMolFractalDim}
+ 		\caption{Diagrama de flujo general del programa \textit{molmassfractaldim}.}
+ 		\label{dfMolFractalDim}
+ 	\end{center}
+ \end{figure}
+ 
+
+ 
+ \subsection {Pasos 1, 2 y 3 del diagrama de flujo general}
+ 
+ El programa \textbf{\textit{molmassfractaldim}} inicia con el paso 1 del
+ diagrama de flujo haciendo uso de una clase llamada 
+ \textit{InputMoleculePDB} que se encargar de realizar la lectura de un 
+ archivo en formato \textit{PDB} que contiene datos 
+ fundamentales para el programa como: 
+ 
+ \begin{itemize}
+ 	\item Número atómico y número de átomos presentes en la proteína.
+ 	\item Las coordenadas átomicas del sistema expresada en $\textup{\r{A}}$ngstr\"oms.
+ \end{itemize}
+ 
+El paso 2 del diagrama de flujo usa una clase llamada \textit{Molecule}
+que esta diseñanda para representar una molécula como un conjunto de 
+átomos, en este paso \textit{Molecule} se encarga de extraer y guardar las coordenas 
+átomicas del sistema $(x, y, z)$.\\
+
+En los pasos 3 y 4 del diagrama de flujo, nuevamente se usa la clase 
+\textit{Molecule} para el cálculo de propiedades moleculares como:
+
+\begin{itemize}
+	\item Fórmula empírica de la molécula, contado la cantidad de átomos por número 
+	atómico.
+	\item Devolver valores como la cantidad de átomos de un tipo específico 
+	dado por el número átomico.
+	\item Calcular los extremos mínimos y máximos de todos los átomos para definir 
+	el radio máximo desde el origen de la esfera que envuelve a la proteína.
+	\item Calcula el centro de masa considerando las masas atómicas.
+	\item Calcula el centroide (promedio aritmético de las coordenadas de todos los
+	átomos, sin considerar su masa).
+\end{itemize}
+
+Además, la clase \textit{Molecule} también se encarga de trasladar la proteína de 
+modo que su centroide coincida con el origen de las coordenas $(0, 0, 0)$.  
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 El propósito principal del programa \textit{molmassfractaldim} es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema proteico. Esto se logra construyendo una tabla de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), donde;
 
 \begin{itemize}
@@ -7,6 +78,13 @@ El propósito principal del programa \textit{molmassfractaldim} es determinar la
 	\item \( \bar{N}(r_i)\) es el número promedio de partículas contenidas dentro de un radio \(r_i\). 
 	\item  \( \bar{M}(r_i)\) es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio \(r_i\).
 \end{itemize}
+
+
+
+
+
+
+
 
 Posteriormente, los valores de \( \bar{N}(r_i) \) y \( \bar{M}(r_i)\) pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. Para calcular los valores de \(r_i\), \( \bar{N}(r_i)\) y \( \bar{M}(r_i)\), el algoritmo sigue los siguientes pasos:
 
