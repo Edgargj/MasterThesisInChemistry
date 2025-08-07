@@ -33,16 +33,14 @@ La esencia de esta tesis es desarrollar un programa de cómputo científico para
 		\end{itemize}
 		
 		\item \textbf{Paso 2}: Usa una clase llamada \textit{Molecule}
-		que esta diseñanda para representar una molécula como un conjunto de 
-		átomos, en este paso \textit{Molecule} se encarga de extraer y guardar las coordenas 
-		átomicas del sistema $(x, y, z)$.\\
+		que esta diseñada para representar a una molécula como un conjunto de 
+		átomos. En este paso \textit{Molecule} se encarga de extraer y guardar las coordenas átomicas del sistema $(x, y, z)$.\\
 		
 		\item \textbf{Paso 3}: Nuevamente se usa la clase 
 		\textit{Molecule} para el cálculo de propiedades moleculares como:
 		
 		\begin{itemize}
-			\item Deterimnar la fórmula empírica de la molécula, contado la cantidad de átomos por número 
-			atómico.
+			\item Determinar la fórmula empírica de la molécula, contado la cantidad de átomos por número atómico.
 			\item Devolver valores como la cantidad de átomos de un tipo específico 
 			dado por el número átomico.
 			\item Calcular los extremos mínimos y máximos de todos los átomos para definir 
@@ -52,20 +50,36 @@ La esencia de esta tesis es desarrollar un programa de cómputo científico para
 			átomos, sin considerar su masa).
 		\end{itemize}
 		
-		Además, la clase \textit{Molecule} también se encarga de trasladar la proteína de 
-		modo que su centroide coincida con el origen de las coordenas $(0, 0, 0)$.  
+		Por último en este paso, la clase \textit{Molecule} también se encarga de trasladar la proteína de modo que su centroide coincida con el origen de las coordenas $(0, 0, 0)$.  
 		
 		
-		\item \textbf{Paso 4}: \textit{Molecule} también se encarga de identificar enlaces 
-		covalentes entre átomos según la distancia que exista entre ellos y 
-		sus radios de Van Der Waals para devolver una lista con los índices de vecinos 
-		cercanos a un átomo dado.
+		\item \textbf{Paso 4}: En este paso la clase \textit{Molecule} se encarga de identificar enlaces covalentes entre átomos según la distancia que exista entre ellos y sus radios de Van Der Waals para devolver una lista con los índices de vecinos cercanos a un átomo dado.
 		
 	\end{itemize}
 
+
+	\subsection{Paso 5 del diagrama de flujo general}
+	
+	En este paso una nueva clase llamada \textit{massfractaldim} determina el radio máximo de la proteína $R_{max}$, calculado como la distancia máxima desde el origen hasta cualquier átomo de la molécula. Matemáticamente esto se escribe como:
+	
+	\begin{equation}
+		R_{max} = max_{i} \sqrt{x^{2}_{i} + y^{2}_{i} + z^{2}_{i}}
+	\end{equation}
+ 	
+ 	Donde $x_{i}, y_{i}, z_{i}$ representan las coordenadas cartesianas de un conjunto de átomos en tres dimensiones.
+ 	
+ 	Hecho lo anterior, en esta misma clase se define un radio dentro del cual se buscan puntos de medición adecuados para analizar la distribución de masa. A este radio se le conoce como $seekRmax$ que a través de un condicional de tipo \textit{if} se asegura que el valor de \textit{seekRmax} tenga un valor por defecto de $75\%$ tamaño del clúster. Otros usos que tiene \textit{seekRmax} son:
+ 	
+ 	\begin{itemize}
+ 		\item Se asegura de que los puntos de medición no estén demasiado cerca de los límites del clúster.
+ 		\item Evita que los círculos de medición se salgan del clúster del átomos. 
+ 		\item Evita tomar semillas demasiado cerca de los bordes del clúster.
+ 	\end{itemize}
  
- 
- 
+ 	A continuación se calculan los incrementos de radio
+ 	
+ 	Se prepara un vector de resultados 
+ 	
  
  
  
