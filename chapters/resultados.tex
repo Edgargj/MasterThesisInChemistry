@@ -19,43 +19,49 @@ La esencia de esta tesis es desarrollar un programa de cómputo científico para
  
 
  
- \subsection {Pasos 1, 2 y 3 del diagrama de flujo general}
+ \subsection {Pasos 1, 2, 3 y 4 del diagrama de flujo general}
  
- El programa \textbf{\textit{molmassfractaldim}} inicia con el paso 1 del
- diagrama de flujo haciendo uso de una clase llamada 
- \textit{InputMoleculePDB} que se encargar de realizar la lectura de un 
- archivo en formato \textit{PDB} que contiene datos 
- fundamentales para el programa como: 
- 
- \begin{itemize}
- 	\item Número atómico y número de átomos presentes en la proteína.
- 	\item Las coordenadas átomicas del sistema expresada en $\textup{\r{A}}$ngstr\"oms.
- \end{itemize}
- 
-El paso 2 del diagrama de flujo usa una clase llamada \textit{Molecule}
-que esta diseñanda para representar una molécula como un conjunto de 
-átomos, en este paso \textit{Molecule} se encarga de extraer y guardar las coordenas 
-átomicas del sistema $(x, y, z)$.\\
-
-En los pasos 3 y 4 del diagrama de flujo, nuevamente se usa la clase 
-\textit{Molecule} para el cálculo de propiedades moleculares como:
-
-\begin{itemize}
-	\item Fórmula empírica de la molécula, contado la cantidad de átomos por número 
-	atómico.
-	\item Devolver valores como la cantidad de átomos de un tipo específico 
-	dado por el número átomico.
-	\item Calcular los extremos mínimos y máximos de todos los átomos para definir 
-	el radio máximo desde el origen de la esfera que envuelve a la proteína.
-	\item Calcula el centro de masa considerando las masas atómicas.
-	\item Calcula el centroide (promedio aritmético de las coordenadas de todos los
-	átomos, sin considerar su masa).
-\end{itemize}
-
-Además, la clase \textit{Molecule} también se encarga de trasladar la proteína de 
-modo que su centroide coincida con el origen de las coordenas $(0, 0, 0)$.  
-
-
+	\begin{itemize}
+		\item \textbf{Paso 1}:  El programa \textbf{\textit{molmassfractaldim}} inicia con el
+		uso de una clase llamada \textit{InputMoleculePDB} que se encargar de realizar 
+		la lectura de un archivo en formato \textit{PDB} que contiene datos 
+		fundamentales para el programa como: 
+		
+		\begin{itemize}
+			\item Número atómico y número de átomos presentes en la proteína.
+			\item Las coordenadas átomicas del sistema expresada en $\textup{\r{A}}$ngstr\"oms.
+		\end{itemize}
+		
+		\item \textbf{Paso 2}: Usa una clase llamada \textit{Molecule}
+		que esta diseñanda para representar una molécula como un conjunto de 
+		átomos, en este paso \textit{Molecule} se encarga de extraer y guardar las coordenas 
+		átomicas del sistema $(x, y, z)$.\\
+		
+		\item \textbf{Paso 3}: Nuevamente se usa la clase 
+		\textit{Molecule} para el cálculo de propiedades moleculares como:
+		
+		\begin{itemize}
+			\item Deterimnar la fórmula empírica de la molécula, contado la cantidad de átomos por número 
+			atómico.
+			\item Devolver valores como la cantidad de átomos de un tipo específico 
+			dado por el número átomico.
+			\item Calcular los extremos mínimos y máximos de todos los átomos para definir 
+			el radio máximo desde el origen de la esfera que envuelve a la proteína.
+			\item Calcula el centro de masa considerando las masas atómicas.
+			\item Calcula el centroide (promedio aritmético de las coordenadas de todos los
+			átomos, sin considerar su masa).
+		\end{itemize}
+		
+		Además, la clase \textit{Molecule} también se encarga de trasladar la proteína de 
+		modo que su centroide coincida con el origen de las coordenas $(0, 0, 0)$.  
+		
+		
+		\item \textbf{Paso 4}: \textit{Molecule} también se encarga de identificar enlaces 
+		covalentes entre átomos según la distancia que exista entre ellos y 
+		sus radios de Van Der Waals para devolver una lista con los índices de vecinos 
+		cercanos a un átomo dado.
+		
+	\end{itemize}
 
  
  
