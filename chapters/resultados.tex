@@ -159,8 +159,17 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 	 
 	 \subsection{Paso 6 y 7 del diagrama de flujo general}
 	 
+	 En este paso se utiliza un criterio llamado densidad de particulas promedio \(\rho_{P}\) que tiene como objetivo determinar cuando un centro local (ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la proteína tiene una $\rho < 0.034$, ser\'{i}a altamente probable que la esfera intersecte en una zona considera como un hueco de la prote\'{i}na. Un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
 	 
-	 En este paso se crea un criterio para calcular si un centro local es adecuado y sirve para determinar si una esfera de cierto radio, centrada en alg\'{u}n \'{a}tomo de la prote\'{i}na, intersecta de manera importante un hueco en la estructura proteica. Además, permite refinar la medici\'{o}n de la relaci\'{o}n \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_i)\), que a su vez es la relaci\'{o}n que se utiliza para medir la dimensión fractal en estructuras proteicas. Este criterio calcula dos valores clave que son el volumen de cada esfera de radio \(r_i\) y la densidad de partículas promedio presente en cada esfera de radio \(r_i\). El volumen de cada esfera se calcula usando el radio \(r_i\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
+	 	\begin{figure}[H]
+	 	\centering
+	 	\includegraphics[width=0.5\linewidth]{graphs/centrob4.pdf}
+	 	\caption{Diagrama 2D del c\'{a}lculo de la dimensi\'{o}n fractal de masa en prote\'{i}nas mediante \textit{molfractaldim}. (1) Se define un radio m\'{a}ximo en la prote\'{i}na ($R_{max}$) alrededor del centro de masa del sistema, (2) se determina si un centro local es adecuado ($\rho_{p} \geq 0.34$). Estas cantidades se utilizan para calcular la masa promedio de las part\'{i}culas $\bar{M}(r_i)$.}
+	 	\label{fig:centrob}
+	 \end{figure}
+	 
+	  Además de lo anterior, el criterio de \(\rho_{P}\) permite refinar la medici\'{o}n de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_i)\), que a su vez son las relaciones que utilizaremos para medir dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. Este criterio calcula dos valores clave: (1) el volumen de cada esfera de radio \(r_i\) y (2) la densidad de partículas promedio presente en cada esfera de radio \(r_i\). El volumen de cada esfera se calcula usando el radio \(r_i\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
+	 
 	 
 	 \begin{equation}
 	 	V(r_i) = \frac{4}{3} \pi r_{i}^{3}
@@ -176,8 +185,6 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 	 	\rho_P = \frac{\bar N(r_{i})}{V_{i}}
 	 	\label{eq:densidad}
 	 \end{equation}
-	 
-	 El criterio  servir\'{a} para determinar si una esfera de cierto radio, centrada en alg\'{u}n \'{a}tomo de la prote\'{i}na, intersecta de manera importante un hueco en la estructura proteica. Esto nos ser\'{a} \'{u}til para refinar la medici\'{o}n de la relaci\'{o}n $\bar N(r_i)$, que a su vez es la relaci\'{o}n que utilizaremos para medir dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en la estructura de las prote\'{i}na.
 	 
 
 	\subsection{Paso 8 del diagrama de flujo general}
@@ -198,6 +205,8 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 	Acumulaci\'{o}n de datos\\
 	Para cada radio \( r_i \), se cuenta cu\'{a}ntas part\'{i}culas est\'{a}n contenidas dentro de ese radio respecto al centro actual. Esta cuenta se repite para m\'{u}ltiples centros y se promedia para obtener \(\bar{N}(r_i)\).
 
+
+	
 
  	
  	\subsection{Paso 9 del diagrama de flujo general}
