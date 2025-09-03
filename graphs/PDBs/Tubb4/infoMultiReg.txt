@@ -1,0 +1,9 @@
+Archivo: TubMut-Nvsr1-2A.dat
+y = 0.855653 + 2.07627e-15 * x
+R^2 = -3.36364
+Archivo: TubMut-Nvsr2-6A.dat
+y = 1.00255 + 1.52125 * x
+R^2 = 0.821991
+Archivo: TubMut-Nvsr6-20A.dat
+y = 0.688629 + 2.72812 * x
+R^2 = 0.995828
