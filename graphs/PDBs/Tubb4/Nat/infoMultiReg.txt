@@ -1,9 +1,0 @@
-Archivo: Tubb4Nat-Mvsr1-2A.dat
-y = 1.04605 + 1.5554 * x
-R^2 = 0.930993
-Archivo: Tubb4Nat-Mvsr2-6A.dat
-y = 0.689787 + 2.62404 * x
-R^2 = 0.997892
-Archivo: Tubb4Nat-Mvsr6-20A.dat
-y = 0.716909 + 2.62761 * x
-R^2 = 0.999561
