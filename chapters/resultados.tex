@@ -5,16 +5,16 @@ Uno de los objetivos principales de esta tesis fue desarrollar un programa de c�
  
 \section{Algoritmo (diseño del programa)}
 
-El propósito principal del programa \textbf{\textit{molmassfractaldim}} es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema proteico. Esto se logra construyendo una tabla de \(r_i\), \( \bar{N}(r_i)\), \( \bar{M}(r_i)\) y  \( {Rg}(r_i)\) donde;
+El propósito principal del programa \textbf{\textit{molmassfractaldim}} es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema proteico. Esto se logra construyendo una tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$: donde;
 
 \begin{itemize}
-	\item \(r_i\) es el radio de medida centrado en posiciones aleatorias de una prote\'{i}na con valores m\'{i}nimos y m\'{a}ximos definidos como \(mr_{min}\) y \(mr_{max}\).
-	\item \(\bar{N}(r_i)\) es el número promedio de partículas contenidas dentro de un radio \(r_i\). 
-	\item  \(\bar{M}(r_i)\) es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio \(r_i\).
-	\item  \({Rg}(r_i)\) es el radio de giro promedio de las part\'{i}culas contenidas en el radio \(r_i\).
+	\item $r_{k}$ es el radio de medida centrado en posiciones aleatorias de una prote\'{i}na con valores m\'{i}nimos y m\'{a}ximos definidos como $r_{min}$ y $r_{max}$.
+	\item $\langle N(r_k) \rangle$ es el número promedio de partículas contenidas dentro de un radio $r_{k}$. 
+	\item  $\langle M(r_k) \rangle$ es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
+	\item  $\langle Rg(r_k) \rangle$ es el radio de giro promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 \end{itemize}
 
-Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_i)\) pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. El procedimiento general del programa \textbf{\textit{molmassfractaldim}} se describe en el diagrama de flujo de la figura \ref{dfMolFractalDim}, cuyos pasos se explican a detalle en las siguientes subsecciones.
+Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. El procedimiento general del programa \textbf{\textit{molmassfractaldim}} se describe en el diagrama de flujo de la figura \ref{dfMolFractalDim}, cuyos pasos se explican en las siguientes subsecciones.
  
  
  \begin{figure}[h!]
@@ -25,136 +25,118 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
  	\end{center}
  \end{figure}
  
- 
+  	\color{blue}
  \subsection {Pasos 1, 2, 3 y 4 del diagrama de flujo general}
  
 	\begin{itemize}
-		\item \textbf{Paso 1}:  El programa \textbf{\textit{molmassfractaldim}} inicia con el
-		uso de una clase llamada \textit{InputMoleculePDB} que se encargar de realizar 
-		la lectura de un archivo en formato \textit{PDB}  para filtrar las líneas que 
-		comienzan con \texttt{ATOM} o \texttt{HETATM} y así, extraer datos 
-		fundamentales para el programa como:  
+		\item \textbf{Paso 1:}
+		Sea $\mathcal{M}$ un sistema molecular compuesto por un conjunto de partículas $N_{\text{at}}$. Cada partícula $i$ está descrita por la terna 
 		
-		\begin{itemize}
-			\item Número atómico (\texttt{atomicNumber}) de cada átomo.
-			\item Coordenadas cartesianas \((x_i, y_i, z_i)\) en \AA ngstr\"oms.
-			\item Masa atómica (\texttt{atomicMass}) de cada átomo.
-			\item Número total de átomos (\texttt{natoms}) en la proteína.
-		\end{itemize}
-		Estos datos son almacenados en vectores internos (\texttt{atomNumbers[]}, \texttt{coords[]}, \texttt{masses[]}) 
-		que serán utilizados por otros módulos.
+		\begin{equation}
+			\mathcal{M} (\mathbf{r}_i, m_i, Z_i)
+		\end{equation}
+		
+		donde $\mathbf{r}_i$ es el vector de posición, $m_i$ la masa y $Z_i$ el número atómico. El sistema completo se representa como	
+		
+		\begin{equation}
+			\mathcal{M} = \bigl\{(\mathbf{r}_i, m_i, Z_i) \,\big|\, i = 1,\dots,N_{\text{at}}\bigr\}
+		\end{equation}
 	
-		\item \textbf{Paso 2}: 	A partir de los datos leídos, se crea un objeto de una clase llamada \textit{Molecule},
-		la cual internamente almacena la información estructural en tres vectores principales:
+		\item \textbf{Paso 2}: Para usar las posiciones de las partículas $i$ de $\mathcal{M}$ se define una matriz $\mathbf{X}$, que servirá como base para todos los cálculos posteriores:
+		\begin{equation}
+			\mathbf{X} = \begin{bmatrix}
+				x_1 & y_1 & z_1 \\
+				x_2 & y_2 & z_2 \\
+				\vdots & \vdots & \vdots \\
+				x_{N_{\text{at}}} & y_{N_{\text{at}}} & z_{N_{\text{at}}}
+			\end{bmatrix} \in \mathbb{R}^{N_{\text{at}} \times 3}
+		\end{equation}
 		
-		\begin{itemize}
-			\item \texttt{X[]}, \texttt{Y[]}, \texttt{Z[]} para coordenadas atómicas.
-			\item \texttt{atomicNumber[]} para los números atómicos.
-			\item \texttt{mass[]} para las masas atómicas.
-		\end{itemize}
-		
-
-		En este paso, la función \texttt{setCoordinates()} copia los valores de \textit{InputMoleculePDB}
-		 a los vectores internos de \textit{Molecule}.
-		
-		
-		\item \textbf{Paso 3}: Nuevamente se usa la clase 
-		\textit{Molecule} para el cálculo de propiedades moleculares como:
-		
-		\begin{itemize}
-			\item Determinar la fórmula empírica de la molécula, contado la cantidad de átomos por número atómico.
-			\item Devolver valores como la cantidad de átomos de un tipo específico 
-			dado por el número átomico.
-			\item Calcular los extremos mínimos y máximos de todos los átomos para definir 
-			el radio máximo desde el origen de la esfera que envuelve a la proteína.
-			\item Calcula el centro de masa considerando las masas atómicas.
-			\item Calcula el centroide (promedio aritmético de las coordenadas de todos los
-			átomos, sin considerar su masa).
-		\end{itemize}
-		
-		Por último en este paso, la clase \textit{Molecule} también se encarga de trasladar 
-		la proteína de modo que su centroide coincida con el origen de las coordenas \((0, 0, 0)\).  
+		Donde la $i$-ésima fila es la traspuesta $\mathbf{r}_i^{\mathsf T}$.
 		
 		
-		\item \textbf{Paso 4}: En este paso la clase \textit{Molecule} se encarga de identificar 
-		enlaces covalentes entre átomos según la distancia que exista entre ellos y sus radios 
-		de Van Der Waals (ecuación \ref{dij}) para devolver una lista con los índices de vecinos cercanos a un átomo dado.
-		A continuación se detalla el paso 4:
-				
-		\begin{enumerate}
-			\item Calcula la distancia \(d_{ij}\) entre el átomo \(i\) y el átomo \(j\):
-
-			\begin{equation}
-							d_{ij} = \sqrt{ (x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2 }
-							\label{dij}
-			\end{equation}
-			
-			\item Compara \(d_{ij}\) con la suma de los radios de Van der Waals de ambos átomos.
-			\item Si \(d_{ij} \leq r^{vdW}_i + r^{vdW}_j + \epsilon\), se agrega \(j\) a la lista de vecinos de \(i\).
-		\end{enumerate}
+		\item \textbf{Paso 3}: El centro de masas $\mathbf{r}_{\text{cm}}$ del sistema $\mathcal{M}$ se calcula como:
+		\begin{equation}
+			\mathbf{r}_{\text{cm}}
+			= \frac{\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i}
+			{\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i}
+			\in \mathbb{R}^3
+		\end{equation}
+		que representa el punto de equilibrio mecánico del sistema $\mathcal{M}$. 
+		Donde $\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i$ es la suma de la posiciones ponderadas por las masas y $\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i$ es la masa total del sistema.
+		
+		
+		\item \textbf{Paso 4}: Se trasladan las coordenadas de $\mathcal{M}$ a su centro de masa:
+		\begin{equation}
+			\mathbf{r}_i' = \mathbf{r}_i - \mathbf{r}_{\text{cm}}, \qquad
+			i=1,\dots,N_{\text{at}}
+		\end{equation}
+		
+		Esto garantiza que
+		\begin{equation}
+			\sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i' = \mathbf{0}
+		\end{equation} 
+		
+		donde $\mathbf{r}_i'$ es la posición de la partícula $i$ medida 
+		con respecto al centro de masa del sistema $\mathcal{M}$. 
+		$r_cm$ es el vector del centro de masa del sistema $\mathcal{M}$.
+		
 		
 	\end{itemize}
 
 
 	\subsection{Paso 5 del diagrama de flujo general}
 	
-	En este paso una nueva clase llamada \textit{massfractaldim} determina el radio máximo de la 
-	proteína (\(R_{max}\)), calculado como la distancia máxima desde el origen \(x, y, z\) hasta 
-	cualquier átomo de la molécula. Matemáticamente esto se escribe como:
-	
-	\begin{equation}
-		R_{max} = max_{i} \sqrt{x^{2}_{i} + y^{2}_{i} + z^{2}_{i}}
-	\end{equation}
- 	
- 	Donde \(x_{i}, y_{i}, z_{i}\) representan las coordenadas cartesianas de un conjunto de átomos 
- 	en tres dimensiones. Ejemplo: Supóngase la existencia de 5 átomos con las siguientes 
- 	coordenadas en 3D:
- 	
- 	\begin{table}[h!]
- 		\centering
- 		\begin{tabular}{ccccc}
- 			\textbf{Átomo \(i\)} & \textbf{\(x_i\)} & \textbf{\(y_i\)} & \textbf{\(z_i\)} & \(R_{max}= \sqrt{x_i^2 + y_i^2 + z_i^2}\) \\
- 			\hline
- 			1 & 1.0 & 0.5 & 2.0 & \(\sqrt{1^2 + 0.5^2 + 2^2} = 2.29\) \\
- 			2 & -0.5 & 1.0 & -1.5 & \(\sqrt{(-0.5)^2 + 1^2 + (-1.5)^2} = 1.87\) \\
- 			3 & 0.0 & -2.0 & 1.0 & \(\sqrt{0^2 + (-2)^2 + 1^2} = 2.23\) \\
- 			4 & 2.0 & 1.5 & 0.5 & \(\sqrt{2^2 + 1.5^2 + 0.5^2} = 2.54\) \\
- 			5 & -1.0 & -1.0 & -2.5 & \(\sqrt{(-1)^2 + (-1)^2 + (-2.5)^2} = 2.87\) \\
- 		\end{tabular}
- 		\caption{Cálculo de la distancia radial \(r_i\) para 5 átomos.}
- 	\end{table}
- 	
- 	Por lo tanto, el \textbf{radio máximo} 
- 	es: \textbf{\(R_{max}\) = max\(\{2.29, 1.87, 2.23, 2.54, 2.87\}\) = 2.87}
- 	
- 	Hecho lo anterior, en esta misma clase se define un radio dentro del cual se buscan puntos
- 	 de medición adecuados para analizar la distribución de masa. A este radio se le conoce
- 	  como $seekRmax$ que a través de un condicional de tipo \textit{if} se asegura que el valor 
- 	  de \textit{seekRmax} tenga un valor por defecto de $75\%$ tamaño del clúster (proteína), 
- 	  salvo que el usuario especifique otro valor.
- 	
- 	\begin{equation}
- 		 	seekRmax = 0.75 \times R_{max} 
- 	\end{equation}
- 	
- 	Otros usos que tiene \textit{seekRmax} son:
- 	
- 	\begin{itemize}
- 		\item Se asegura de que los puntos de medición no estén demasiado cerca de los límites del clúster.
- 		\item Evita que los círculos de medición se salgan del clúster.
- 		\item Evita tomar semillas demasiado cerca de los bordes del clúster.
- 		\item Ayuda a definir los radios mínimo y máximo de medición: $mr_{min}$ y $mr_{max}$.
- 	\end{itemize}
- 
- 	Posteriormente, se define el número de radios de medición como \(nr = 50\) y el incremento radial \(dr\) 
- 	para  generar un vector \(r_i\) con valores \(mr_{min}= 0.5\) hasta \(mr_{max} = 20\), en incrementos de \(dr\):
- 
- 	\begin{equation}
- 		 	dr = \frac{mr_{max} - mr_{min}}{nr - 1}
- 	\end{equation}
-	
-	 Después, se define el n\'{u}mero de medidas por centro como \(nMeas = 30\) y el n\'{u}mero total 
-	 de c\'{i}rculos a considerar.
+	\begin{itemize}
+		
+		\item \textbf{Radio máximo}. Se define el radio máximo del sistema $\mathcal{M}$, calculado como la distancia máxima desde el origen hasta la partícula más lejana del sistema.
+		
+		\begin{equation}
+			R_{\text{max}} = \max_i \|\mathbf{r}_i'\|
+		\end{equation}
+		
+		
+		
+		\item \textbf{Radio de búsqueda}. Se define un radio que asegure que los puntos de medición no se encuentren cerca de los límites del sistema, con un valor del 75\% tamaño de $\mathcal{M}$, donde $\alpha = 0.75$.
+		\begin{equation}
+			R_{\text{seek}} = \alpha \cdot R_{\text{max}}
+		\end{equation}
+		
+		
+		\item \textbf{Radio de medición}. Se define  un conjunto de radios de medición como $nr$ con un incremento radial $dr$:
+		\begin{equation}
+			nr = 50 
+		\end{equation}
+		
+		\begin{equation}
+			dr = \frac{r_{max}-r_{min}}{nr-1}
+		\end{equation}
+		
+		donde 
+		
+		\begin{equation}
+			r_{min} = 0.15\, R_{\text{max}}, \qquad
+			r_{max} = 20
+		\end{equation}
+		
+		
+		\item \textbf{Radio de medición local.} Para cada centro de muestreo se define
+		un centro local
+		\begin{equation}
+			r_{loc} = \beta R_{\text{max}}, \qquad \beta = 0.15
+		\end{equation} 
+		
+		donde $\beta$ limita el tamaño de las esferas a $15\%$ de $R_{max}$.
+		
+		\item \textbf{Centros de medición válidos.} 
+		Un centro $\mathbf{r}_c$ puede usarse como centro sólo si
+		
+		\begin{equation}
+			\|\mathbf{r}_c\| + r_{\mathrm{loc}} \le R_{\text{seek}}
+		\end{equation}
+		Esta condición asegura que la esfera de radio $r_{\text{loc}}$ quede completamente dentro de la región de muestreo.
+		\end{itemize}
+
 	 
 	 
 	 \subsection{Paso 6 y 7 del diagrama de flujo general}
@@ -164,69 +146,133 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 	 	\begin{figure}[H]
 	 	\centering
 	 	\includegraphics[width=0.5\linewidth]{graphs/centrob4.pdf}
-	 	\caption{Diagrama 2D del c\'{a}lculo de la dimensi\'{o}n fractal de masa en prote\'{i}nas mediante \textit{molfractaldim}. (1) Se define un radio m\'{a}ximo en la prote\'{i}na ($R_{max}$) alrededor del centro de masa del sistema, (2) se determina si un centro local es adecuado ($\rho_{p} \geq 0.34$). Estas cantidades se utilizan para calcular la masa promedio de las part\'{i}culas $\bar{M}(r_i)$.}
+	 	\caption{Diagrama 2D del c\'{a}lculo de la dimensi\'{o}n fractal de masa en prote\'{i}nas mediante \textit{molfractaldim}. (1) Se define un radio m\'{a}ximo en la prote\'{i}na ($R_{max}$) alrededor del centro de masa del sistema, (2) se determina si un centro local es adecuado ($\rho_{p} \geq 0.34$). Estas cantidades se utilizan para calcular la masa promedio de las part\'{i}culas $\bar{M}(r_k)$.}
 	 	\label{fig:centrob}
 	 \end{figure}
 	 
-	  Además de lo anterior, el criterio de \(\rho_{P}\) permite refinar la medici\'{o}n de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_i)\), que a su vez son las relaciones que se utilizan para medir dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. Este criterio calcula dos valores clave: (1) el volumen de cada esfera de radio \(r_i\) y (2) la densidad de partículas promedio presente en cada esfera de radio \(r_i\). El volumen de cada esfera se calcula usando el radio \(r_i\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
+	  Además de lo anterior, el criterio de \(\rho_{P}\) permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. Este criterio calcula dos valores clave: (1) el volumen de cada esfera de radio \(r_k\) y (2) la densidad de partículas promedio presente en cada esfera de radio \(r_i\). El volumen de cada esfera se calcula usando el radio \(r_k\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
 	 
 	 
 	 \begin{equation}
-	 	V(r_i) = \frac{4}{3} \pi r_{i}^{3}
+	 	V(r_k) = \frac{4}{3} \pi r_{k}^{3}
 	 	\label{volumen}
 	 \end{equation}
 	 
 	 La densidad de part\'{i}culas promedio se calcula a partir de la ecuaci\'{o}n \ref{eq:densidad}. \\
-	 Donde \(\rho_{P}\) es la densidad de part\'{i}culas promedio presentes en una esfera de radio \(r_i\).\\
-	 \(\bar N(r_{i})\) es la cantidad promedio de part\'{i}culas presentes en una esfera de radio \(r_i\).
-	 \(V_{i}\) es el volumen de una esfera de radio \(r_{i}\).
+	 Donde \(\rho_{P}\) es la densidad de part\'{i}culas promedio presentes en una esfera de radio \(r_k\).\\
+	 \(\bar N(r_{k})\) es la cantidad promedio de part\'{i}culas presentes en una esfera de radio \(r_k\).
+	 \(V_{k}\) es el volumen de una esfera de radio \(r_{k}\).
 	 
 	 \begin{equation}
-	 	\rho_P = \frac{\bar N(r_{i})}{V_{i}}
+	 	\rho_P = \frac{\bar N(r_{k})}{V_{k}}
 	 	\label{eq:densidad}
 	 \end{equation}
 	 
 
 	\subsection{Paso 8 del diagrama de flujo general}
- 
-	Para cada radio \(r_i\), acumula:
+
+	Para cada radio $r_k$ en la malla $\{r_{\text{min}}, r_{\text{min}} + \Delta r, \ldots, r_{\text{max}}\}$, se definen:
 	
 	\begin{equation}
-			\bar{N}(r_i) = \frac{1}{N_c} \sum_{c=1}^{N_c} N_c(r_i), \quad
-		\bar{M}(r_i) = \frac{1}{N_c} \sum_{c=1}^{N_c} M_c(r_i)
+		N(\mathbf{r}_c, r_k) = \sum_{i=1}^{N_{\text{at}}} 
+		\Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)
 	\end{equation}
-
-	Donde \(N_c(r_i)\) y \(M_c(r_i)\) son el conteo de partículas y la suma de masas 
-	dentro de \(r_i\) desde el centro \(c\), y \(N_c\) es el número de centros de medida.
-
-	 Generaci\'{o}n de puntos de medida\\
-	Se eligen de manera aleatoria part\'{i}culas del sistema como centros de las circunferencias de medida. Para cada centro, se identifican las part\'{i}culas contenidas dentro del radio m\'{a}ximo (\(R_{max}\)).
 	
-	Acumulaci\'{o}n de datos\\
-	Para cada radio \( r_i \), se cuenta cu\'{a}ntas part\'{i}culas est\'{a}n contenidas dentro de ese radio respecto al centro actual. Esta cuenta se repite para m\'{u}ltiples centros y se promedia para obtener \(\bar{N}(r_i)\).
-
-
+	\begin{equation}
+		M(\mathbf{r}_c, r_k) = \sum_{i=1}^{N_{\text{at}}} 
+		m_i \cdot \Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)
+	\end{equation}
 	
+	\begin{equation}
+		R_g(\mathbf{r}_c, r_k) = 
+		\sqrt{\frac{\displaystyle\sum_{i=1}^{N_{\text{at}}} 
+				\|\mathbf{r}_i' - \mathbf{r}_c\|^2 \cdot 
+				\Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)}
+			{N(\mathbf{r}_c, r_k)}}.
+	\end{equation}
+	
+	donde
+	\begin{itemize}
+		\item $\mathbf{r}_c$ es el centro de muestreo dentro del sistema.
+		\item $\mathbf{r}_i'$ es la posición del partícula $i$ respecto al centro de masa.
+		\item $m_i$ es la masa del partícula $i$.
+		\item $\Theta(x)$ es la función de Heaviside que permite contar sólo los átomos dentro de la esfera, igual a $1$ si $x \ge 0$ y $0$ si $x < 0$. 
+		\item $N(\mathbf{r}_c, r_k)$ es número de partículas dentro de la esfera de radio $r_k$.
+		\item $M(\mathbf{r}_c, r_k)$ es masa total dentro de esa esfera.
+		\item $R_g(\mathbf{r}_c, r_k)$ es radio de giro de las partículas en la esfera.
+	\end{itemize}
+	
+	\textbf{Cálculo de valores promedio sobre múltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$:
+	
+	
+	\begin{equation}
+		N_{\text{meas}} = 30  
+	\end{equation}
+	
+	Para calcular el valor de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$:
+	
+	\begin{equation}
+		\langle N(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
+		\sum_{j=1}^{N_{\text{meas}}} N(\mathbf{r}_{c_j}, r_k)
+	\end{equation}
+	
+	\begin{equation}
+		\langle M(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
+		\sum_{j=1}^{N_{\text{meas}}} M(\mathbf{r}_{c_j}, r_k)
+	\end{equation}
+	
+	\begin{equation}
+		\langle R_g(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
+		\sum_{j=1}^{N_{\text{meas}}} R_g(\mathbf{r}_{c_j}, r_k).
+	\end{equation}
+	
+	Donde:
+	\begin{itemize}
+		\item $N_{\text{meas}}$ es el número de centros aleatorios sobre los que se promedia.
+		\item $\mathbf{r}_{c_j}$ es el vector de posición del j-ésimo centro de medición.
+		\item $\langle\cdot\rangle$ es el promedio estadístico sobre todos los centros.
+	\end{itemize}
+
+		\begin{figure}[H]
+		\subsection*{ Número de medidas -a A = 1 y 200}	
+		\hspace{-0.3cm} 
+		\begin{minipage}{0.49\textwidth}
+			\centering
+			\includegraphics[width=\linewidth,page=1]{graphs/PDBs/Tubb4/TubMutA=1.pdf}
+		\end{minipage}
+		\hspace{0.2cm}
+		\begin{minipage}{0.49\textwidth}
+			\centering
+			\includegraphics[width=\linewidth,page=1]{graphs/PDBs/Tubb4/TubMutA=200.pdf}
+		\end{minipage}
+		
+		\caption{
+			Gr\'{a}ficos de $log_{10}r$ vs $log_{10}M(r)$ correspondientes a una sola proteína \textit{Tubulina mutada} (treonina) despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el número de medidas en  $A$ = 1 y 200 (izquierda a derecha). Donde $A = N_{means}$ y establece el número de medidas para obtener $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.}
+		\label{fig:Tubs}
+		\end{figure}
+		
+		
 
  	
  	\subsection{Paso 9 del diagrama de flujo general}
  		
 
- 	Para cada radio \( r_i \), se cuenta cu\'{a}ntas part\'{i}culas est\'{a}n contenidas dentro de ese radio respecto al centro actual. Esta cuenta se repite para m\'{u}ltiples centros y se promedia para obtener \( \bar{N}(r_i) \)	y se prepara un vector de resultados .
+ 	\textbf{Determinación de la dimensión fractal.}  
+ 	Se asume un comportamiento de ley de potencias:
+ 	\begin{equation}
+ 		\langle M(r) \rangle \propto r^D
+ 	\end{equation}
+ 	Para encontrar $D$ se realiza una regresión lineal en escala logarítmica,
+ 	resolviendo el problema de mínimos cuadrados:
  
- 
- 
- 	\clearpage
  		
+ 	\color{black}
  	
- 
  	\section{Metodolog\'{i}a}
- 	\label{met}
  	
  	El an\'{a}lisis fractal fue realizado tomando como punto de partida 9 de las 79 estructuras que se utilizaron anteriormente aplicando la restricci\'{o}n de la densidad de part\'{i}culas  promedio ($\rho_{p} \geq 0.034$) como criterio para determinar cuando un centro no es adecuado para realizar el conteo de part\'{i}culas y posteriormente, la cuantificaci\'{o}n de la masa como funci\'{o}n del radio de la esfera. Es decir, si una esfera de cierto radio centrada en alg\'{u}n punto tiene una $\rho_{p} < 0.34$, ser\'{a} altamente probable que la esfera intersecte en una zona que es considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (v\'{e}ase la figura \ref{fig:centrob}). Adem\'{a}s de lo anterior, se hizo uso del programa de din\'{a}mica molecular \textit{GROMACS}\cite{Lemkul2024, Abraham2015} que permite realizar simulaciones moleculares, con el fin de comparar diferentes estados de los sistemas proteicos. Los pasos esenciales de este proceso fueron los siguientes: (1) Preparaci\'{o}n de la topolog\'{i´}a del sistema. (2) Creaci\'{o}n de la caja y solvataci\'{o}n, (3) adici\'{o}n de iones para la neutralizaci\'{o}n de la carga, (4) minimizaci\'{o}n de la energ\'{i}a del sistema, (5) equilibrio del sistema, (6) simulaci\'{o}n de producci\'{o}n y (7) resultados.
  	
  	
- 	\clearpage
  	
  	Hecho lo anterior, se extrajeron los respectivos archivos con formato \textit{PDB} en 
  	los siguientes pasos, para una comparaci\'{o}n posterior.
@@ -267,7 +313,7 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
  	La selecci\'{o}n de los sistemas se realiz\'{o} aleatoriamente bajo la condici\'{o}n de que contaran con la secuencia completa de amino\'{a}cidos, evitando componentes externos como ligandos o solventes que introducir\'{i}an ruido en el c\'{a}lculo de la dimensi\'{o}n fractal intr\'{i}nseca de las prote\'{i}nas. Los sistemas analizados se listan en la Tabla \ref{Tabla:ids}.
  
 	
-	\clearpage
+	
 	
 	\subsection{Determinaci\'{o}n de $M(r)$}
 	
@@ -444,7 +490,7 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 		\label{fig:Df-general}
 	\end{figure}
 	
-	\clearpage
+	
 	
 	%\section{Discusi\'{o}n de resultados}	
 	
@@ -466,13 +512,13 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 	Los resultados obtenidos demostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns). Esta diferencia estructural se observa a pesar de la alta similitud global entre ambas variantes.
 	La detecci\'{o}n de estas diferencias sutiles valida la sensibilidad del m\'{e}todo propuesto para discriminar modificaciones estructurales m\'{i}nimas.
 	
-	\clearpage
+	
 	
 	\subsection*{Efecto de iones}
 	
 	En las Figuras \ref{fig:7khw-wions} y \ref{fig:7khw-oions}, se compara la distribuci\'{o}n de masa de la prote\'{i}na \textit{Translocon EsA} (7khw) en dos etapas: Tras el equilibrio estructural y luego de una din\'{a}mica molecular de 1~ns. La Figura \ref{fig:7khw-wions} considera la estructura proteica con iones presentes, revelando tres pendientes en la regresi\'{o}n $log_{10}r$ vs $log_{10}M(r)$, lo que sugiere una multifractalidad en 3 intervalos. Sin embargo, en la Figura \ref{fig:7khw-oions}, 250 iones de sodio que no pertenec\'{i}an a la estructura intr\'{i}nseca de la prote\'{i}na fueron eliminados, con el fin de validar la reproducibilidad de los resultados. Sorprendentemente, en el \'{u}ltimo caso solo se observaron dos pendientes, aunque la estructura original conten\'{i}a  un excedente de 250 \'{a}tomos de sodio (aproximadamente el 0.19\% comparado con los 131,200 átomos presentes en la estructura proteica). Por lo tanto, esta comparaci\'{o}n evidenci\'{o} que la estimaci\'{o}n de dimensi\'{o}n fractal de masa es sensible a modificaciones estructurales m\'{i}nimas. Estos resultados respaldan el uso potencial de dicha medida como herramienta de caracterizaci\'{o}n estructural en prote\'{i}nas. 
  
- 	\clearpage
+ 	
  
 		\begin{figure}[H]
 			\subsection*{IdPDB:1a2b}	
@@ -784,7 +830,3 @@ Posteriormente, los valores de \( \bar{N}(r_i) \), \( \bar{M}(r_i)\) y \({Rg}(r_
 			\label{fig:11gs}
 		\end{figure}
 		
-
-
-
-
