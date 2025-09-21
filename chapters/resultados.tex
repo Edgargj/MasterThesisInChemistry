@@ -30,19 +30,21 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  
 	\begin{itemize}
 		\item \textbf{Paso 1:}
-		Sea $\mathcal{M}$ un sistema molecular compuesto por un conjunto de partículas $N_{\text{at}}$. Cada partícula $i$ está descrita por la terna 
+		Sea $\mathcal{M}$ un sistema molecular compuesto por un conjunto de partículas $N_{\text{at}}$. Cada partícula $i$ está descrita por la terna de la ecuación \ref{terna}.
 		
 		\begin{equation}
 			\mathcal{M} (\mathbf{r}_i, m_i, Z_i)
+			\label{terna}
 		\end{equation}
 		
-		donde $\mathbf{r}_i$ es el vector de posición, $m_i$ la masa y $Z_i$ el número atómico. El sistema completo se representa como	
+		donde $\mathbf{r}_i$ es el vector de posición, $m_i$ la masa y $Z_i$ el número atómico. El sistema completo se representa por la ecuación \ref{sistema}.	
 		
 		\begin{equation}
 			\mathcal{M} = \bigl\{(\mathbf{r}_i, m_i, Z_i) \,\big|\, i = 1,\dots,N_{\text{at}}\bigr\}
+			\label{sistema}
 		\end{equation}
 	
-		\item \textbf{Paso 2}: Para usar las posiciones de las partículas $i$ de $\mathcal{M}$ se define una matriz $\mathbf{X}$, que servirá como base para todos los cálculos posteriores:
+		\item \textbf{Paso 2}: Para usar las posiciones de las partículas $i$ de $\mathcal{M}$ se define una matriz $\mathbf{X}$, que servirá como base para todos los cálculos posteriores, véase la ecuación \ref{xmatrix}.
 		\begin{equation}
 			\mathbf{X} = \begin{bmatrix}
 				x_1 & y_1 & z_1 \\
@@ -50,36 +52,40 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 				\vdots & \vdots & \vdots \\
 				x_{N_{\text{at}}} & y_{N_{\text{at}}} & z_{N_{\text{at}}}
 			\end{bmatrix} \in \mathbb{R}^{N_{\text{at}} \times 3}
+			\label{xmatrix}
 		\end{equation}
 		
 		Donde la $i$-ésima fila es la traspuesta $\mathbf{r}_i^{\mathsf T}$.
 		
 		
-		\item \textbf{Paso 3}: El centro de masas $\mathbf{r}_{\text{cm}}$ del sistema $\mathcal{M}$ se calcula como:
+		\item \textbf{Paso 3}: El centro de masas $\mathbf{r}_{\text{cm}}$ del sistema $\mathcal{M}$ se calcula con la ecuación \ref{cm}.
 		\begin{equation}
 			\mathbf{r}_{\text{cm}}
 			= \frac{\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i}
 			{\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i}
 			\in \mathbb{R}^3
+			\label{cm}
 		\end{equation}
 		que representa el punto de equilibrio mecánico del sistema $\mathcal{M}$. 
 		Donde $\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i$ es la suma de la posiciones ponderadas por las masas y $\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i$ es la masa total del sistema.
 		
 		
-		\item \textbf{Paso 4}: Se trasladan las coordenadas de $\mathcal{M}$ a su centro de masa:
+		\item \textbf{Paso 4}: Se trasladan las coordenadas de $\mathcal{M}$ a su centro de masa usando las ecuaciones \ref{cm2} y \ref{cm3}.
 		\begin{equation}
 			\mathbf{r}_i' = \mathbf{r}_i - \mathbf{r}_{\text{cm}}, \qquad
 			i=1,\dots,N_{\text{at}}
+			\label{cm2}
 		\end{equation}
 		
 		Esto garantiza que
 		\begin{equation}
 			\sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i' = \mathbf{0}
+			\label{cm3}
 		\end{equation} 
 		
 		donde $\mathbf{r}_i'$ es la posición de la partícula $i$ medida 
-		con respecto al centro de masa del sistema $\mathcal{M}$. 
-		$r_cm$ es el vector del centro de masa del sistema $\mathcal{M}$.
+		con respecto al centro de masa del sistema $\mathcal{M}$ y 
+		$r_{cm}$ es el vector del centro de masa del sistema $\mathcal{M}$.
 		
 		
 	\end{itemize}
@@ -89,30 +95,33 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	\begin{itemize}
 		
-		\item \textbf{Radio máximo}. Se define el radio máximo del sistema $\mathcal{M}$, calculado como la distancia máxima desde el origen hasta la partícula más lejana del sistema.
+		\item \textbf{Radio máximo}. Se define el radio máximo del sistema $\mathcal{M}$, calculado como la distancia máxima desde el origen hasta la partícula más lejana del sistema, vease la ecuación \ref{Rmax}.
 		
 		\begin{equation}
 			R_{\text{max}} = \max_i \|\mathbf{r}_i'\|
+			\label{Rmax}
 		\end{equation}
 		
 		
-		
-		\item \textbf{Radio de búsqueda}. Se define un radio que asegure que los puntos de medición no se encuentren cerca de los límites del sistema, con un valor del 75\% tamaño de $\mathcal{M}$, donde $\alpha = 0.75$.
+		\item \textbf{Radio de búsqueda}. Se define un radio que asegure que los puntos de medición no se encuentren cerca de los límites del sistema (ecuación \ref{Rseek}), con un valor del 75\% tamaño de $\mathcal{M}$, donde $\alpha = 0.75$.
 		\begin{equation}
 			R_{\text{seek}} = \alpha \cdot R_{\text{max}}
+			\label{Rseek}
 		\end{equation}
 		
 		
-		\item \textbf{Radio de medición}. Se define  un conjunto de radios de medición como $nr$ con un incremento radial $dr$:
+		\item \textbf{Radio de medición}. Se define un conjunto de radios de medición como $nr$ con un incremento radial $dr$ (ecuaciones \ref{nr} y \ref{dr}).
 		\begin{equation}
 			nr = 50 
+			\label{nr}
 		\end{equation}
 		
 		\begin{equation}
 			dr = \frac{r_{max}-r_{min}}{nr-1}
+			\label{dr}
 		\end{equation}
 		
-		donde 
+		Donde 
 		
 		\begin{equation}
 			r_{min} = 0.15\, R_{\text{max}}, \qquad
@@ -121,27 +130,29 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		
 		
 		\item \textbf{Radio de medición local.} Para cada centro de muestreo se define
-		un centro local
+		un centro local, véase la ecuación \ref{rloc}.
 		\begin{equation}
 			r_{loc} = \beta R_{\text{max}}, \qquad \beta = 0.15
+			\label{rloc}
 		\end{equation} 
 		
-		donde $\beta$ limita el tamaño de las esferas a $15\%$ de $R_{max}$.
+		Donde $\beta$ limita el tamaño de las esferas a $15\%$ de $R_{max}$.
 		
 		\item \textbf{Centros de medición válidos.} 
-		Un centro $\mathbf{r}_c$ puede usarse como centro sólo si
+		Un centro $\mathbf{r}_c$ puede usarse como centro sólo si se cumple la condición \ref{rc}. 
 		
 		\begin{equation}
 			\|\mathbf{r}_c\| + r_{\mathrm{loc}} \le R_{\text{seek}}
+			\label{rc}
 		\end{equation}
-		Esta condición asegura que la esfera de radio $r_{\text{loc}}$ quede completamente dentro de la región de muestreo.
+		La condición anterior asegura que la esfera de radio $r_{\text{loc}}$ quede completamente dentro de la región de muestreo.
 		\end{itemize}
 
 	 
 	 
 	 \subsection{Paso 6 y 7 del diagrama de flujo general}
 	 
-	 En este paso se utiliza un criterio llamado densidad de particulas promedio \(\rho_{P}\) que tiene como objetivo determinar cuando un centro local (ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la proteína tiene una $\rho < 0.034$, ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
+	 En este paso se utiliza un criterio llamado densidad de partículas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la proteína tiene una $\rho_{P} < 0.034$, ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
 	 
 	 	\begin{figure}[H]
 	 	\centering
@@ -150,7 +161,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 	\label{fig:centrob}
 	 \end{figure}
 	 
-	  Además de lo anterior, el criterio de \(\rho_{P}\) permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. Este criterio calcula dos valores clave: (1) el volumen de cada esfera de radio \(r_k\) y (2) la densidad de partículas promedio presente en cada esfera de radio \(r_i\). El volumen de cada esfera se calcula usando el radio \(r_k\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
+	  Además de lo anterior, el criterio de \(\rho_{P}\) permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir las dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. El criterio calcula dos valores clave: (1) El volumen de cada esfera de radio $r_k$ y (2) la densidad de partículas promedio presente en cada esfera de radio $r_k$. El volumen de cada esfera se calcula usando el radio \(r_k\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
 	 
 	 
 	 \begin{equation}
@@ -171,67 +182,65 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 
 	\subsection{Paso 8 del diagrama de flujo general}
 
-	Para cada radio $r_k$ en la malla $\{r_{\text{min}}, r_{\text{min}} + \Delta r, \ldots, r_{\text{max}}\}$, se definen:
+	Para cada radio $r_k$ en la malla $\{r_{\text{min}}, r_{\text{min}} + \Delta r, \ldots, r_{\text{max}}\}$, se definen las ecuaciones \ref{N}, \ref{M} y \ref{Rg}.
 	
 	\begin{equation}
 		N(\mathbf{r}_c, r_k) = \sum_{i=1}^{N_{\text{at}}} 
 		\Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)
+		\label{N}
 	\end{equation}
 	
 	\begin{equation}
 		M(\mathbf{r}_c, r_k) = \sum_{i=1}^{N_{\text{at}}} 
-		m_i \cdot \Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)
+		m_i \Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)
+		\label{M}
 	\end{equation}
 	
 	\begin{equation}
 		R_g(\mathbf{r}_c, r_k) = 
 		\sqrt{\frac{\displaystyle\sum_{i=1}^{N_{\text{at}}} 
-				\|\mathbf{r}_i' - \mathbf{r}_c\|^2 \cdot 
+				\|\mathbf{r}_i' - \mathbf{r}_c\|^2  
 				\Theta\!\bigl(r_k - \|\mathbf{r}_i' - \mathbf{r}_c\|\bigr)}
-			{N(\mathbf{r}_c, r_k)}}.
+			{N(\mathbf{r}_c, r_k)}}
+		\label{Rg}
 	\end{equation}
 	
-	donde
-	\begin{itemize}
-		\item $\mathbf{r}_c$ es el centro de muestreo dentro del sistema.
-		\item $\mathbf{r}_i'$ es la posición del partícula $i$ respecto al centro de masa.
-		\item $m_i$ es la masa del partícula $i$.
-		\item $\Theta(x)$ es la función de Heaviside que permite contar sólo los átomos dentro de la esfera, igual a $1$ si $x \ge 0$ y $0$ si $x < 0$. 
-		\item $N(\mathbf{r}_c, r_k)$ es número de partículas dentro de la esfera de radio $r_k$.
-		\item $M(\mathbf{r}_c, r_k)$ es masa total dentro de esa esfera.
-		\item $R_g(\mathbf{r}_c, r_k)$ es radio de giro de las partículas en la esfera.
-	\end{itemize}
+	Donde $\mathbf{r}_c$ es el centro de muestreo dentro del sistema $\mathcal{M}$.
+	$\mathbf{r}_i'$ es la posición del partícula $i$ respecto al centro de masa. 
+	$m_i$ es la masa del partícula $i$. $\Theta(x)$ es la función de Heaviside que permite contar sólo los átomos dentro de la esfera, igual a $1$ si $x \ge 0$ y $0$ si $x < 0$. $N(\mathbf{r}_c, r_k)$ es número de partículas dentro de la esfera de radio $r_k$. $M(\mathbf{r}_c, r_k)$ es masa total dentro de esa esfera. 
+	$R_g(\mathbf{r}_c, r_k)$ es radio de giro de las partículas en la esfera.
 	
-	\textbf{Cálculo de valores promedio sobre múltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$:
+	\textbf{Cálculo de valores promedio sobre múltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (ecuación \ref{Nmeas}). 
 	
 	
 	\begin{equation}
 		N_{\text{meas}} = 30  
+		\label{Nmeas}
 	\end{equation}
 	
-	Para calcular el valor de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$:
+	Para calcular los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ se utilizan las ecuaciones \ref{Np}, \ref{Mp} y \ref{Rgp}.
 	
 	\begin{equation}
 		\langle N(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
 		\sum_{j=1}^{N_{\text{meas}}} N(\mathbf{r}_{c_j}, r_k)
+		\label{Np}
 	\end{equation}
 	
 	\begin{equation}
 		\langle M(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
 		\sum_{j=1}^{N_{\text{meas}}} M(\mathbf{r}_{c_j}, r_k)
+		\label{Mp}
 	\end{equation}
 	
 	\begin{equation}
 		\langle R_g(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
-		\sum_{j=1}^{N_{\text{meas}}} R_g(\mathbf{r}_{c_j}, r_k).
+		\sum_{j=1}^{N_{\text{meas}}} R_g(\mathbf{r}_{c_j}, r_k)
+		\label{Rgp}
 	\end{equation}
 	
-	Donde:
-	\begin{itemize}
-		\item $N_{\text{meas}}$ es el número de centros aleatorios sobre los que se promedia.
-		\item $\mathbf{r}_{c_j}$ es el vector de posición del j-ésimo centro de medición.
-		\item $\langle\cdot\rangle$ es el promedio estadístico sobre todos los centros.
-	\end{itemize}
+	Donde $N_{\text{meas}}$ es el número de centros aleatorios sobre los que se promedia,
+	$\mathbf{r}_{c_j}$ es el vector de posición del j-ésimo centro de medición y
+	$\langle\cdot\rangle$ es el promedio estadístico sobre todos los centros.
 
 		\begin{figure}[H]
 		\subsection*{ Número de medidas -a A = 1 y 200}	
