@@ -126,6 +126,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\begin{equation}
 			r_{min} = 0.15\, R_{\text{max}}, \qquad
 			r_{max} = 20
+			\label{rmaxymin}
 		\end{equation}
 		
 		
@@ -150,11 +151,11 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 
 	 
 	 
-	 \color{blue}
+
 	 \subsection{Paso 6 y 7 del diagrama de flujo general}
 	 \label{sec:paso6}
 	 
-	 En este paso se utiliza un criterio llamado densidad de partículas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la proteína tiene una $\rho_{P} < 0.034$ (en la sección \ref*{sec:dpp} se discute a detalle la razón del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
+	 En este paso se utiliza un criterio llamado densidad de partículas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal masa. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la proteína tiene una $\rho_{P} < 0.034$ (en la sección \ref*{sec:dpp} se discute a detalle la razón del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
 	 	 \color{black}
 	 
 	 	\begin{figure}[H]
@@ -164,7 +165,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 	\label{fig:centrob}
 	 \end{figure}
 	 
-	  Además de lo anterior, el criterio de \(\rho_{P}\) permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir las dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. El criterio calcula dos valores clave: (1) El volumen de cada esfera de radio $r_k$ y (2) la densidad de partículas promedio presente en cada esfera de radio $r_k$. El volumen de cada esfera se calcula usando el radio \(r_k\) de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
+	  Además de lo anterior, $\rho_{P}$ permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir las dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. El criterio $\rho_{P}$ calcula dos valores clave: (1) El volumen de cada esfera de radio $r_k$ y (2) la densidad de partículas promedio presente en cada esfera de radio $r_k$. El volumen de cada esfera se calcula usando el radio $r_k$ de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{volumen}.\\
 	 
 	 
 	 \begin{equation}
@@ -213,46 +214,48 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	$m_i$ es la masa del partícula $i$. $\Theta(x)$ es la función de Heaviside que permite contar sólo los átomos dentro de la esfera, igual a $1$ si $x \ge 0$ y $0$ si $x < 0$, $N(\mathbf{r}_c, r_k)$ es número de partículas dentro de la esfera de radio $r_k$, $M(\mathbf{r}_c, r_k)$ es masa total dentro de esa esfera y 
 	$R_g(\mathbf{r}_c, r_k)$ es radio de giro de las partículas en la esfera.
 	
-	\textbf{Cálculo de valores promedio sobre múltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (veáse la ecuación \ref{Nmeas}) que pueden modificarse a conteos menores (donde los promedios fluctuaran más como se muestra en la primera gráfica de la Figura \ref{fig:Nmeasp}) o conteos mayores (los promedios serán muy parecido entre sí, véase la segunda gráfica de la Figura \ref{fig:Nmeasp}). 
-	
-	
-	\begin{equation}
-		N_{\text{meas}} = 30  
-		\label{Nmeas}
-	\end{equation}
-	
-	Para calcular los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ se utilizan las ecuaciones \ref{Np}, \ref{Mp} y \ref{Rgp}.
-	
-	\begin{equation}
-		\langle N(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
-		\sum_{j=1}^{N_{\text{meas}}} N(\mathbf{r}_{c_j}, r_k)
-		\label{Np}
-	\end{equation}
-	
-	\begin{equation}
-		\langle M(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
-		\sum_{j=1}^{N_{\text{meas}}} M(\mathbf{r}_{c_j}, r_k)
-		\label{Mp}
-	\end{equation}
-	
-	\begin{equation}
-		\langle R_g(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
-		\sum_{j=1}^{N_{\text{meas}}} R_g(\mathbf{r}_{c_j}, r_k)
-		\label{Rgp}
-	\end{equation}
-	
-	Donde $	N_{\text{meas}}$ es el número de centros aleatorios sobre los que se promedia,
-	$\mathbf{r}_{c_j}$ es el vector de posición del j-ésimo centro de medición y
-	$\langle\cdot\rangle$ es el promedio estadístico sobre todos los centros.
-		
-	
- 	
+	 	
  	\subsection{Paso 9 del diagrama de flujo general}
- 		
+ 	
+ 	\textbf{Cálculo de valores promedio sobre múltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (veáse la ecuación \ref{Nmeas}) que puede modificarse a conteos menores (donde los promedios fluctuaran más) o conteos mayores (los promedios serán muy parecido entre sí). 
+ 	
+ 	
+ 	\begin{equation}
+ 		N_{\text{meas}} = 30  
+ 		\label{Nmeas}
+ 	\end{equation}
+ 	
+ 	Por último, para calcular los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ se utilizan las ecuaciones \ref{Np}, \ref{Mp} y \ref{Rgp}.
+ 	
+ 	\begin{equation}
+ 		\langle N(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
+ 		\sum_{j=1}^{N_{\text{meas}}} N(\mathbf{r}_{c_j}, r_k)
+ 		\label{Np}
+ 	\end{equation}
+ 	
+ 	\begin{equation}
+ 		\langle M(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
+ 		\sum_{j=1}^{N_{\text{meas}}} M(\mathbf{r}_{c_j}, r_k)
+ 		\label{Mp}
+ 	\end{equation}
+ 	
+ 	\begin{equation}
+ 		\langle R_g(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
+ 		\sum_{j=1}^{N_{\text{meas}}} R_g(\mathbf{r}_{c_j}, r_k)
+ 		\label{Rgp}
+ 	\end{equation}
+ 	
+ 	Donde $	N_{\text{meas}}$ es el número de centros aleatorios sobre los que se promedia,
+ 	$\mathbf{r}_{c_j}$ es el vector de posición del j-ésimo centro de medición y
+ 	$\langle\cdot\rangle$ es el promedio estadístico sobre todos los centros.	
 
+ 	
+ 	\subsection{Paso 10 del diagrama de flujo general}
+ 	
  	\textbf{Determinación de la dimensión fractal.}	 
- 	Para calcular la dimensi\'{o}n fractal $D$, 
- 	se asume un comportamiento de ley de potencias, ecuación \ref{leyp2}.
+ 	Para calcular la dimensi\'{o}n fractal de masa $D$, 
+ 	se asume un comportamiento de ley de potencias, 
+ 	ver ecuación \ref{leyp2}.
  	
  	\begin{equation}
  		\langle Z(r_{k}) \rangle \propto r^{D}_{k}
@@ -260,9 +263,10 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\end{equation}
  	
  	El exponente de escala $D$ relaciona $\langle Z(r) \rangle$ 
- 	con $r_{k}$ donde $\langle Z(r) \rangle$ representa $\langle M(r_k) \rangle$, $\langle N(r_k) \rangle$ o $\langle Rg(r_k) \rangle$. 
- 	Para determinar $D$ se crea una gráfica de $log_{10}Z(r_k)$ 
- 	vs $log_{10}r_{k}$ (Figura \ref{fig:GrafD}) y se aplica una 
+ 	con $r_{k}$ donde $\langle Z(r) \rangle$ representa $\langle M(r_k) \rangle$,
+ 	 $\langle N(r_k) \rangle$ o $\langle Rg(r_k) \rangle$. 
+ 	Se crea una gráfica de $log_{10}Z(r_k)$ vs $log_{10}r_{k}$ 
+ 	(Figura \ref{fig:GrafD}) y se aplica una 
  	regresión lineal en escala logarítmica.
  	
 	\begin{figure}[H]
@@ -290,97 +294,100 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\subsection{Densidad de partículas promedio $\rho_{P}$}
  	\label{sec:dpp}
  	
- 	Para la implementación del criterio, densidad de partículas 
- 	promedio $\rho_{P}$ (ver subsección \ref{sec:paso6}) se seleccionaron 
- 	79 proteínas (ver Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}) y con el uso del programa \emph{molmassfractaldim} (sin la aplicación del bucle 6 $\longleftrightarrow$ 7 del diagrama de flujo de la Figura \ref{dfMolFractalDim}) se procesó cada archivo correspondiente de las proteínas mencionados. 
+ 	\begin{table}[H]
+ 		\centering
+ 		\begin{footnotesize}
+ 			\begin{tabular}{||l|ll||l|ll||}
+ 				\multicolumn{6}{c}{}                                   \\
+ 				\hline
+ 				ldx & IdPDB & Nombre de prote\'{i}na       & ldx & IdPDB & Nombre de prote\'{i}na        \\ 
+ 				\hline
+ 				1   & 11gs  & Glutatión S-transferasa      & 21 & 1a27  & 17$\beta$-hidroxiesteroide    \\
+ 				2   & 12ca  & Anhidrasa carbónica II       & 22 & 1a28  & Receptor de progesterona      \\
+ 				3   & 13gs  & Glutatión S-transferasa      & 23 & 1a2b  & Proteína transformante RhoA   \\
+ 				4   & 14gs  & Glutatión S-transferasa      & 24 & 1a2c  & Trombina                      \\
+ 				5   & 16gs  & Glutatión S-transferasa P    & 25 & 1a31  & Topoisomerasa I               \\
+ 				6   & 1a00  & Hemoglobina                  & 26 & 1a35  & Topoisomerasa I               \\
+ 				7   & 1a01  & Hemoglobina                  & 27 & 1a36  & ADN topoisomerasa I           \\
+ 				8   & 1a02  & Factor nuclear de células    & 28 & 1a3b  & Trombina                      \\
+ 				9   & 1a07  & Tirosina quinasa src         & 29 & 1a3e  & Trombina                      \\
+ 				10  & 1a08  & Tirosina quinasa src         & 30 & 1a3n  & Hemoglobina                   \\
+ 				11  & 1a09  & Tirosina quinasa src         & 31 & 1a3o  & Hemoglobina                   \\
+ 				12  & 1a0l  & Triptasa beta-1              & 32 & 1a3q  & Factor nuclear $\kappa$-B     \\
+ 				13  & 1a0u  & Hemoglobina                  & 33 & 1a42  & Anhidrasa carbónica II        \\
+ 				14  & 1a0z  & Hemoglobina                  & 34 & 1a46  & Trombina                      \\
+ 				15  & 1a12  & Regulador de cromosoma       & 35 & 1a4i  & Dihidrofolato reductasa       \\
+ 				16  & 1a15  & Factor 1-$\alpha$ de estroma & 36 & 1a4r  & Proteína de unión G25K        \\
+ 				17  & 1a17  & Fosfatasa ser/thr            & 37 & 1a4y  & Inhibidor de ribonucleasa     \\
+ 				18  & 1a1m  & Antígeno  HLA clase I        & 38 & 1a52  & Receptor de estrógeno         \\
+ 				19  & 1a1o  & Antígeno  HLA clase I        & 39 & 1a66  & Núcleo NFATC1                 \\
+ 				20  & 1a22  & Hormona de crecimiento       & 40 & 1a7a  & Adenosilhomocisteinasa        \\ \hline
+ 			\end{tabular}
+ 		\end{footnotesize}
+ 		\caption{Índice de proteínas (ldx), identificadores del \emph{Protein Data Bank} (IdPDB) y nombre de las proteínas (Parte 1).}
+ 		\label{Tabla:ids79(1)}
+ 	\end{table}
+ 	
+ 	\begin{table}[H]
+ 		\centering
+ 		\begin{footnotesize}
+ 			\begin{tabular}{||l|ll||l|ll||}
+ 				\multicolumn{6}{c}{}                                         \\
+ 				\hline
+ 				ldx & IdPDB & Nombre de prote\'{i}na               & ldx & IdPDB & Nombre de prote\'{i}na           \\ 
+ 				\hline
+ 				41  & 1a7c  & Inhibidor del activador plasminógeno & 61 & 1awb  & Mioinositol monofosfatasa        \\
+ 				42  & 1a8m  & Factor de necrosis tumoral           & 62 & 1azx  & Antitrombina III                 \\
+ 				43  & 1a9b  & Antígeno HLA-B                       & 63 & 1b09  & Regulador de transcripción CRP   \\
+ 				44  & 1a9e  & Antígeno HLA-B                       & 64 & 1b3e  & Transferrina sérica              \\
+ 				45  & 1a9w  & Hemoglobina                          & 65 & 1b3o  & Inosina monofosfato              \\
+ 				46  & 1aax  & Tirosina fosfotasa 1B                & 66 & 1b41  & Acetilcolinesterasa              \\
+ 				47  & 1ab2  & Tirosina quinasa C-ABL               & 67 & 1b47  & CBL                              \\
+ 				48  & 1abw  & Hemoglobina                          & 68 & 1b59  & Metionina aminopeptidasa         \\
+ 				49  & 1aby  & Hemoglobina                          & 69 & 1b5g  & Trombina $\alpha$                \\
+ 				50  & 1agn  & Alcohol deshidrogenasa               & 70 & 1b86  & Hemoglobina                      \\
+ 				51  & 1ah1  & CTLA-4                               & 71 & 1ba8  & Trombina                         \\
+ 				52  & 1ald  & Aldolasa fructosa-bifosfato          & 72 & 1bab  & Hemoglobina                      \\
+ 				53  & 1ant  & Antitrombina-III                     & 73 & 1bbb  & Hemoglobina                      \\
+ 				54  & 1aos  & Argininosuccinato liasa              & 74 & 1bcn  & Interleucina-4                   \\
+ 				55  & 1ap5  & Superóxido dismutasa                 & 75 & 1bhg  & Beta-glucuronidasa               \\
+ 				56  & 1apy  & Aspartilglucosaminidasa              & 76 & 1bhs  & 17-$\beta$-deshidrogenasa        \\
+ 				57  & 1apz  & Aspartilglucosaminidasa              & 77 & 1bhx  & Trombina                         \\
+ 				58  & 1aud  & U1A 102                              & 78 & 6oj0  & Proteína estructural VP4         \\
+ 				59  & 1auk  & Arilsulfatasa A                      & 79 & 7khw  & Translocon EspA                  \\
+ 				60  & 1avo  & Regulador 11S                        &    &       &  \\ \hline
+ 			\end{tabular}
+ 		\end{footnotesize}
+ 		\caption{Índice de proteínas (ldx), identificadores del \emph{Protein Data Bank} (IdPDB) y nombre de las proteínas (Parte 2).}
+ 		\label{Tabla:ids79(2)}
+ 	\end{table}
  
- 	Una vez completada esta fase, se extrajeron los valores de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$ y el número de partículas promedio $\langle N(r^{*}) \rangle$  de las columnas generadas a partir de los archivos de salida del programa. Con estos datos, se procedió al cálculo de volúmenes y densidades de partículas promedio presentes en los 79 archivos. 
+ 	
+ 	La implementación del criterio, densidad de partículas 
+ 	promedio $\rho_{P}$ (ver subsección \ref{sec:paso6}) 
+ 	fue realizada seleccionando 79 proteínas 
+ 	(ver Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}) 
+ 	y con el uso del programa \emph{molmassfractaldim} 
+ 	(sin la aplicación del bucle 6 $\longleftrightarrow$ 7 
+ 	del diagrama de flujo de la Figura \ref{dfMolFractalDim}) 
+ 	se procesó cada proteína mencionada. 
+ 
+ 	Una vez completada esta fase, se extrajeron los valores 
+ 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$
+ 	 junto con el número de partículas promedio $\langle N(r^{*}) \rangle$ 
+ 	  de las datos generados a partir del programa \emph{molmassfractaldim}.
+ 	   Con esta información, se procedió al cálculo de volúmenes y densidades 
+ 	   de partículas promedio presentes en los 79 archivos. 
  	
  	
- 	A continuación, se creó una gráfica para observar la distribución de los valores de $\rho_{P}$ en funci\'{o}n del \'{i}ndice de la prote\'{i}na $ldx$ de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}, determinando la densidad doblemente promediada, es decir, $\nu\equiv\bar{\rho_P}$ y la desviaci\'{o}n est\'{a}ndar. Tanto $\nu$ como $\sigma$ se calcularon sobre los distintos $\rho_P(r^*)$.
+ 	A continuación, se creó una gráfica para observar la distribución 
+ 	de los valores de $\rho_{P}$ en funci\'{o}n del \'{i}ndice de la 
+ 	prote\'{i}na $ldx$ de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)},
+ 	 así como la densidad doblemente promediada, es decir, $\nu\equiv\bar{\rho_P}$ 
+ 	 y la desviaci\'{o}n est\'{a}ndar. Tanto $\nu$ como $\sigma$ se calcularon
+ 	  sobre los distintos $\rho_P(r^*)$.
  	
- 	De la Fig. \ref{index-vs-density} se observó que la mayor\'{i}a de las prote\'{i}nas presentan un $\rho_P$ entre 0.002 y 0.070. 
- 	Se distingue, además, una distribución moderadamente sesgada de $\rho_P$ hacia valores de radios menores ($r^* \leq 20$). Es decir, los valores de \(\rho_P\) se encuentran cerca de la media (0.034) especialmente con valores de $r^*$ de 5, 10, 15 y 20. Pero existe un rango considerable que se extiende hacia valores menores a partir de $r^*$= 25, 30.
- 	
-
- 	 \begin{table}[h!]
- 	 	\centering
- 	 	\begin{footnotesize}
- 	 		\begin{tabular}{||l|ll||l|ll||}
- 	 			                                 \multicolumn{6}{c}{}                                   \\
- 	 			\hline
- 	 			ldx & IdPDB & Nombre de prote\'{i}na       & ldx & IdPDB & Nombre de prote\'{i}na        \\ 
- 	 			\hline
- 	 			1   & 11gs  & Glutatión S-transferasa      & 21 & 1a27  & 17$\beta$-hidroxiesteroide    \\
- 	 			2   & 12ca  & Anhidrasa carbónica II       & 22 & 1a28  & Receptor de progesterona      \\
- 	 			3   & 13gs  & Glutatión S-transferasa      & 23 & 1a2b  & Proteína transformante RhoA   \\
- 	 			4   & 14gs  & Glutatión S-transferasa      & 24 & 1a2c  & Trombina                      \\
- 	 			5   & 16gs  & Glutatión S-transferasa P    & 25 & 1a31  & Topoisomerasa I               \\
- 	 			6   & 1a00  & Hemoglobina                  & 26 & 1a35  & Topoisomerasa I               \\
- 	 			7   & 1a01  & Hemoglobina                  & 27 & 1a36  & ADN topoisomerasa I           \\
- 	 			8   & 1a02  & Factor nuclear de células    & 28 & 1a3b  & Trombina                      \\
- 	 			9   & 1a07  & Tirosina quinasa src         & 29 & 1a3e  & Trombina                      \\
- 	 			10  & 1a08  & Tirosina quinasa src         & 30 & 1a3n  & Hemoglobina                   \\
- 	 			11  & 1a09  & Tirosina quinasa src         & 31 & 1a3o  & Hemoglobina                   \\
- 	 			12  & 1a0l  & Triptasa beta-1              & 32 & 1a3q  & Factor nuclear $\kappa$-B     \\
- 	 			13  & 1a0u  & Hemoglobina                  & 33 & 1a42  & Anhidrasa carbónica II        \\
- 	 			14  & 1a0z  & Hemoglobina                  & 34 & 1a46  & Trombina                      \\
- 	 			15  & 1a12  & Regulador de cromosoma       & 35 & 1a4i  & Dihidrofolato reductasa       \\
- 	 			16  & 1a15  & Factor 1-$\alpha$ de estroma & 36 & 1a4r  & Proteína de unión G25K        \\
- 	 			17  & 1a17  & Fosfatasa ser/thr            & 37 & 1a4y  & Inhibidor de ribonucleasa     \\
- 	 			18  & 1a1m  & Antígeno  HLA clase I        & 38 & 1a52  & Receptor de estrógeno         \\
- 	 			19  & 1a1o  & Antígeno  HLA clase I        & 39 & 1a66  & Núcleo NFATC1                 \\
- 	 			20  & 1a22  & Hormona de crecimiento       & 40 & 1a7a  & Adenosilhomocisteinasa        \\ \hline
- 	 		\end{tabular}
- 	 	\end{footnotesize}
- 	 	\caption{Índice de proteínas (ldx), identificadores del \emph{Protein Data Bank} (IdPDB) y nombre de las proteínas (Parte 1).}
- 	 	\label{Tabla:ids79(1)}
- 	 \end{table}
- 	 
- 	 \begin{table}[h!]
- 	 	\centering
- 	 	\begin{footnotesize}
- 	 		 \begin{tabular}{||l|ll||l|ll||}
- 	 		 	                                       \multicolumn{6}{c}{}                                         \\
- 	 		 	                                       \hline
- 	 		 	ldx & IdPDB & Nombre de prote\'{i}na               & ldx & IdPDB & Nombre de prote\'{i}na           \\ 
- 	 		 	\hline
- 	 		 	41  & 1a7c  & Inhibidor del activador plasminógeno & 61 & 1awb  & Mioinositol monofosfatasa        \\
- 	 		 	42  & 1a8m  & Factor de necrosis tumoral           & 62 & 1azx  & Antitrombina III                 \\
- 	 		 	43  & 1a9b  & Antígeno HLA-B                       & 63 & 1b09  & Regulador de transcripción CRP   \\
- 	 		 	44  & 1a9e  & Antígeno HLA-B                       & 64 & 1b3e  & Transferrina sérica              \\
- 	 		 	45  & 1a9w  & Hemoglobina                          & 65 & 1b3o  & Inosina monofosfato              \\
- 	 		 	46  & 1aax  & Tirosina fosfotasa 1B                & 66 & 1b41  & Acetilcolinesterasa              \\
- 	 		 	47  & 1ab2  & Tirosina quinasa C-ABL               & 67 & 1b47  & CBL                              \\
- 	 		 	48  & 1abw  & Hemoglobina                          & 68 & 1b59  & Metionina aminopeptidasa         \\
- 	 		 	49  & 1aby  & Hemoglobina                          & 69 & 1b5g  & Trombina $\alpha$                \\
- 	 		 	50  & 1agn  & Alcohol deshidrogenasa               & 70 & 1b86  & Hemoglobina                      \\
- 	 		 	51  & 1ah1  & CTLA-4                               & 71 & 1ba8  & Trombina                         \\
- 	 		 	52  & 1ald  & Aldolasa fructosa-bifosfato          & 72 & 1bab  & Hemoglobina                      \\
- 	 		 	53  & 1ant  & Antitrombina-III                     & 73 & 1bbb  & Hemoglobina                      \\
- 	 		 	54  & 1aos  & Argininosuccinato liasa              & 74 & 1bcn  & Interleucina-4                   \\
- 	 		 	55  & 1ap5  & Superóxido dismutasa                 & 75 & 1bhg  & Beta-glucuronidasa               \\
- 	 		 	56  & 1apy  & Aspartilglucosaminidasa              & 76 & 1bhs  & 17-$\beta$-deshidrogenasa        \\
- 	 		 	57  & 1apz  & Aspartilglucosaminidasa              & 77 & 1bhx  & Trombina                         \\
- 	 		 	58  & 1aud  & U1A 102                              & 78 & 6oj0  & Proteína estructural VP4         \\
- 	 		 	59  & 1auk  & Arilsulfatasa A                      & 79 & 7khw  & Translocon EspA                  \\
- 	 		 	60  & 1avo  & Regulador 11S                        &    &       &  \\ \hline
- 	 		 \end{tabular}
- 	 	\end{footnotesize}
- 	 	\caption{Índice de proteínas (ldx), identificadores del \emph{Protein Data Bank} (IdPDB) y nombre de las proteínas (Parte 2).}
- 	 	\label{Tabla:ids79(2)}
- 	 \end{table}
- 	
-
- 	
- 	
- 	Se puede inferir que $\rho_P$, disminuye conforme aumenta el radio. cuyo comportamiento resulta consistente con el esperado en sistemas físicos, donde las partículas tienden a estar más densamente distribuidas en las regiones próximas al centro de un volumen esférico.
- 	
- 	Es importante mencionar que pocos valores caen fuera del intervalo $\nu \pm 2\sigma$ (11 valores con $r^*$ = 5, 10, 15) por lo tanto, las variaciones significativas son limitadas y pueden representar anomalías o efectos físicos menos frecuentes en tales prote\'{i}nas.
- 	
- 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na arbitraria, se puede utilizar el valor de la densidad de part\'{i}culas $\rho = 0.034$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal. 
- 	
- 	\begin{figure}[h!]
+ 	\begin{figure}[H]
  		\centering
  		\includegraphics[width=\linewidth]{graphs/ldx-dp.pdf}
  		\caption{Distribución de la densidad de 
@@ -393,13 +400,23 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\label{index-vs-density}
  	\end{figure}
  	
- 	\color{black}
+ 	
+ 	De la Figura \ref{index-vs-density} se observó que la mayor\'{i}a de las prote\'{i}nas de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}  presentan una $\rho_P$ entre 0.002 y 0.070. 
+ 	Se distingue, además, una distribución moderadamente sesgada de $\rho_P$ hacia valores de radios menores ($r^* \leq 20$). Es decir, los valores de \(\rho_P\) se encuentran cerca de la media (0.034) especialmente con valores de $r^*$ de 5, 10, 15 y 20. Pero existe un rango considerable que se extiende hacia valores menores a partir de $r^*$= 25, 30.
+ 	
+ 	
+ 	Se puede inferir que $\rho_P$, disminuye conforme aumenta el radio. cuyo comportamiento resulta consistente con el esperado en sistemas físicos, donde las partículas tienden a estar más densamente distribuidas en las regiones próximas al centro de un volumen esférico.
+ 	
+ 	Es importante mencionar que pocos valores caen fuera del intervalo $\nu \pm 2\sigma$ (11 valores con $r^*$ = 5, 10, 15) por lo tanto, las variaciones significativas son limitadas y pueden representar anomalías o efectos físicos menos frecuentes en tales prote\'{i}nas.
+ 	
+ 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na arbitraria, se puede utilizar el valor de la densidad de part\'{i}culas $\rho = 0.034$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal. 
+ 	
  	
 	\subsection{Pruebas de fractalidad en proteínas}
 	\label{sec:pfp}
  	
  	
- 	El an\'{a}lisis fractal fue realizado tomando como punto de partida 9 de las 79 estructuras que se utilizaron anteriormente aplicando la restricci\'{o}n de la densidad de part\'{i}culas  promedio ($\rho_{p} \geq 0.034$) como criterio para determinar cuando un centro no es adecuado para realizar el conteo de part\'{i}culas y posteriormente, la cuantificaci\'{o}n de la masa como funci\'{o}n del radio de la esfera. Es decir, si una esfera de cierto radio centrada en alg\'{u}n punto tiene una $\rho_{p} < 0.34$, ser\'{a} altamente probable que la esfera intersecte en una zona que es considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (v\'{e}ase la figura \ref{fig:centrob}). Adem\'{a}s de lo anterior, se hizo uso del programa de din\'{a}mica molecular \textit{GROMACS}\cite{Lemkul2024, Abraham2015} que permite realizar simulaciones moleculares, con el fin de comparar diferentes estados de los sistemas proteicos. Los pasos esenciales de este proceso fueron los siguientes: (1) Preparaci\'{o}n de la topolog\'{i´}a del sistema. (2) Creaci\'{o}n de la caja y solvataci\'{o}n, (3) adici\'{o}n de iones para la neutralizaci\'{o}n de la carga, (4) minimizaci\'{o}n de la energ\'{i}a del sistema, (5) equilibrio del sistema, (6) simulaci\'{o}n de producci\'{o}n y (7) resultados.
+ 	El an\'{a}lisis fractal fue realizado tomando como punto de partida 9 de las 79 estructuras que se utilizaron anteriormente aplicando la restricci\'{o}n de la densidad de part\'{i}culas  promedio ($\rho_{p} \geq 0.034$) como criterio para determinar cuando un centro no es adecuado para realizar el conteo de part\'{i}culas y posteriormente, la cuantificaci\'{o}n de la masa como funci\'{o}n del radio de la esfera. Adem\'{a}s, se hizo uso del programa de din\'{a}mica molecular \textit{GROMACS}\cite{Lemkul2024, Abraham2015} que permite realizar simulaciones moleculares, con el fin de comparar diferentes estados de los sistemas proteicos. Los pasos esenciales de este proceso fueron los siguientes: (1) Preparaci\'{o}n de la topolog\'{i´}a del sistema. (2) Creaci\'{o}n de la caja y solvataci\'{o}n, (3) adici\'{o}n de iones para la neutralizaci\'{o}n de la carga, (4) minimizaci\'{o}n de la energ\'{i}a del sistema, (5) equilibrio del sistema, (6) simulaci\'{o}n de producci\'{o}n y (7) resultados.
  	
  	
  	
@@ -416,43 +433,58 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	
  	\subsection{Elecci\'{o}n de sistemas}
  	
- 	\begin{table}[h!]
+ 	\begin{table}[H]
  		\centering
- 		\begin{tabular}{||llll||}
+ 		\begin{tabular}{||lllc||}
  			\multicolumn{4}{l}{} \\ 
  			\hline
  			ldx & IdPDB & Nombre de prote\'{i}na & N\'{u}mero de \'{a}tomos \\
  			\hline
-			1 & 7khw & Translocon EspA & 131200 \\
- 			2 & 1a9w & Hemoglobina embrionaria cadena alfa & 8820 \\
- 			3 & 1a2b & Transformadora RHOA & 2831 \\
- 			4 & 1b3e & Transferrina s\'{e}rica & 5037 \\
- 			5 & 1auk & Arilsulfatasa A & 7086 \\
- 			6 & 1a52 & Receptor de estr\'{o}geno & 7765 \\
- 			7 & 11gs & Glutati\'{o}n s-transferasa & 6536 \\ 
- 			8 & 1a3n & Hemoglobina humana desoxidante cadena alfa & 8734 \\
- 			9 & 1a8m & Factor de necr\'{o}sis tumoral alfa & 7104 \\
+ 			 1 & 11gs & Glutati\'{o}n s-transferasa & 6536 \\ 
+ 			23 & 1a2b & Transformadora RHOA & 2831 \\
+ 			30 & 1a3n & Hemoglobina humana desoxidante cadena alfa & 8734 \\
+			38 & 1a52 & Receptor de estr\'{o}geno & 7765 \\
+ 			42 & 1a8m & Factor de necr\'{o}sis tumoral alfa & 7104 \\
+ 			45 & 1a9w & Hemoglobina embrionaria cadena alfa & 8820 \\
+			59 & 1auk & Arilsulfatasa A & 7086 \\
+			64 & 1b3e & Transferrina s\'{e}rica & 5037 \\
+			79 & 7khw & Translocon EspA & 131200 \\
  			\hline
  		\end{tabular}
- 		\caption{Índice de proteínas (ldx), Identificadores del \emph{Protein Data Bank} (PDB), nombre de la prote\'{i}na y n\'{u}mero de \'{a}tomos presentes en cada estructura.}
+ 		\caption{Indice de proteínas (ldx), Identificadores del \emph{Protein Data Bank} (PDB), nombre de la prote\'{i}na y n\'{u}mero de \'{a}tomos presentes en cada estructura.}
  		\label{Tabla:ids9}
  	\end{table}
  	
  	
  	
- 	La selecci\'{o}n de los sistemas se realiz\'{o} aleatoriamente bajo la condici\'{o}n de que contaran con la secuencia completa de amino\'{a}cidos, evitando componentes externos como ligandos o solventes que introducir\'{i}an ruido en el c\'{a}lculo de la dimensi\'{o}n fractal intr\'{i}nseca de las prote\'{i}nas. Los sistemas analizados se listan en la Tabla \ref{Tabla:ids9}.
+ 	La selecci\'{o}n de los sistemas se realiz\'{o} aleatoriamente, bajo la condici\'{o}n de que todos sistemas contaran con la secuencia completa de amino\'{a}cidos y evitando componentes externos como ligandos o solventes que introducir\'{i}an ruido en el c\'{a}lculo de la dimensi\'{o}n fractal masa intr\'{i}nseca de las prote\'{i}nas. Los sistemas analizados se listan en la Tabla \ref{Tabla:ids9}.
  
-	
-	
+
 	
 	\subsection{Determinaci\'{o}n de $M(r)$}
 	
-	Se calcul\'{o} la masa promedio de las part\'{i}culas contenidas dentro de esferas de radio $r_k$, definida como $\langle M(r_{k}) \rangle$. 
-	Para llevar a cabo este an\'{a}lisis, se us\'{o} la herramienta \textit{molfractaldim}. ajustando dos par\'{a}metros clave: El primero define cu\'{a}ntos valores se promedian para obtener el valor de $\langle M(r_{k}) \rangle$ y el segundo, determina cu\'{a}ntos radios $r_{k}$ se toman para la medici\'{o}n.
+	Se calcul\'{o} la masa promedio de las part\'{i}culas 
+	contenidas dentro de esferas de radio $r_k$, definida 
+	como $\langle M(r_{k}) \rangle$. 
+	Para llevar a cabo este an\'{a}lisis, se us\'{o} la 
+	herramienta \textit{molfractaldim}. Ajustando dos par\'{a}metros
+	clave: (1) $N_{meas}$ (ecuación \ref{Nmeas}) que define cu\'{a}ntos 
+	valores se promedian para obtener el valor de $\langle M(r_{k}) \rangle$,
+	cuando $N_{meas} = 1$, los valores promediados presentan una mayor 
+	variabilidad, como puede observarse en la primera gráfica de la 
+	Figura \ref{fig:Nmeasp}. En cambio, al aumentar el número de mediciones 
+	a $N_{meas} = 200$, las fluctuaciones disminuyen considerablemente,
+	 y los valores promediados tienden a ser muy similares entre sí, como se 
+	 muestra en la segunda gráfica de la Figura \ref{fig:Nmeasp}.
+	 Y (2) $r_{max}$ (ecuación \ref{rmaxymin}) que determina 
+	cu\'{a}ntos radios $r_{k}$ se toman para la medici\'{o}n.
 	
-	Ambos valores se fijaron en 200 para asegurar resultados representativos y detallados. Este procedimiento se aplic\'{o} en cada uno de los archivos listados en la Tabla~\ref{Tabla:ids9}, correspondientes a los pasos descritos en la secci\'{o}n \ref{sec:pfp}.
+	En este análisis $N_{meas} = 200 $ y $r_{max} = 200$ para asegurar resultados 
+	representativos y detallados. Este procedimiento se aplic\'{o} en cada uno 
+	de los archivos listados en la Tabla~\ref{Tabla:ids9}, correspondientes a 
+	los pasos descritos en la secci\'{o}n \ref{sec:pfp}.
 	
-	
+
 	\begin{figure}[H]
 		\hspace{-0.3cm} 
 		\begin{minipage}{0.49\textwidth}
@@ -466,7 +498,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\end{minipage}
 		
 		\caption{
-			Gr\'{a}ficos de $log_{10}r$ vs $log_{10}N(r)$ correspondientes la proteína \textit{Tubulina mutada} despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el número de medidas en  $A$ = 1 y 200 (izquierda a derecha). Donde $A = N_{means}$ y establece el número de medidas para obtener $\langle N(r_k) \rangle$.}
+			Gr\'{a}ficos de $log_{10}r$ vs $log_{10}N(r)$ correspondientes la proteína \textit{Tubulina mutada} despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el número de medidas en  $N_{means}$ = 1 y 200 (izquierda a derecha). Donde $N_{means}$ establece el número de medidas para obtener $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.}
 		\label{fig:Nmeasp}
 	\end{figure}
 	
@@ -485,7 +517,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	\subsection{An\'{a}lisis multifractal}
 	
-	Se realiz\'{o} un an\'{a}lisis multifractal sobre los datos extra\'{i}dos del paso anterior, para calcular la \textbf{dimensi\'{o}n fractal} $D$, donde el \textbf{exponente de escala} $b$  relaciona la masa  promedio $\langle M(r_{k}) \rangle$ con el radio $r_{k}$ mediante:
+	Se realiz\'{o} un an\'{a}lisis multifractal sobre los datos extra\'{i}dos del paso anterior, para calcular la \textbf{dimensi\'{o}n fractal de masa} $D$, donde el \textbf{exponente de escala} $b$  relaciona la masa  promedio $\langle M(r_{k}) \rangle$ con el radio $r_{k}$ mediante:
 	\begin{equation}
 		\langle M(r_{k}) \rangle \sim r_{k}^b
 	\end{equation}
@@ -541,7 +573,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	
 	
-	%\section{Discusi\'{o}n de resultados}	
+	\section{Discusi\'{o}n de resultados}	
 	
 	En la Figura \ref{fig:Df-general}, las prote\'{i}nas \textit{Hemoglobin} (1a9w y 1a3n) exhiben valores de dimensi\'{o}n fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa (se toman en cuenta las masas promedio de los \'{a}tomos en la medida) y no la dimensi\'{o}n fractal del número de part\'{i}culas (no depende de la masa promedio de las part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identifica una correlaci\'{o}n inversa (\emph{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada durante la etapa de equilibrio del sistema.
 	
