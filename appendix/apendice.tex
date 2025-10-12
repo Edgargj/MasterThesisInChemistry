@@ -1,9 +1,48 @@
 \chapter{Funcionamiento del programa}
 
-\subsection*{Restricciones de ejecución}
+\color{blue}
+
+El propósito principal del programa \textit{molmassfractaldim} es determinar la dimesi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema proteico. Esto se logra construyendo una tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$: donde;
+
+\begin{itemize}
+	\item $r_{k}$ es el radio de medida centrado en posiciones aleatorias de una prote\'{i}na con valores m\'{i}nimos y m\'{a}ximos definidos como $r_{min}$ y $r_{max}$.
+	\item $\langle N(r_k) \rangle$ es el número promedio de partículas contenidas dentro de un radio $r_{k}$. 
+	\item  $\langle M(r_k) \rangle$ es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
+	\item  $\langle Rg(r_k) \rangle$ es el radio de giro promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
+\end{itemize}
+
+Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa.
+
+
+	\clearpage
 
 \subsection*{Banderas de entrada}
 
+	El programa \emph{molmassfractaldim}, incorpora banderas de entrada al c\'{o}digo para tener distintas opciones en el c\'{a}lculo de la dimensi\'{o}n fractal de masa. Las banderas incorporadas se muestran en la Tabla \ref{tab:opciones_programa}.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{lp{11cm}}
+			\hline
+			\textbf{Opci\'{o}n} & \textbf{Descripci\'{o}n} \\ \hline
+			-a A & Establece el n\'{u}mero de medidas a realizar. Esto se refiere a la cantidad de veces que el programa calcular\'{a} el promedio de $\langle N(r_k) \rangle$ $\langle M(r_k) \rangle$ y $\langle R_g(r_k) \rangle$. Es \'{u}til si se desea promediar los resultados sobre diferentes configuraciones o pruebas. Para más detalles sobre esta opción, véase la sección \ref{sec:detM(r)}. 
+			\\ 
+			-n k & Define el n\'{u}mero de radios $r_{k}$ que se utilizar\'{a}n. Es decir, el n\'{u}mero de filas en la tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.
+			\\
+			-q & Modo silencioso. Al activar esta opci\'{o}n, la mayor\'{i}a de los mensajes informativos que normalmente se mostrar\'{i}an en la salida est\'{a}ndar se suprimir\'{a}n. 
+			\\ 
+			-r rmn & Establece el radio m\'{i}nimo $r_{min}$ para las mediciones. Esto es \'{u}til para limitar el rango de los radios de las esferas que se tomar\'{a}n en cuenta en los c\'{a}lculos; $r$ se refiere al radio de la esfera. \\ 
+			-R rmx & Establece el radio m\'{a}ximo $r_{max}$ para las mediciones. Similar a la opci\'{o}n anterior, permite definir el rango m\'{a}ximo de los radios de las esferas. 
+			\\ 
+			-V & Muestra la versi\'{o}n del programa. 
+			\\ 
+			-h & Muestra el men\'{u} de ayuda con la descripci\'{o}n de las opciones y el uso del programa. 
+			\\ \hline
+		\end{tabular}
+		\caption{Banderas de entrada para el programa \emph{molmassfractaldim}.}
+		\label{tab:opciones_programa}
+	\end{table}
+\color{black}
 
 \chapter{Conjunto de 9 proteínas}
 

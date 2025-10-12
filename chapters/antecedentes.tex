@@ -35,34 +35,96 @@ $x$ y $y$ son las variables dependientes e independientes.
 
 La ecuación \ref{eq:3.1} es una función matemática que relaciona dos cantidades, donde el cambio en una cantidad que da como resultado un cambio en la otra cantidad que es proporcional al cambio elevado a un exponente constante. Es decir, una cantidad varía como potencia de otra. El cambio es independiente del tamaño inicial de dichas cantidades \cite{Meakin1998}.
 
+
 \section{Dimensi\'{o}n fractal}
 
-En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{o}n fractal, que es una generalizaci\'{o}n del concepto de dimensi\'{o}n en geometr\'{i}a Euclidiana. La dimensi\'{o}n fractal es una medida de cu\'{a}nto aparenta llenar el espacio un objeto conforme aumentamos o disminuimos la escala de an\'{a}lisis.
-
-%B. Mandelbrot utiliz\'{o} la dimensi\'{o}n fractal para calcular la longitud de la costa de Gran Bretaña, a este problema se le conoce como paradoja de la costa. Demostró que al usar reglas de diferentes tamaños para medir detalladamente los contornos de la costa, se obtienen longitudes mayores (tal como se observa en la Figura ), sugiriendo que la costa tiene una longitud infinitamente compleja, contrario a lo que se pensar\'{i}a. 
+En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{o}n fractal, que es una generalizaci\'{o}n del concepto de dimensi\'{o}n en geometr\'{i}a Euclidiana. La dimensi\'{o}n fractal es una medida de cu\'{a}nto aparenta llenar el espacio un objeto conforme aumentamos o disminuimos la escala de an\'{a}lisis. De la  amplia variedad de dimensiones fractales que existen la definición de la dimensión fractal de Hausdorff-Besicovich es probablemente la más importante porque puede definirse para cualquier conjunto y es matemáticamente práctica, ya que se basa en medidas relativamente faciles de manipular. En t\'{e}rminos pr\'{a}cticos, esta dimensi\'{o}n se estima a partir de la pendiente en una gr\'{a}fica logar\'{i}tmica como se muestra en la Figura \ref{fig:D-Fractal}.
 
 
-De la  amplia variedad de dimensiones fractales que existen la definición de la dimensión fractal de Hausdorff-Besicovich es probablemente la más importante porque puede definirse para cualquier conjunto y es matemáticamente práctica, ya que se basa en medidas relativamente faciles de manipular.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{graphs/dimension-fractal}
+		\caption{Gr\'{a}fico de $\ln[N(R)]$ vs $\ln (R)$  del n\'{u}mero de part\'{i}culas $N(R)$ que pertenecen a un fractal que se encuentran dentro de una esfera de radio $R$. La dimensi\'{o}n fractal se obtiene ajustando una l\'{i}nea recta a los datos en la regi\'{o}n de escala.}
+		\label{fig:D-Fractal}
+	\end{center}
+\end{figure}
 
-Existen diferentes formas de determinar la dimesi\'{o}n fractal, una muy conocida en ciencias de materiales es la dimensi\'{o}n fractal de masa, y es \'{u}til porque permite cuantificar la cantidad masa que hay dentro de la estructura que se desea analizar. La dimensi\'{o}n fractal de masa consiste en elegir un punto o centro al azar dentro de la estructura, trazar un c\'{i}rculo alrededor de ese punto y contar el n\'{u}mero de objetos que hay dentro de ese c\'{i}rculo. Nuevamente, se repite el mismo proceso pero con un nuevo c\'{i}rculo que se encuentra dentro del que primero c\'{i}rculo y se procede a contar el n\'{u}mero de objetos que dentro de \'{e}l.
 
- Al repetir el proceso anterior, con diferentes centros y c\'{i}rculos, se puede observar en una gr\'{a}fica, como el n\'{u}mero de objetos \textit{versus} el radio de los distintos c\'{i}rculos sigue la caracteristica ley de potencias. Donde la gr\'{a}fica obtenida a partir de ajustes lineales, resulta tener una pendiente igual a D, donde D es la dimensi\'{o}n fractal de masa. 
+\subsection{Dimesión fractal de masa}
+
+
+Consiste en selecionar un punto de
+origen en el objeto de estudio (que usualmente es el centro de masa) 
+y contar el n\'{u}mero de part\'{i}culas que componen el objeto en 
+un radio r desde el origen. Para dos dimensiones la relaci\'{o}n 
+entre masa y radio es:
+
+\begin{equation}
+	\mu(d) = Ad^D
+\end{equation}
+
+Donde $\mu(d)$ es el n\'{u}mero de part\'{i}culas en una c\'{i}rculo de di\'{a}metro d, A es un variable y D es la dimensi\'{o}n fractal\cite{Mustafa1996, Nicolás2020}. 
+
+La relaci\'{o}n de masa y radio es \'{u}til para estimar la dimensi\'{o}n de objetos similares en grupos (redes, vasos sangu\'{i}neos, grupos de agregaci\'{o}n). Consiste en seleccionar un punto de origen en el objeto y contar el n\'{u}mero de part\'{i}culas que componen el objeto en un radio del origen. Para un sistema perfectamente homog\'{e}neo la relaci\'{o}n masa-radio es:
+\begin{equation}
+	M(r) \propto r^{2}
+\end{equation}
+
+Por ejemplo, el \'{a}rea de un plano bajo discos de tamaño creciente es proporcional al cuadrado del radio del disco de medici\'{o}n. El exponente es la dimensi\'{o}n, pero la masa de un objeto fractal incrustado en dos dimensiones cambia con un exponente fraccionario:
+
+\begin{equation}
+	M(r) \propto r^{D} 
+\end{equation}
+
+Y la dimensi\'{o}n fractal $D_\textit{{m}}$ se obtiene como:
+
+\begin{equation}
+	D_\textit{m} = \frac{\log (M(r))}{\log (r)}
+\end{equation}
+
+Se calcula como la pendiente de la regresi\'{o}n lineal de $\log(M(r))$ de $\log(r)$ \cite{Mustafa1996}.
+
+\subsection*{¿Qu\'{e} es un objeto monofractal?}
+
+Un objeto \textbf{monofractal} es un estructura fractal que puede describirse mediante una \textbf{\'{u}nica dimensi\'{o}n fractal}. Esto implica que su complejidad o irregularidad es \textbf{uniforme} en todas las escalas y regiones del objeto. Por lo tanto, su \textbf{pendiente es constante} y el mismo valor de dimensi\'{o}n fractal describe la estructura en todas las partes del objeto. Un caso concreto de monofractalidad es el estudio presentado por Enright \textit{et al.}\cite{Enright2005}, donde no se observa un cambio de pendiente (ve\'{a}se la Figura \ref{fig:Enright-Fractal}), probablemente por la pequeña cantidad de puntos que se presentan en su an\'{a}lisis y la distancia que hay entre los puntos. Adem\'{a}s, Enright \textit{et al.} calcul\'{o} la dimensi\'{o}n fractal de masa como un promedio espacial (usando esferas conc\'{e}ntricas y radio de giro), lo que posiblemente captura esta monofractalidad.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.4\linewidth]{graphs/Enright2005}
+		\caption{Gr\'{a}fico de $\log_{10}M$ vs $\log_{10}R$ para la prote\'{i}na \textbf{Sialidase}, donde los valores de $M$ son las masas encerradas por esferas conc\'{e}ntricas de radio $R$ centradas en un \'{a}tomo. Imagen tomada de Enright \textit{et al} \cite{Enright2005}.}
+		\label{fig:Enright-Fractal}
+	\end{center}
+\end{figure}
 
 \section{Multifractalidad}
 
 Otro concepto desarrollado por B. Mandelbrot en su libro \textit{Fractal Geometry of Nature} fue la multifractalidad. La multifractalidad es una propiedad de ciertos sistemas o estructuras complejas que presentan un crecimiento fractal pero de manera heterog\'{e}nea en distintas regiones o escalas. A diferencia de los fractales, que son descritos con una \'{u}nica dimensi\'{o}n fractal (un valor constante que representa la relaci\'{o}n entre el detalle del patr\'{o}n y la escala), en un sistema multifractalidad existen multiples dimensiones fractales que reflejan la variablidad de la distribuci\'{o}n y concentraci\'{o}n de sus elementos. 
 
-En t\'{e}rminos simples, un sistema multifractal est\'{a} compuesto de distintas subestructuras que tienen diferentes grados de ``irregularidad'', lo que significa que puede ser descrito con la una dimensi\'{o}n fractal. Cada regi\'{o}n del sistema podr\'{i}a necesitas una dimensi\'{o}n fractal espec\'{i}fica para describir su complejidad.
+En t\'{e}rminos simples, un sistema multifractal est\'{a} compuesto de distintas subestructuras que tienen diferentes grados de ``irregularidad'', lo que significa que cada regi\'{o}n del sistema podr\'{i}a necesitar una dimensi\'{o}n fractal espec\'{i}fica para describir su complejidad.
+
+\section*{Objetos multifractales y sistemas magnetoreol\'{o}gicos}
+
+Un objeto \textbf{multifractal} es una estructura fractal que requiere un \textbf{conjunto de dimensiones fractales} para ser descrita completamente. La complejidad del objeto \textbf{var\'{i}a localmente} y est\'{a} distribuida de manera \textbf{heterog\'{e}nea}, es decir, existen m\'{u}ltiples pendientes que dependen de la regi\'{o}n del objeto o de la medida que se est\'{e} analizando y es com\'{u}n en fen\'{o}menos naturales o en sistemas ca\'{o}ticos. Un ejemplo claro es el trabajo realizado por Carillo \textit{et al.} \cite{Carrillo2003}, donde los sistemas 
+magnetorreol\'{o}gicos y otros conglomerados formados por procesos de agregaci\'{o}n, mostraron multifractalidad, que se manifiesta en la variaci\'{o}n de la dimensi\'{o}n fractal a lo largo de diferentes etapas del proceso de formaci\'{o}n 
+de estructuras (v\'{e}ase la Figura \ref{fig:Carrillo-Fractal}). En t\'{e}rminos simples, en la Figura \ref{fig:Carrillo-Fractal}, se observa que en los puntos de $log_{10}N(r)$ vs $log_{10}r$ se pueden clasificar en tres conjuntos, cada conjunto sigue una relaci\'{o}n lineal con una pendiente definida, esto es, hay tres dimensiones fractales.
 
 
-\section{Sistemas magnetoreol\'{o}gicos}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.4\linewidth]{graphs/Carrillo2003}
+		\caption{Gr\'{a}fico de $\log_{10}N$ vs $\log_{10}r$ para estructuras formadas en un sistema magnetorreol\'{o}gico de tres etapas. La multifractalidad es una propiedad de ciertos sistemas complejos donde la estructura exhibe autosimilitud a m\'{u}ltiples  escalas. Modificado de Carrillo \textit{et al} \cite{Carrillo2003}.}
+		\label{fig:Carrillo-Fractal}
+	\end{center}
+\end{figure}
 
 Los sistemas magnetoreol\'{o}gicos son fluidos complejos que contienen part\'{i}culas magn\'{e}ticas (\'{o}xidos de metales) suspendidos en un l\'{i}quido (como aceite de silicona). La caracter\'{i}stica principal de estos sistemas es que sus propiedades mec\'{a}nicas cambian dr\'{a}sticamente cuando se aplica un campo magn\'{e}tico externo. En ausencia de este campo, el ﬂuido se comporta como un l\'{i}quido ordinario, pero al aplicar un campo magn\'{e}tico, las part\'{i}culas magn\'{e}ticas se alinean y forman estructuras organizadas (como cadenas o ﬁbras) que transforman el ﬂuido en una especie de gel envegecido o s\'{o}lido semirr\'{i}gido en cuesti\'{o}n de milisegundos. 
 
 
-\section{Multifractalidad en sistemas magnetoreol\'{o}gicos}
-
-Para observar los diferentes patrones de agregaci\'{o}n en presencia del campo magn\'{e}tico, Carrillo y colaboradores utilizaron bajas concentraciones de part\'{i}culas, de menos de 0.1 en fracci\'{o}n de volumen. Observando diferentes etapas del proceso de agregaci\'{o}n. Y por lo tanto, al determinar la dimensi\'{o}n fractal de masa observaron una variaci\'{o}n de la dimensi\'{o}n fractal que son precisamente las 3 porciones en la gr\'{a}ﬁca que est\'{a}n asociadas a 3 etapas de agregaci\'{o}n.
+\begin{comment}
+	\section{Multifractalidad en sistemas magnetoreol\'{o}gicos}
+	
+	Para observar los diferentes patrones de agregaci\'{o}n en presencia del campo magn\'{e}tico, Carrillo \textit{et al.} \cite{Carrillo2003} utilizaron bajas concentraciones de part\'{i}culas, de menos de 0.1 en fracci\'{o}n de volumen. Observando diferentes etapas del proceso de agregaci\'{o}n. Y por lo tanto, al determinar la dimensi\'{o}n fractal de masa observaron una variaci\'{o}n de la dimensi\'{o}n fractal que son precisamente las 3 porciones en la gr\'{a}ﬁca que est\'{a}n asociadas a 3 etapas de agregaci\'{o}n.
+\end{comment}
  
  
  
@@ -81,7 +143,7 @@ Cada amino\'{a}cido tiene una estructura b\'{a}sica que es un grupo carboxilo, u
 hidr\'{o}geno y un grupo r todos ellos unidos a un \'{a}tomo de carbono quiral. A esta uni\'{o}n de todos los grupos
 mencionados se le conoce como enlace pept\'{i}dico.
 
-Podemos describir a las prote\'{i}nas en cuatro niveles jer\'{a}rquicos:
+Podemos describir a las prote\'{i}nas en cuatro niveles jer\'{a}rquicos (véase la Figura \ref{fig:nivelesP}):
 
 \begin{itemize}
 
@@ -101,25 +163,39 @@ polipept\'{i}dica se pliega, se enrolla y gira en la conformaci\'{o}n nativa que
 conformaci\'{o}n m\'{a}s estable para una determinada secuencia de amino\'{a}cidos.
 
 
-\item Por último, la estructura cuaternaria es el nivel de organizaci\'{o}n que concierna las
-interacciones y el ensamblaje de las subunidades proteicas, esta categor\'{i}a incluye muchas prote\'{i}nas
-principalmente aquellas cuyo peso molecular supera las 50, 000 unidades.
+\item Por último, la estructura cuaternaria es el nivel de organizaci\'{o}n que concierna las interacciones y el ensamblaje de las subunidades proteicas, esta categor\'{i}a incluye muchas prote\'{i}nas principalmente aquellas cuyo peso molecular supera las 50,000 unidades.
 
 \end{itemize}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{graphs/niveles.pdf}
+	\caption{Niveles de organizaci\'{o}n en la estructura de las prote\'{i}nas. Imagen extraida de Hardin \textit{et al.} \cite{Hardin2022}.}
+	\label{fig:nivelesP}
+\end{figure}
+
 \section{Medidas para comparar estructuras proteicas}
 
-Para evaluar y comparar estructuras proteicas a los niveles mencionados anteriormente se utilizan
-diferentes medidas cuantitativas y cualitativas. Aunque el problema parece sencillo su cuantiﬁcaci\'{o}n es
-compleja y sigue evolucionando. Una medida usada por los qu\'{i}micos computacionales es el RMSD. El acrónimo RMSD quiere decir desviación
-cuadrática media de un conjunto de coordenadas atómicas. Y la gr\'{a}ﬁca que se observa en la figura 
-es producida mediante dinámica molecular y en ella, se estudia cómo evolucionan las posiciones de los
-átomos de la proteína que se analiza a través del tiempo. El RMSD se calcula con base en una estructura
-de referencia que generalmente es la posición inicial en el tiempo cero de la simulación.
-Es importante señalar que, esta es una medida de toda la proteína, en la gr\'{a}ﬁca no analiza si la estructura
-proteica se está deshaciendo o se est\'{a} expandiendo o se está torciendo. Solo es, c\'{a}nto en promedio se desvían los \'{a}tomos de su posición original. Por lo tanto, encontrar
-m\'{e}todos alternativos al RMSD o encontrar enfoques complementarios para comparar estructuras
-sigue siendo un reto para la comunidad cient\'{i}ﬁca.
+Para evaluar y comparar estructuras proteicas a los niveles mencionados anteriormente se utilizan diferentes medidas cuantitativas y cualitativas. Aunque el problema parece sencillo su cuantiﬁcaci\'{o}n es compleja y sigue evolucionando \cite{Kufareva2012}. Una medida usada por los qu\'{i}micos computacionales es el \textit{RMSD} que significa, desviación cuadrática media de un conjunto de coordenadas atómicas (ver ecuación \ref{rmsd}). En la gr\'{a}ﬁca que se observa en la Figura \ref{rmsd-graf} es producida mediante dinámica molecular y en ella, se estudia cómo evolucionan las posiciones de los átomos de la proteína que se analiza a través del tiempo. El \textit{RMSD} se calcula con base en una estructura de referencia que generalmente, es la posición inicial en el tiempo cero de la simulación. Es importante señalar que, esta es una medida de toda la proteína, en la gr\'{a}ﬁca no analiza si la estructura proteica se está deshaciendo o se est\'{a} expandiendo o se está torciendo. Solo es, c\'{a}nto en promedio se desvían los \'{a}tomos de su posición original. Por lo tanto, encontrar m\'{e}todos alternativos al \textit{RMSD} o hallar enfoques complementarios para comparar estructuras sigue siendo un reto para la comunidad cient\'{i}ﬁca.
+
+
+	\begin{figure}[H]
+	\hspace{-0.3cm} 
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{equation}
+			RMSD = \sqrt{\frac{1}{n} \sum_{i=1}^{n} d_i^2}
+			\label{rmsd}
+		\end{equation}
+	\end{minipage}
+	\hspace{0.2cm}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{graphs/rmsd.pdf}
+	\end{minipage}
+	\caption{Gráfica de \textit{RMSD} a 90 ns de la proteína X.}
+	\label{rmsd-graf}
+	\end{figure}
 
 
 \color{blue}
@@ -152,7 +228,7 @@ Cserzö y Vicsek en 1991 \cite{Cserzo1991} introdujeron un enfoque revolucionari
 
 En el mismo año, Li et al. \cite{HouqiangLi1991} marca un punto de inflexión al superar la limitación de describir la superficie mediante una única dimensión fractal. Los autores introducen los conceptos \textit{fat fractal} y multifractales, argumentando que la superficie de una proteína, siendo rugosa pero de volumen finito, constituye un fractal "gordo". Asimismo, criticaron los métodos de cálculo tradicionales por su inestabilidad en sistemas autoafines y proponen el método de variación para determinar la dimensión fractal superficial $(D_G)$ de forma más fiable. Su contribución fundamental reside en demostrar la naturaleza multifractal de estas superficies a través del espectro $f(\alpha)$, revelando una heterogeneidad intrínseca donde coexisten múltiples subconjuntos fractales con distintos grados de singularidad. Esto permite explicar que regiones específicas, como el sitio activo, presentan una corrugación mayor que el promedio global, optimizando procesos como la catálisis. 
 
-\subsection{Enfoques dinámicos y de simulación (2000--2012)}
+\subsection{Enfoques dinámicos y de simulación (2000--2024)}
 
 
 A principios del siglo XXl Moret \textit{et al.}\cite{Moret2001} investigaron las propiedades multifractales de la hipersuperficie de energía potencial en polipéptidos y proteínas. El comportamiento multifractal se obtuvo a partir del espectro $f(\alpha)$, cuya función describe algunas propiedades estructurales de una proteína (ofreciendo una explicación alternativa a la paradoja de Levinthal). Además, encontraron que es necesario tomar en cuenta la formación de enlaces de hidrógeno ya que influye directamente en la dimensión fractal del sistema. Por otro lado, explican como el disolvente puede perturbar la estructura terciaria de una proteína y por lo tanto, modificar el comportamiento multifractal.
@@ -164,6 +240,9 @@ Enright \textit{et al.} publicaron dos estudios que guardan una estrecha relaci�
  
  Nuevamente, Enright \textit{et al.}\cite{Enright2006} esta vez en 2006 ampliaron su estudio sobre la dimensión fractal de masa en proteínas al incorporar el efecto de la hidratación, utilizando simulaciones de dinámica molecular para analizar cómo influye el agua en la difusión vibracional. Este trabajo permitió evidenciar que la dimensión fractal varía en función del contenido de agua, y que la propagación de energía en proteínas hidratadas presenta un comportamiento anómalo, característico de sistemas con estructura fractal. Así, se estableció una conexión entre la geometría fractal de las proteínas y su dinámica energética. Como parte del estudio, se calcularon las dimensiones fractales de masa de un conjunto de 200 proteínas del \textit{Protein Data Bank}, con tamaños que oscilan entre 100 y 11,000 aminoácidos, considerando estructuras con y sin las moléculas de agua asociadas. Los resultados mostraron que la inclusión de las moléculas de agua internas y de la primera capa de hidratación produce un ligero aumento en el valor promedio de la dimensión fractal, pasando de 2.49 (sin agua) a 2.52 (con agua). Adicionalmente, se realizaron simulaciones de dinámica molecular en solución acuosa para 20 proteínas de entre 100 y 4000 aminoácidos. En este caso, al considerar explícitamente el agua de hidratación, la dimensión fractal de masa promedio se incrementó hasta 2.87, valor que se mantuvo aproximadamente constante sin depender del tamaño de la proteína. Se observó, además, que variaciones estructurales moderadas (como aquellas derivadas de un desplegamiento parcial que modifica el radio de giro en un 10\%) no afectan significativamente la dimensión fractal.
 
-Finalmente, Mroczka et al. (2012)\cite{Mroczka2012} aportaron una perspectiva algorítmica al desarrollar métodos para el análisis del factor de estructura óptico de agregados fractales. Aunque su aplicación original se centró en sistemas coloidales, la formulación matemática y los algoritmos de ajuste por mínimos cuadrados son directamente extrapolables a proteínas, proporcionando una base formal para el tratamiento de datos experimentales de dispersión.
+
+En 2024 Petreuș \textit{et al.} publicaron un estudio en que se analizó los aspectos fractales de las estructuras de las proteínas S100 para comprender mejor su complejidad. Para el cálculo de las dimensiones fractales de masa y superficie, se consideraron 33 estructuras en solución y 18 estructuras cristalinas correspondientes a las proteínas S100 humanas. El valor de la dimensión fractal de masa obtenido fue de $D_m = 1.54$, lo que confirmó la conformación extendida de los dímeros de estas proteínas según su investigación. El valor medio de la dimensión fractal de superficie es $D_s = 2,35 \cdot 0,09 $ cuando se calcula utilizando estructuras en solución y $D_s = 2,23 \cdot 0,05$ cuando se calcula utilizando estructuras cristalinas, lo que revela las irregularidades superficiales de las proteínas S100. Se han registrado cambios en las dimensiones fractales de superficie de las proteínas S100 debido a cambios en el pH del entorno, a mutaciones en sus secuencias que alteran el plegamiento de la proteína, o a sus interacciones con iones o ligandos que reflejan los reordenamientos estructurales que se producen tras la unión. Estos cambios pueden influir significativamente en la actividad biológica de la proteína, lo que convierte la dimensión fractal de la superficie en un parámetro valioso para el estudio de las funciones proteicas, sus interacciones y su posible orientación terapéutica. 
+
+Existen otros estudios que no guardan una relación directa con el enfoque específico de esta investigación, pero abordan temáticas vinculadas al análisis proteico mediante medidas fractales. Para el lector interesado, se recomienda la consulta de las referencias \cite{Shen2001, Banerji2013, Sendker2024}. Dichos trabajos no se discuten en detalle en el presente estudio, dado que sus objetivos y, en particular, sus metodologías, se encuentran considerablemente distantes del enfoque adoptado en esta tesis.
 
 \color{black}
