@@ -19,7 +19,7 @@ La  propiedad mas importante en fractales es la autosimilitud. La autosimilitud 
 
 Dicho todo lo anterior, podríamos decir que un fractal es un objeto geométrico en el que una misma estructura irregular o aparentemente fragmentada se repite a diferentes escalas y tamaños. 
 
-\section{Ley de potencias} 
+\section{Ley de potencia} 
 
 Existe una estrecha relación entre la ley de potencia y el estudio de fractales. La ley de potencia es una relación matemática de la siguiente forma:
 
@@ -35,10 +35,25 @@ $x$ y $y$ son las variables dependientes e independientes.
 
 La ecuación \ref{eq:3.1} es una función matemática que relaciona dos cantidades, donde el cambio en una cantidad que da como resultado un cambio en la otra cantidad que es proporcional al cambio elevado a un exponente constante. Es decir, una cantidad varía como potencia de otra. El cambio es independiente del tamaño inicial de dichas cantidades \cite{Meakin1998}.
 
+\color{blue}
 
 \section{Dimensi\'{o}n fractal}
 
-En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{o}n fractal, que es una generalizaci\'{o}n del concepto de dimensi\'{o}n en geometr\'{i}a Euclidiana. La dimensi\'{o}n fractal es una medida de cu\'{a}nto aparenta llenar el espacio un objeto conforme aumentamos o disminuimos la escala de an\'{a}lisis. De la  amplia variedad de dimensiones fractales que existen la definición de la dimensión fractal de Hausdorff-Besicovich es probablemente la más importante porque puede definirse para cualquier conjunto y es matemáticamente práctica, ya que se basa en medidas relativamente faciles de manipular. En t\'{e}rminos pr\'{a}cticos, esta dimensi\'{o}n se estima a partir de la pendiente en una gr\'{a}fica logar\'{i}tmica como se muestra en la Figura \ref{fig:D-Fractal}.
+En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{o}n fractal, que es una generalizaci\'{o}n del concepto de dimensi\'{o}n en geometr\'{i}a Euclidiana. La dimensi\'{o}n fractal $(D)$ es una medida de cu\'{a}nto aparenta llenar el espacio un objeto conforme aumentamos o disminuimos la escala de an\'{a}lisis. De la  amplia variedad de dimensiones fractales que existen la definición de la dimensión fractal de \textit{Hausdorff-Besicovich} es probablemente la más usada \cite{Vicsek1992, Meakin1998}. Sin embargo, es necesario medir o calcular cantidades que se puedan demostrar que est\'{a}n relacionadas con la dimensi\'{o}n fractal de los objetos que se analizan. En este contexto, existen  tres tipos de enfoques principales para la determinaci\'{o}n de la dimensión fractal: (1) el experimental, (2) el te\'{o}rico y (3) el inform\'{a}tico \cite{Vicsek1992}.
+
+El enfoque inform\'{a}tico se obtienen digitalizando im\'{a}genes o por procedimientos num\'{e}ricos. Respecto a este último, los datos generados num\'{e}ricamente suelen producirse mediante variaciones del m\'{e}todo Monte Carlo y haciendo uso de datos obtenidos experimentalmente \cite{Vicsek1992}. Para hacer estimaciones precisas generalmente se calcula la dimensi\'{o}n fractal para muchos grupos y se promedia sobre los resultados. A continuación hablamos de un método particular para calcular $D$.
+
+\subsection{Dimensión fractal de masa}
+\label{masa-radio}
+
+La dimensión fractal de masa es \'{u}til para estimar la dimensi\'{o}n de objetos similares como redes, vasos sangu\'{i}neos o sistemas de agregaci\'{o}n. Este método consiste en seleccionar un punto que pertenece al objeto de estudio (normalmente el centro de masa) y contar el n\'{u}mero de part\'{i}culas $N$ o sitios que pertenecen al objeto dentro de una secuencia de esferas de radio $R$. La dimensión fractal de masa $D$ esta definida por la ley de potencia:
+
+\begin{equation}
+	M \sim R^{D}
+\end{equation}
+
+
+La dimensión fractal de masa $D$ puede calcularse ajustando una línea recta de los datos $\ln[N(R)]$ contra $\ln R$ dando como resultado una curva cuya pendiente asintótica es igual a $D$, ver Figura \ref{fig:D-Fractal} . Por conveniencia, en lo que sigue usaremos con frecuencia el término partícula para referirnos a un sitio del sistema que pertenece al fractal y \textit{clúster} para los objetos compuestos por partículas conectadas \cite{Vicsek1992}.
 
 
 \begin{figure}[H]
@@ -49,40 +64,6 @@ En geometr\'{i}a fractal existe un concepto fundamental conocido como dimensi\'{
 	\end{center}
 \end{figure}
 
-
-\subsection{Dimesión fractal de masa}
-
-
-Consiste en selecionar un punto de
-origen en el objeto de estudio (que usualmente es el centro de masa) 
-y contar el n\'{u}mero de part\'{i}culas que componen el objeto en 
-un radio r desde el origen. Para dos dimensiones la relaci\'{o}n 
-entre masa y radio es:
-
-\begin{equation}
-	\mu(d) = Ad^D
-\end{equation}
-
-Donde $\mu(d)$ es el n\'{u}mero de part\'{i}culas en una c\'{i}rculo de di\'{a}metro d, A es un variable y D es la dimensi\'{o}n fractal\cite{Mustafa1996, Nicolás2020}. 
-
-La relaci\'{o}n de masa y radio es \'{u}til para estimar la dimensi\'{o}n de objetos similares en grupos (redes, vasos sangu\'{i}neos, grupos de agregaci\'{o}n). Consiste en seleccionar un punto de origen en el objeto y contar el n\'{u}mero de part\'{i}culas que componen el objeto en un radio del origen. Para un sistema perfectamente homog\'{e}neo la relaci\'{o}n masa-radio es:
-\begin{equation}
-	M(r) \propto r^{2}
-\end{equation}
-
-Por ejemplo, el \'{a}rea de un plano bajo discos de tamaño creciente es proporcional al cuadrado del radio del disco de medici\'{o}n. El exponente es la dimensi\'{o}n, pero la masa de un objeto fractal incrustado en dos dimensiones cambia con un exponente fraccionario:
-
-\begin{equation}
-	M(r) \propto r^{D} 
-\end{equation}
-
-Y la dimensi\'{o}n fractal $D_\textit{{m}}$ se obtiene como:
-
-\begin{equation}
-	D_\textit{m} = \frac{\log (M(r))}{\log (r)}
-\end{equation}
-
-Se calcula como la pendiente de la regresi\'{o}n lineal de $\log(M(r))$ de $\log(r)$ \cite{Mustafa1996}.
 
 \subsection*{¿Qu\'{e} es un objeto monofractal?}
 
@@ -106,7 +87,7 @@ En t\'{e}rminos simples, un sistema multifractal est\'{a} compuesto de distintas
 
 Un objeto \textbf{multifractal} es una estructura fractal que requiere un \textbf{conjunto de dimensiones fractales} para ser descrita completamente. La complejidad del objeto \textbf{var\'{i}a localmente} y est\'{a} distribuida de manera \textbf{heterog\'{e}nea}, es decir, existen m\'{u}ltiples pendientes que dependen de la regi\'{o}n del objeto o de la medida que se est\'{e} analizando y es com\'{u}n en fen\'{o}menos naturales o en sistemas ca\'{o}ticos. Un ejemplo claro es el trabajo realizado por Carillo \textit{et al.} \cite{Carrillo2003}, donde los sistemas 
 magnetorreol\'{o}gicos y otros conglomerados formados por procesos de agregaci\'{o}n, mostraron multifractalidad, que se manifiesta en la variaci\'{o}n de la dimensi\'{o}n fractal a lo largo de diferentes etapas del proceso de formaci\'{o}n 
-de estructuras (v\'{e}ase la Figura \ref{fig:Carrillo-Fractal}). En t\'{e}rminos simples, en la Figura \ref{fig:Carrillo-Fractal}, se observa que en los puntos de $log_{10}N(r)$ vs $log_{10}r$ se pueden clasificar en tres conjuntos, cada conjunto sigue una relaci\'{o}n lineal con una pendiente definida, esto es, hay tres dimensiones fractales.
+de estructuras (v\'{e}ase la Figura \ref{fig:Carrillo-Fractal}). En t\'{e}rminos simples, en la Figura \ref{fig:Carrillo-Fractal}, se observa que en los puntos de $\log_{10}N(r)$ vs $\log_{10}r$ se pueden clasificar en tres conjuntos, cada conjunto sigue una relaci\'{o}n lineal con una pendiente definida, esto es, hay tres dimensiones fractales.
 
 
 \begin{figure}[H]
@@ -135,15 +116,9 @@ Las prote\'{i}nas est\'{a}n presentes en todos los sistemas vivos, desde estruct
 posteriormente, caracterizarse por m\'{e}todos como RMN, R-X, ME. Y una vez hecho lo anterior, los datos son enviados y son revisados por expertos biocuradores, despu\'{e}s de
 ser aprobados se ponen a disposici\'{o}n de forma gratuita bajo algún dominio como el \textit{Protein Data Bank}.
 
+Como es bien sabido, las proteínas son polímeros lineales formados por aminoácidos. Aunque en la célula se han identificado más de 60 aminoácidos diferentes, solo 20 de ellos son incorporados de manera habitual en la síntesis de proteínas.
 
-Como es bien sabido, las prote\'{i}nas son pol\'{i}meros lineales compuestos por amino\'{a}cidos y aunque en la
-c\'{e}lula existen m\'{a}s de 60 amino\'{a}cidos distintos, solo 20 de ellos son incorporados en la mayor\'{i}a de las
-prote\'{i}nas.
-Cada amino\'{a}cido tiene una estructura b\'{a}sica que es un grupo carboxilo, un grupo amino, un \'{a}tomo de
-hidr\'{o}geno y un grupo r todos ellos unidos a un \'{a}tomo de carbono quiral. A esta uni\'{o}n de todos los grupos
-mencionados se le conoce como enlace pept\'{i}dico.
-
-Podemos describir a las prote\'{i}nas en cuatro niveles jer\'{a}rquicos (véase la Figura \ref{fig:nivelesP}):
+Cada aminoácido presenta una estructura básica compuesta por un grupo amino (\ch{-NH2}), un grupo carboxilo (\ch{-COOH}), un átomo de hidrógeno (\ch{-H}) y una cadena lateral o grupo R, todos ellos unidos a un átomo de carbono central quiral (conocido como carbono \(\alpha\)). La unión covalente entre el grupo carboxilo de un aminoácido y el grupo amino de otro, con la liberación de una molécula de agua (\ch{H2O}), da lugar al denominado enlace peptídico, el cual constituye la base estructural de las cadenas polipeptídicas. Podemos describir a las prote\'{i}nas en cuatro niveles jer\'{a}rquicos (véase la Figura \ref{fig:nivelesP}):
 
 \begin{itemize}
 
@@ -153,17 +128,15 @@ orden en el que aparecen los amino\'{a}cidos desde un extremo de la mol\'{e}cula
 
 \item La estructura secundaria son patrones repetitivos de una estructura local, en estos
 patrones se presentan la formaci\'{o}n de puentes de hidr\'{o}geno y estas interacciones locales son las
-responsables de las 2 principales conformaciones secundarias de la prote\'{i}na que son denominadas alfa
-h\'{e}lice y lamina beta.
+responsables de las 2 principales conformaciones secundarias de la prote\'{i}na que son denominadas $\alpha$ h\'{e}lice y lamina $\beta$.
 
 
 \item La estructura terciaria \'{e}sta basada en interacciones entre grupos laterales que tienen diferentes
 propiedades: como los grupos hidr\'{o}fobos y amino\'{a}cidos polares. Como resultado de esto, la cadena
-polipept\'{i}dica se pliega, se enrolla y gira en la conformaci\'{o}n nativa que est\'{a} elija. Que normalmente es la
-conformaci\'{o}n m\'{a}s estable para una determinada secuencia de amino\'{a}cidos.
+polipept\'{i}dica se pliega, se enrolla y gira en la conformaci\'{o}n nativa que ésta elija (normalmente es la conformaci\'{o}n m\'{a}s estable para una determinada secuencia de amino\'{a}cidos).
 
 
-\item Por último, la estructura cuaternaria es el nivel de organizaci\'{o}n que concierna las interacciones y el ensamblaje de las subunidades proteicas, esta categor\'{i}a incluye muchas prote\'{i}nas principalmente aquellas cuyo peso molecular supera las 50,000 unidades.
+\item Por último, la estructura cuaternaria es el nivel de organizaci\'{o}n que concierna a las interacciones y el ensamblaje de las subunidades proteicas, esta categor\'{i}a incluye muchas prote\'{i}nas principalmente aquellas cuyo peso molecular supera las 50,000 unidades.
 
 \end{itemize}
 
@@ -197,8 +170,6 @@ Para evaluar y comparar estructuras proteicas a los niveles mencionados anterior
 	\label{rmsd-graf}
 	\end{figure}
 
-
-\color{blue}
 
 \section{Metodologías para la determinación de la dimensión fractal en proteínas}
 
