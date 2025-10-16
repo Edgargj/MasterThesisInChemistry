@@ -141,23 +141,18 @@ Cada amino\'{a}cido presenta una estructura b\'{a}sica compuesta por un grupo am
 
 \section{Medidas para comparar estructuras proteicas}
 
-Para evaluar y comparar estructuras proteicas a los niveles mencionados anteriormente se utilizan diferentes medidas cuantitativas y cualitativas. Aunque el problema parece sencillo su cuantiﬁcaci\'{o}n es compleja y sigue evolucionando \cite{Kufareva2012}. Una medida usada por los qu\'{i}micos computacionales es el \textit{RMSD} que significa, desviaci\'{o}n cuadr\'{a}tica media de un conjunto de coordenadas at\'{o}micas (ver ecuaci\'{o}n \ref{rmsd}). En la gr\'{a}ﬁca que se observa en la Figura \ref{rmsd-graf} es producida mediante din\'{a}mica molecular y en ella, se estudia c\'{o}mo evolucionan las posiciones de los \'{a}tomos de la prote\'{i}na que se analiza a trav\'{e}s del tiempo. El \textit{RMSD} se calcula con base en una estructura de referencia que generalmente, es la posici\'{o}n inicial en el tiempo cero de la simulaci\'{o}n. Es importante señalar que, esta es una medida de toda la prote\'{i}na, en la gr\'{a}ﬁca no analiza si la estructura proteica se est\'{a} deshaciendo o se est\'{a} expandiendo o se est\'{a} torciendo. Solo es, c\'{a}nto en promedio se desv\'{i}an los \'{a}tomos de su posici\'{o}n original. Por lo tanto, encontrar m\'{e}todos alternativos al \textit{RMSD} o hallar enfoques complementarios para comparar estructuras sigue siendo un reto para la comunidad cient\'{i}ﬁca.
+Para evaluar y comparar estructuras proteicas a los niveles de organización proteica antes mencionados, se utilizan diferentes medidas y aunque el problema parece sencillo su cuantiﬁcaci\'{o}n es compleja sigue evolucionando \cite{Kufareva2012}. La Desviaci\'{o}n Cuadr\'{a}tica Media (por su acrónimo en inglés \textit{Root Mean Square Deviation, RMSD}) es un par\'{a}metro fundamental para caracterizar transformaciones conformacionales en sistemas moleculares \cite{Santamaria2023}. Esta medida cuantifica la discrepancia estad\'{i}stica promedio entre una configuraci\'{o}n molecular en un tiempo $t$ y una estructura de referencia definida en el tiempo inicial $t_0$.
+
+\begin{equation}
+	\text{RMSD}(t) = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} \left\| \mathbf{r}_i(t) - \mathbf{r}_i(t_0) \right\|^2 }
+	\label{rmsd}
+\end{equation}
+
+En la ecuaci\'{o}n \ref{rmsd}, el vector \(\mathbf{r}_i(t)\) representa las coordenadas espaciales del i-\'{e}simo \'{a}tomo en el instante $t$, mientras que \(\mathbf{r}_i(t_0)\) corresponde a su posici\'{o}n de referencia. La suma se realiza sobre el conjunto de $N$ part\'{i}culas seleccionadas para el an\'{a}lisis. El uso del la \textit{RMSD} se extiende a diversas propiedades din\'{a}micas como velocidades at\'{o}micas y fuerzas interat\'{o}micas. Para comparaciones estructurales entre distintas moleculares, es necesario realizar operaciones de superposici\'{o}n geom\'{e}trica (traslaci\'{o}n y rotaci\'{o}n) que optimicen el alineamiento conformacional. En estudios proteicos, es com\'{u}n restringir el c\'{a}lculo a los carbonos $\alpha$, ya que estos forman parte de la estructura polipept\'{i}dica y proporcionan una representaci\'{o}n robusta del esqueleto proteico. Además, la evoluci\'{o}n temporal del RMSD exhibe comportamientos diferenciados seg\'{u}n el estado de agregaci\'{o}n: en sistemas s\'{o}lidos mantiene valores reducidos pero en fase l\'{i}quida presenta un crecimiento lineal inicial que eventualmente se estabiliza tras periodos prolongados. La gr\'{a}ﬁca que se observa en la Figura \ref{rmsd-graf} es producida mediante din\'{a}mica molecular y en ella, se estudia c\'{o}mo evolucionan las posiciones de los \'{a}tomos de una prote\'{i}na. Es importante señalar que la \textit{RMSD} es una medida  global. En la gr\'{a}ﬁca no analiza si la estructura proteica se est\'{a} deshaciendo, se est\'{a} expandiendo o se est\'{a} torciendo. Solo es, cu\'{a}nto en promedio se desv\'{i}an los \'{a}tomos de su posici\'{o}n original. Por lo tanto, encontrar m\'{e}todos alternativos al \textit{RMSD} o hallar enfoques complementarios para comparar estructuras sigue siendo un reto para la comunidad cient\'{i}ﬁca.
 
 
 	\begin{figure}[H]
-	\hspace{-0.3cm} 
-	\begin{minipage}{0.49\textwidth}
-		\centering
-		\begin{equation}
-			RMSD = \sqrt{\frac{1}{n} \sum_{i=1}^{n} d_i^2}
-			\label{rmsd}
-		\end{equation}
-	\end{minipage}
-	\hspace{0.2cm}
-	\begin{minipage}{0.49\textwidth}
-		\centering
 		\includegraphics[width=\linewidth]{graphs/rmsd.pdf}
-	\end{minipage}
 	\caption{Gr\'{a}fica de \textit{RMSD} a 90 ns de la prote\'{i}na X.}
 	\label{rmsd-graf}
 	\end{figure}
