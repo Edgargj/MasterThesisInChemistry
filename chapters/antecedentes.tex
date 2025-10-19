@@ -54,7 +54,7 @@ La dimensi\'{o}n fractal de masa $D$ puede calcularse ajustando una l\'{i}nea re
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.5\linewidth]{graphs/dimension-fractal}
-		\caption{Gr\'{a}fico de$\ln[N(R)]$vs$\ln (R)$ del n\'{u}mero de part\'{i}culas$N(R)$que pertenecen a un fractal que se encuentran dentro de una esfera de radio$R$. La dimensi\'{o}n fractal se obtiene ajustando una l\'{i}nea recta a los datos en la regi\'{o}n de escala.}
+		\caption{Gr\'{a}fico de $\ln[N(R)]$ vs $\ln(R)$ del n\'{u}mero de part\'{i}culas $N(R)$ que pertenecen a un fractal que se encuentran dentro de una esfera de radio $R$. La dimensi\'{o}n fractal se obtiene ajustando una l\'{i}nea recta a los datos en la regi\'{o}n de escala.}
 		\label{fig:D-Fractal}
 	\end{center}
 \end{figure}
@@ -78,7 +78,8 @@ Otro concepto desarrollado por B. Mandelbrot en su libro \textit{Fractal Geometr
 
 En t\'{e}rminos simples, un sistema multifractal est\'{a} compuesto de distintas subestructuras que tienen diferentes grados de ``irregularidad'', lo que significa que cada regi\'{o}n del sistema podr\'{i}a necesitar una dimensi\'{o}n fractal espec\'{i}fica para describir su complejidad.
 
-\section*{Objetos multifractales y sistemas magnetoreol\'{o}gicos}
+\section{Objetos multifractales y sistemas magnetoreol\'{o}gicos}
+\label{sistemasmagneto}
 
 Un objeto multifractal es una estructura fractal que requiere un conjunto de dimensiones fractales para ser descrita completamente. La complejidad del objeto var\'{i}a localmente y est\'{a} distribuida de manera heterog\'{e}nea, es decir, existen m\'{u}ltiples pendientes que dependen de la regi\'{o}n del objeto o de la medida que se est\'{e} analizando y es com\'{u}n en fen\'{o}menos naturales o en sistemas ca\'{o}ticos. Un ejemplo claro es el trabajo realizado por Carillo \textit{et al.} \cite{Carrillo2003}, donde los sistemas 
 magnetorreol\'{o}gicos y otros conglomerados formados por procesos de agregaci\'{o}n, mostraron multifractalidad, que se manifiesta en la variaci\'{o}n de la dimensi\'{o}n fractal a lo largo de diferentes etapas del proceso de formaci\'{o}n 
@@ -168,6 +169,10 @@ Donde $M$ es la masa total de la proteína, $m_i$ es la masa de cada átomo, $r_
 
 En este contexto, encontrar m\'{e}todos alternativos al \textit{rmsd} y al $R_g$ o hallar enfoques complementarios para comparar estructuras proteicas sigue siendo un reto para la comunidad cient\'{i}ﬁca.
 
+\subsection{Geometr\'{i}a fractal en prote\'{i}nas}
+\label{Gfp}
+
+Tras establecer la definición de dimensión fractal y multifractalidad presente en geles y sistemas magnetorreológicos (ver sección \ref*{sistemasmagneto}), y presentar varios métodos para su determinación. Surge la siguiente pregunta, ¿La dimensi\'{o}n fractal tiene alguna utilidad en sistemas proteicos?, la respuesta recae varios experimentos en los que se ha empleado la dimensión fractal para cuantificar algunos aspectos de la morfolog\'{i}a proteica. Dado que la estructura de las prote\'{i}nas tiene una forma tan compleja, solo se puede analizar adecuadamente mediante el enfoque de la geometr\'{i}a fractal, por ejemplo se puede utilizar para caracterizar la estructura terciaria de las prote\'{i}nas y las enzimas \cite{Mustafa1996}. Aunque se pueden construir fractales iterados que son perfectamente autosimilares, la autosimilitud de una cadena de prote\'{i}nas, es similar solo en un sentido estad\'{i}stico, es decir, no siempre se ver\'{a} exactamente como el todo. Otra diferencia entre las macromol\'{e}culas biol\'{o}gicas y los objetos ideales es que una macromol\'{e}cula no es autosimilar desde culquier escala. Hay l\'{i}mites de tamaño superior e inferior m\'{a}s all\'{a} de los cuales una macromol\'{e}cula ya no es un fractal. Por lo que la investigaci\'{o}n fractal sobre enzimas y prote\'{i}nas es actualmente un campo activo \cite{Mustafa1996}. 
 
 \section{Metodolog\'{i}as para la determinaci\'{o}n de la dimensi\'{o}n fractal en prote\'{i}nas}
 
@@ -175,9 +180,9 @@ El estudio de la dimensi\'{o}n fractal en prote\'{i}nas ha evolucionado a trav\'
 
 \subsection{Primeras aproximaciones y enfoques pioneros (1980--1990)}
 
-Las primeras tentativas de cuantificar la naturaleza fractal de las prote\'{i}nas se remontan a los trabajos de Stapleton \textit{et al.}\cite{Stapleton1980} en 1980, quienes investigaron la estructura fractal de las prote\'{i}nas mediante estudios de relajaci\'{o}n de esp\'{i}n electr\'{o}nico con hierro (Fe$^{3+}$). Los autores midieron la dependencia t\'{e}rmica de la tasa de relajaci\'{o}n Raman y encontraron que la densidad de estados vibracionales sigue una ley de potencia. La dimensi\'{o}n fractal encontrada fue $d \approx 1.65$ que posteriormente, fue confirmada con datos de rayos X de mioglobina. Este trabajo fue pionero en demostrar experimentalmente que las prote\'{i}nas tienen una estructura fractal. 
+Las primeras tentativas de cuantificar la naturaleza fractal de las prote\'{i}nas se remontan a los trabajos de Stapleton \textit{et al.}\cite{Stapleton1980} en 1980, quienes investigaron la estructura fractal de las prote\'{i}nas mediante estudios de relajaci\'{o}n de esp\'{i}n electr\'{o}nico con hierro (Fe$^{3+}$). Los autores midieron la dependencia t\'{e}rmica de la tasa de relajaci\'{o}n Raman y encontraron que la densidad de estados vibracionales sigue una ley de potencia. La dimensi\'{o}n fractal encontrada fue $d \approx 1.65$ que posteriormente, fue confirmada con datos de rayos X de la mioglobina. Este trabajo fue pionero en demostrar experimentalmente que las prote\'{i}nas tienen una estructura fractal. 
 
-Cuatro años m\'{a}s tarde, Helman \textit{et al.}\cite{Helman1984} en 1984, propusieron una metodolog\'{i}a basado en la dimensi\'{o}n fractal de fractones y modos vibracionales $d_{fr}$ apoyada en la teor\'{i}a de Alexander-Orbach \cite{Alexander1982} sobre fractones, que depende de la topolog\'{i}a del sistema (incluyendo los puentes de hidr\'{o}geno) y la dimensi\'{o}n fractal geom\'{e}trica $d_f$.
+Cuatro años m\'{a}s tarde, Helman \textit{et al.}\cite{Helman1984} en 1984, propusieron una metodolog\'{i}a basado en la dimensi\'{o}n fractal de fractones y modos vibracionales $d_{fr}$ apoyada en la teor\'{i}a de Alexander-Orbach \cite{Alexander1982}, que depende de la topolog\'{i}a del sistema (incluyendo los puentes de hidr\'{o}geno) y la dimensi\'{o}n fractal geom\'{e}trica $d_f$.
 
 Poco despu\'{e}s, Isogai \textit{et al.} \cite{Isogai1984} desarrollaron un an\'{a}lisis geom\'{e}trico de la estructura terciaria de 43 prote\'{i}nas utilizando la teor\'{i}a fractal. Su enfoque  estad\'{i}stico-geom\'{e}trico no considera mecanismos f\'{i}sicos como la relajaci\'{o}n de esp\'{i}n.
 En su investigaci\'{o}n lograron identifican dos reg\'{i}menes fractales distintos: (1) La dimensi\'{o}n fractal $S$ regida por repulsiones est\'{e}ricas (presentes en estructuras locales) y (2) la dimensi\'{o}n fractal $L$ regida por fuerzas atractivas (presentes en estructuras globales). Adem\'{a}s, sugieren que la teor\'{i}a fractal ser\'{a} particularmente \'{u}til para estudiar propiedades emergentes como la estabilidad conformacional, que dependen de la organizaci\'{o}n global m\'{a}s que de detalles locales.

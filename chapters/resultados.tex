@@ -444,11 +444,11 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  			 2 & 1b3e & Transferrina s\'{e}rica & 5037 \\
  			 3 & 11gs & Glutati\'{o}n s-transferasa & 6536 \\ 
  			 4 & 1auk & Arilsulfatasa A & 7086 \\
- 			 5 & 1a8m & Factor de necr\'{o}sis tumoral alfa & 7104 \\
+ 			 5 & 1a8m & Factor de necr\'{o}sis tumoral $\alpha$ & 7104 \\
  			 6 & 1a52 & Receptor de estr\'{o}geno & 7765 \\
- 			 7 & 1a3n & Hemoglobina humana desoxidante cadena alfa & 8734 \\
- 			 8 & 1a9w & Hemoglobina embrionaria cadena alfa & 8820 \\
-			 9 & 7khw & Translocon EspA & 131200 \\
+ 			 7 & 1a3n & Hemoglobina humana desoxidante cadena $\alpha$ & 8734 \\
+ 			 8 & 1a9w & Hemoglobina embrionaria cadena $\alpha$ & 8820 \\
+ 			 9 & 7khw & Translocon EspA & 131200 \\
  			\hline
  		\end{tabular}
  		\caption{Nuevo \'{i}ndice de prote\'{i}nas (ldx), Identificadores del \emph{Protein Data Bank} (PDB), nombre de la prote\'{i}na y n\'{u}mero de \'{a}tomos presentes en cada estructura.}
@@ -539,8 +539,9 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	La selecci\'on del intervalo 2--6~$\textup{\r{A}}$ utilizado para la medici\'on o implementaci\'on de ajustes lineales en el an\'alisis multifractal tiene su origen en el di\'ametro promedio de los amino\'acidos ($d_p$) reportado por Siyuan Liu \textit{et al.} \cite{Liu2020} siendo $d_p \approx$ 4,188 $\textup{\r{A}}$. Posteriomente, la elecci\'{o}n de los intervalos parciales 1--2~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ fueron elegidos heur\'{i}sticamente, observando las gr\'{a}ficas de $\log_{10}r$ vs $\log_{10}M(r)$ de cada prote\'{i}na de la Tabla \ref{Tabla:ids9}.
 	
+	\section{Discusi\'{o}n de resultados}	
+	
 	\begin{figure}[H]
-		\subsection*{Dimensiones fractales en distintas etapas}	
 		\centering
 		\begin{subfigure}{0.49\textwidth}
 			\centering
@@ -572,16 +573,16 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\label{fig:Df-general}
 	\end{figure}
 	
-	
-	
-	\section{Discusi\'{o}n de resultados}	
+	\subsection{Dimensiones fractales en distintas etapas}	
+	\label{DFE}
 	
 	En la Figura \ref{fig:Df-general}, las prote\'{i}nas \textit{Hemoglobin} (1a9w y 1a3n) exhiben valores de dimensi\'{o}n fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa (se toman en cuenta las masas promedio de los \'{a}tomos en la medida) y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada durante la etapa de equilibrio del sistema.
 	
 	Este comportamiento sugiere la coexistencia de al menos, \textbf{dos dimensiones fractales diferenciadas en cada prote\'{i}na en los intervalos de 1--2~$\textup{\r{A}}$ y 2--6~$\textup{\r{A}}$ persistentes en todas las fases de simulaci\'{o}n. La variaci\'{o}n de $D$ evidencia un comportamiento multifractal, donde la dimensi\'{o}n fractal evolucionan progresivamente desde organizaciones locales hasta globales}. Estos hallazgos confirman que cada etapa computacional (adicci\'{o}n, minimizaci\'{o}n, equilibrio y din\'{a}mica molecular) inciden significativamente en la reconfiguraci\'{o}n de la dimensi\'{o}n fractal proteica. Es importante mencionar que, algunos sistemas proteicos tienen una estructura cuaternaria, es decir, para llevar a cabo su funci\'{o}n requieren de cuatro mon\'{o}meros perfectamente plegados que se unen por interacciones no covalentes para adquirir un car\'{a}cter funcional. Esto sugiere que la medici\'{o}n podr\'{i}a ser lo suficientemente sensible como para detectar niveles superiores de organizaci\'{o}n proteica.
 	
 	\begin{figure}[H]
-		\subsection*{Efecto de iones en la dimensi\'{o}n fractal}	
+		\subsection{Efecto de iones en la dimensi\'{o}n fractal}
+		\label{EfectoIones}	
 		\centering
 		\begin{subfigure}{0.49\textwidth}
 			\centering
@@ -648,13 +649,11 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\label{tab:tab-7khw}
 	\end{table}
 	
-	
-	\subsection*{Efecto de iones}
-	
 	En las Figuras \ref{fig:7khw-wions} y \ref{fig:7khw-oions}, se compara la distribuci\'{o}n de masa de la prote\'{i}na \textit{Translocon EsA} (7khw) en dos etapas: Tras el equilibrio estructural y luego de una din\'{a}mica molecular de 1~ns. La Figura \ref{fig:7khw-wions} considera la estructura proteica con iones presentes, revelando tres pendientes en la regresi\'{o}n de $\log_{10}r$ vs $\log_{10}M(r)$, lo que sugiere una multifractalidad en 3 intervalos. Sin embargo, en la Figura \ref{fig:7khw-oions}, 250 iones de sodio que no pertenec\'{i}an a la estructura intr\'{i}nseca de la prote\'{i}na fueron eliminados, con el fin de validar la reproducibilidad de los resultados. Sorprendentemente, en el \'{u}ltimo caso solo se observaron dos pendientes, aunque la estructura original conten\'{i}a  un excedente de 250 \'{a}tomos de sodio (aproximadamente el 0.19\% comparado con los 131,200 \'{a}tomos presentes en la estructura proteica). Por lo tanto, esta comparaci\'{o}n evidenci\'{o} que la estimaci\'{o}n de la dimensi\'{o}n fractal de masa es sensible a modificaciones estructurales m\'{i}nimas. Estos resultados respaldan el uso potencial de dicha medida como herramienta de caracterizaci\'{o}n estructural en prote\'{i}nas. 
 	
 	
-	\subsection*{Caso particular de estudio: tubulinas}
+	\subsection{Caso particular de estudio: tubulinas}
+	\label{tubulinas}
 	
 	\begin{figure}[H]
 		\hspace{-0.3cm} 
