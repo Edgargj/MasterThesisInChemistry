@@ -459,7 +459,28 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	
  	La selecci\'{o}n de los sistemas se realiz\'{o} aleatoriamente (utilizando como punto de partida las 79 pote\'{i}nas de las Tablas \ref{Tabla:ids79(1)}, \ref{Tabla:ids79(2)} y creando un nuevo \'{i}ndice de prote\'{i}nas para cada una de ellas), bajo la condici\'{o}n de que todos sistemas contaran con la secuencia completa de amino\'{a}cidos y evitando componentes externos como ligandos o solventes que introducir\'{i}an ruido en el c\'{a}lculo de la dimensi\'{o}n fractal masa intr\'{i}nseca de las prote\'{i}nas. Los sistemas analizados se listan en la Tabla \ref{Tabla:ids9}.
  
-
+	
+	\subsection{Elección de medida de análisis}
+	
+	 Nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa $M(r)$ y no en la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas $N(r)$, por las siguientes razones:  
+	 
+	 \begin{enumerate}
+	 	\item La dimensi\'{o}n fractal de masa $M(r)$ captura la distribución real de masa en un sistema. 
+	 	
+	 	En una proteína, se presentan átomos que tienen masas atómicas muy diferentes (ejemplo de lo anterior son: H $\sim$1 Da, C $\sim$12 Da, N $\sim$14 Da, O $\sim$16 Da, S $\sim$32 Da). Ignorar esta heterogeneidad, como hace la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas $N(r)$, arrojaría un análisis incompleto y engañoso. Dos posibles escenario al realizar una medida de $M(r)$ y $N(r)$ son los siguientes:
+	 	 
+	 	 \begin{itemize}
+	 	 	\item Una región con gran cantidad de átomos de hidrógeno (baja masa) contribuirá mayormente a la medida de $N(r)$ pero menor a la medida $M(r)$.
+	 	 	
+	 	 	\item Una región densa con átomos de azufre o con la presencia de un grupo hemo contribuirá masivamente a $M(r)$ pero no a $N(r)$.
+	 	 \end{itemize}
+	 	 
+		\item Relación con multifractalidad.
+		
+		La multifractalidad surge de la heterogeneidad en un objeto de análisis. Al usar la masa como medida $M(r)$, se asegura una heterogeneidad adicional y físicamente significativa respecto a solo contar partículas ($N(r)$) y trata a todos los átomos por igual. La medida de $M(r)$ es ``uniforme'' y pondera cada átomo por su masa atómica.
+	 	 
+	 \end{enumerate}
+	
 	
 	\subsection{Determinaci\'{o}n de $M(r)$}
 	\label{sec:detM(r)}
@@ -576,7 +597,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\subsection{Dimensiones fractales en distintas etapas}	
 	\label{DFE}
 	
-	En la Figura \ref{fig:Df-general}, las prote\'{i}nas \textit{Hemoglobin} (1a9w y 1a3n) exhiben valores de dimensi\'{o}n fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa (se toman en cuenta las masas promedio de los \'{a}tomos en la medida) y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada durante la etapa de equilibrio del sistema.
+	En la Figura \ref{fig:Df-general}, las prote\'{i}nas \textit{Hemoglobin} (1a9w y 1a3n) exhiben valores de dimensi\'{o}n fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa (se toman en cuenta las masas promedio de los \'{a}tomos en la medida) y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada durante la etapa de equilibrio del sistema. 
 	
 	Este comportamiento sugiere la coexistencia de al menos, \textbf{dos dimensiones fractales diferenciadas en cada prote\'{i}na en los intervalos de 1--2~$\textup{\r{A}}$ y 2--6~$\textup{\r{A}}$ persistentes en todas las fases de simulaci\'{o}n. La variaci\'{o}n de $D$ evidencia un comportamiento multifractal, donde la dimensi\'{o}n fractal evolucionan progresivamente desde organizaciones locales hasta globales}. Estos hallazgos confirman que cada etapa computacional (adicci\'{o}n, minimizaci\'{o}n, equilibrio y din\'{a}mica molecular) inciden significativamente en la reconfiguraci\'{o}n de la dimensi\'{o}n fractal proteica. Es importante mencionar que, algunos sistemas proteicos tienen una estructura cuaternaria, es decir, para llevar a cabo su funci\'{o}n requieren de cuatro mon\'{o}meros perfectamente plegados que se unen por interacciones no covalentes para adquirir un car\'{a}cter funcional. Esto sugiere que la medici\'{o}n podr\'{i}a ser lo suficientemente sensible como para detectar niveles superiores de organizaci\'{o}n proteica.
 	
