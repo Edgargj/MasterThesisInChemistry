@@ -14,9 +14,8 @@ El prop\'{o}sito principal del programa \textit{molmassfractaldim} es determinar
 	\item  $\langle Rg(r_k) \rangle$ es el radio de giro promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 \end{itemize}
 
-Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. El algoritmo general del programa se describe en el diagrama de flujo de la figura \ref{dfMolFractalDim}, cuyos pasos se explican en las siguientes subsecciones.
- 
- 
+Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. El algoritmo general del programa se describe en el diagrama de flujo de la figura \ref{dfMolFractalDim}, cuyos pasos se explican en las siguientes subsecciones. Para una consulta general sobre las opciones disponibles de \textit{molmassfractaldim}, véase el apéndice \ref{chap:funcmolmass}.
+
  \begin{figure}[h!]
  	\begin{center}
  		\includegraphics[width=\textwidth]{graphs/dfMolFractalDim}
@@ -153,7 +152,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 
 
 	 \subsection{Paso 6 y 7 del diagrama de flujo general}
-	 \label{sec:paso6}
+	 \label{subsec:paso6}
 	 
 	 En este paso se utiliza un criterio llamado densidad de part\'{i}culas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal masa. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la prote\'{i}na tiene una $\rho_{P} < 0.034$ (en la secci\'{o}n \ref*{sec:dpp} se discute a detalle la raz\'{o}n del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
 	 	 \color{black}
@@ -292,7 +291,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\section{Metodolog\'{i}a}
  	
  	\subsection{Densidad de part\'{i}culas promedio $\rho_{P}$}
- 	\label{sec:dpp}
+ 	\label{sub:dpp}
  	
  	\begin{table}[H]
  		\centering
@@ -382,7 +381,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	
  	A continuaci\'{o}n, se cre\'{o} una gr\'{a}fica para observar la distribuci\'{o}n 
  	de los valores de $\rho_{P}$ en funci\'{o}n del \'{i}ndice de la 
- 	prote\'{i}na $ldx$ de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)},
+ 	prote\'{i}na ldx de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)},
  	 as\'{i} como la densidad doblemente promediada, es decir, $\nu\equiv\bar{\rho_P}$ 
  	 y la desviaci\'{o}n est\'{a}ndar. Tanto $\nu$ como $\sigma$ se calcularon
  	  sobre los distintos $\rho_P(r^*)$.
@@ -392,7 +391,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\includegraphics[width=\linewidth]{graphs/ldx-dp.pdf}
  		\caption{Distribuci\'{o}n de la densidad de 
  			part\'{i}culas promedio ($\rho_P$) en funci\'{o}n del 
- 			\'{i}ndice de prote\'{i}nas ($ldx$) para los 
+ 			\'{i}ndice de prote\'{i}nas (ldx) para los 
  			archivos \emph{PDB} de las Tablas 
  			\ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}. La l\'{i}nea azul horizontal 
  			discontinua representa la media ($\nu$) de   
@@ -594,8 +593,10 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\label{fig:Df-general}
 	\end{figure}
 	
+	
+	\color{blue}
 	\subsection{Dimensiones fractales en distintas etapas}	
-	\label{DFE}
+	\label{subsec:DFE}
 	
 	En la Figura \ref{fig:Df-general}, las prote\'{i}nas Hemoglobina humana desoxidante cadena $\alpha$ y Hemoglobina embrionaria cadena $\alpha$ (1a3n y 1a9w) exhiben valores de dimensi\'{o}n fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa (se toman en cuenta las masas promedio de los \'{a}tomos en la medida) y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada durante la etapa de equilibrio del sistema. 
 	
@@ -605,7 +606,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	\begin{figure}[H]
 		\subsection{Efecto de iones en la dimensi\'{o}n fractal}
-		\label{EfectoIones}	
+		\label{subsec:EfectoIones}	
 		\centering
 		\begin{subfigure}{0.49\textwidth}
 			\centering
@@ -675,8 +676,8 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	En las Figuras \ref{fig:7khw-wions} y \ref{fig:7khw-oions}, se compara la distribuci\'{o}n de masa de la prote\'{i}na \textit{Translocon EsA} (7khw) en dos etapas: Tras el equilibrio estructural y luego de una din\'{a}mica molecular de 1~ns. La Figura \ref{fig:7khw-wions} considera la estructura proteica con iones presentes, revelando tres pendientes en la regresi\'{o}n de $\log_{10}r$ vs $\log_{10}M(r)$, lo que sugiere una multifractalidad en 3 intervalos. Sin embargo, en la Figura \ref{fig:7khw-oions}, 250 iones de sodio que no pertenec\'{i}an a la estructura intr\'{i}nseca de la prote\'{i}na fueron eliminados, con el fin de validar la reproducibilidad de los resultados. Sorprendentemente, en el \'{u}ltimo caso solo se observaron dos pendientes, aunque la estructura original conten\'{i}a  un excedente de 250 \'{a}tomos de sodio (aproximadamente el 0.19\% comparado con los 131,200 \'{a}tomos presentes en la estructura proteica). Por lo tanto, esta comparaci\'{o}n evidenci\'{o} que la estimaci\'{o}n de la dimensi\'{o}n fractal de masa es sensible a modificaciones estructurales m\'{i}nimas. Estos resultados respaldan el uso potencial de dicha medida como herramienta de caracterizaci\'{o}n estructural en prote\'{i}nas. 
 	
 	
-	\subsection{Caso particular de estudio: tubulinas}
-	\label{tubulinas}
+	\subsection{Caso particular de estudio: }
+	\label{subsec:tubulinas}
 	
 	\begin{figure}[H]
 		\hspace{-0.3cm} 
@@ -706,6 +707,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	Los resultados obtenidos demostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns). Esta diferencia estructural se observa a pesar de la alta similitud global entre ambas variantes.
 	La detecci\'{o}n de estas diferencias sutiles, valida la sensibilidad del m\'{e}todo propuesto para discriminar modificaciones estructurales m\'{i}nimas en sistemas proteicos.
 	
-	Con base en lo discutido, una proteina en general tiene multifractalidad.
-	En general las prote\'{i}nas tiene multifractalidad en tales intervalos
-	Las prote\'{i}nas restantes, se comportan de manera similar. Para el lector interesado dichas proteinas se pueden observar en el \'{a}pendice A.
+	Con base en la evidencia discutida en esta subsección y las anteriores (subsección \ref{subsec:DFE} a \ref{subsec:tubulinas}), se puede establecer que las proteínas, en general, presentan un comportamiento multifractal. Este fenómeno se manifiesta en intervalos específicos, los cuales han sido caracterizados en el análisis. Las proteínas restantes del estudio exhiben un comportamiento análogo. Para una revisión detallada, se remite al lector al Apéndice \ref{9P} para examinar los detalles particulares de cada sistema.
+	
+	
+	\color{black}
