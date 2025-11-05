@@ -2,11 +2,11 @@
 \label{chap:funcmolmass}
 
 
-El propósito principal del programa \textit{molmassfractaldim} es determinar la dimensi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometría interna de un sistema proteico. Esto se logra construyendo una tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$: donde;
+El prop\'{o}sito principal del programa \textit{molmassfractaldim} es determinar la dimensi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometr\'{i}a interna de un sistema proteico. Esto se logra construyendo una tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$: donde;
 
 \begin{itemize}
 	\item $r_{k}$ es el radio de medida centrado en posiciones aleatorias de una prote\'{i}na con valores m\'{i}nimos y m\'{a}ximos definidos como $r_{min}$ y $r_{max}$.
-	\item $\langle N(r_k) \rangle$ es el número promedio de partículas contenidas dentro de un radio $r_{k}$. 
+	\item $\langle N(r_k) \rangle$ es el n\'{u}mero promedio de part\'{i}culas contenidas dentro de un radio $r_{k}$. 
 	\item  $\langle M(r_k) \rangle$ es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 	\item  $\langle Rg(r_k) \rangle$ es el radio de giro promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 \end{itemize}
@@ -25,11 +25,11 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\begin{tabular}{lp{11cm}}
 			\hline
 			\textbf{Opci\'{o}n} & \textbf{Descripci\'{o}n} \\ \hline
-			-a A & Establece el n\'{u}mero de medidas a realizar. Esto se refiere a la cantidad de veces que el programa calcular\'{a} el promedio de $\langle N(r_k) \rangle$ $\langle M(r_k) \rangle$ y $\langle R_g(r_k) \rangle$. Es \'{u}til si se desea promediar los resultados sobre diferentes configuraciones o pruebas. Para más detalles sobre esta opción, véase la sección \ref{sec:detM(r)}. 
+			-a A & Establece el n\'{u}mero de medidas a realizar. Esto se refiere a la cantidad de veces que el programa calcular\'{a} el promedio de $\langle N(r_k) \rangle$ $\langle M(r_k) \rangle$ y $\langle R_g(r_k) \rangle$. Es \'{u}til si se desea promediar los resultados sobre diferentes configuraciones o pruebas. Para m\'{a}s detalles sobre esta opci\'{o}n, v\'{e}ase la secci\'{o}n \ref{subsec:detM(r)}. 
 			\\ 
 			-n k & Define el n\'{u}mero de radios $r_{k}$ que se utilizar\'{a}n. Es decir, el n\'{u}mero de filas en la tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.
 			\\
-			-l & Permite espaciar los radios multiplicativamente. Es decir, los radios de medición están igualmente separados en una escala logarítmica, en lugar de una escala lineal.
+			-l & Permite espaciar los radios multiplicativamente. Es decir, los radios de medici\'{o}n est\'{a}n igualmente separados en una escala logar\'{i}tmica, en lugar de una escala lineal.
 			\\
 			-q & Modo silencioso. Al activar esta opci\'{o}n, la mayor\'{i}a de los mensajes informativos que normalmente se mostrar\'{i}an en la salida est\'{a}ndar se suprimir\'{a}n. 
 			\\ 
@@ -46,10 +46,10 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{table}
 
 
-\chapter{Conjunto de 9 proteínas}
+\chapter{Conjunto de 9 prote\'{i}nas}
 \label{chap:9P}
 
-El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci\'on \ref{subsec:pfp}, demuestran un comportamiento multifractal en toda la muestra. Dado que este patr\'on se manifiesta de manera consistente (aunque con una intensidad variable) en todos los sistemas, el an\'alisis individual no aportan informaci\'on adicional para verificar la existencia del fen\'omeno. Por consiguiente, se ha decidido ubicar los resultados en este ap\'endice (junto con una imagen de cada sistema), donde el lector podr\'a examinar los detalles particulares de cada sistema. Para comodidad del lector, nuevamente se expone la Tabla \ref{Tabla:ids9}.
+El an\'alisis global del conjunto proteico (9 prote\'{i}nas) presentado en la secci\'on \ref{subsec:pfp}, demuestran un comportamiento multifractal en toda la muestra. Dado que este patr\'on se manifiesta de manera consistente (aunque con una intensidad variable) en todos los sistemas, el an\'alisis individual no aportan informaci\'on adicional para verificar la existencia del fen\'omeno. Por consiguiente, se ha decidido ubicar los resultados en este ap\'endice (junto con una imagen de cada sistema), donde el lector podr\'a examinar los detalles particulares de cada sistema. Para comodidad del lector, nuevamente se expone la Tabla \ref{Tabla:ids9}.
 
 \begin{table}[h!]
 	\centering
@@ -76,7 +76,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 
 
 	\begin{figure}[H]
-	\subsection*{Proteína Transformadora RHOA (IdPDB:1a2b)}
+	\subsection*{Prote\'{i}na Transformadora RHOA (IdPDB:1a2b)}
 		
 	\begin{subfigure}{0.49\textwidth}
 		\centering
@@ -113,7 +113,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 \end{figure}
 
 \begin{figure}[H]
-	\subsection*{Proteína Transferrina s\'{e}rica (IdPDB:1b3e)}
+	\subsection*{Prote\'{i}na Transferrina s\'{e}rica (IdPDB:1b3e)}
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
 		\centering
@@ -149,7 +149,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 
 
 \begin{figure}[H]
-	\subsection*{Proteína Glutati\'{o}n s-transferasa (IdPDB:11gs)}
+	\subsection*{Prote\'{i}na Glutati\'{o}n s-transferasa (IdPDB:11gs)}
 	
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
@@ -186,7 +186,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 \end{figure}
 
 \begin{figure}[H]
-	\subsection*{Proteína Arilsulfatasa A (IdPDB:1auk)}
+	\subsection*{Prote\'{i}na Arilsulfatasa A (IdPDB:1auk)}
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
 		\centering
@@ -225,7 +225,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 
 
 \begin{figure}[H]
-	\subsection*{Proteína Factor de necr\'{o}sis tumoral $\alpha$ (IdPDB:1a8m)}
+	\subsection*{Prote\'{i}na Factor de necr\'{o}sis tumoral $\alpha$ (IdPDB:1a8m)}
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
 		\centering
@@ -260,7 +260,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 \end{figure}
 
 \begin{figure}[H]
-	\subsection*{Proteína Receptor de estr\'{o}geno (IdPDB:1a52)}
+	\subsection*{Prote\'{i}na Receptor de estr\'{o}geno (IdPDB:1a52)}
 	
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
@@ -297,7 +297,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 
 
 \begin{figure}[H]
-	\subsection*{Proteína Hemoglobina humana desoxidante cadena $\alpha$ (IdPDB:1a3n)}
+	\subsection*{Prote\'{i}na Hemoglobina humana desoxidante cadena $\alpha$ (IdPDB:1a3n)}
 	
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
@@ -335,7 +335,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 
 
 \begin{figure}[H]
-	\subsection*{Proteína Hemoglobina embrionaria cadena $\alpha$ (IdPDB:1a9w)}
+	\subsection*{Prote\'{i}na Hemoglobina embrionaria cadena $\alpha$ (IdPDB:1a9w)}
 	
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
@@ -373,7 +373,7 @@ El an\'alisis global del conjunto proteico (9 proteínas) presentado en la secci
 
 
 \begin{figure}[H]
-	\subsection*{Proteína Translocon EspA (IdPDB:7khw)}
+	\subsection*{Prote\'{i}na Translocon EspA (IdPDB:7khw)}
 	
 	\hspace{-0.3cm} 
 	\begin{subfigure}{0.49\textwidth}
