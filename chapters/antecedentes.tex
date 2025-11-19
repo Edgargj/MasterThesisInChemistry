@@ -4,19 +4,24 @@
 \section{Fractales}
 \label{sec:fractales}
 
-Diversos f\'{i}sicos que trabajan en m\'{u}ltiples campos han reconocido que muchas de las estructuras observadas en sus experimentos exhiben un tipo particular de complejidad geom\'{e}trica, cuya comprensi\'{o}n ha sido fuertemente influenciada por los trabajos de Benoit Mandelbrot quien llam\'{o} la atenci\'{o}n sobre las propiedades geom\'{e}tricas de diversos objetos \cite{Vicsek1992}.
+Diversos f\'{i}sicos que trabajan en m\'{u}ltiples campos han reconocido que muchas de las estructuras observadas en sus experimentos exhiben un tipo particular de complejidad geom\'{e}trica, cuya comprensi\'{o}n ha sido influenciada por los trabajos de Benoit Mandelbrot quien llam\'{o} la atenci\'{o}n sobre las propiedades geom\'{e}tricas de diversos objetos \cite{Vicsek1992}.
 
-Los fractales son objetos geom\'{e}tricos que presentan una estructura fragmentada y aparentemente irregular que se manifiestan en muchos contextos, tanto naturales como los copos de nieve, como art\'{i}sticos por ejemplo, en las obras de M. C. Escher, as\'{i} como en fen\'{o}menos f\'{i}sicos, \textit{vervi gratia} c\'{u}mulos de galaxias, entre otras \'{a}reas. El t\'{e}rmino fractal  proviene del lat\'{i}n \textit{fractus} que significa ``roto o quebrado'' y fue acuñada por el matem\'{a}tico polaco B. Mandelbrot, padre de los fractales. La definici\'{o}n de fractal depende del \'{a}rea en la que se est\'{e} trabajando, sin embargo existen varias propiedades que tienen estos objetos y si alguna de ellas se cumple entonces se dice que es un objeto fractal:
 
-\begin{itemize}
-	\item Es autosimilar.
+Un fractal es un objeto geom\'{e}trico en el que una misma estructura irregular o aparentemente fragmentada se repite a diferentes escalas y tamaños. Estos objetos se manifiestan en muchos contextos, tanto naturales como los copos de nieve, como art\'{i}sticos por ejemplo, en las obras de M. C. Escher, as\'{i} como en fen\'{o}menos f\'{i}sicos, \textit{vervi gratia} c\'{u}mulos de galaxias, entre otras \'{a}reas. El t\'{e}rmino fractal  proviene del lat\'{i}n \textit{fractus} que significa ``roto o quebrado'' y fue acuñada por el matem\'{a}tico polaco B. Mandelbrot, padre de los fractales. Las características más importantes de los fractales son:
+
+\begin{enumerate}
+	\item La autosimilitud.
 	\item Su dimensi\'{o}n de \textit{Hausdorff-Besicovich} es mayor que su dimensi\'{o}n topol\'{o}gica.
 	\item No es diferenciable en ning\'{u}n punto y tiene una longitud o complejidad infinita.
-\end{itemize}
+\end{enumerate}
 
-La  propiedad mas importante en fractales es la autosimilitud. La autosimilitud implica observar como las mismas propiedades o caracter\'{i}sticas de un objeto se replican a distintas escalas. En fractales matem\'{a}ticos o puros como el conjunto de Mandelbrot, la autosimilitud es exactamente igual sin importar el n\'{u}mero de veces que se amplie, siempre se ver\'{a} lo mismo. A la autosimilitud anterior se le conoce como autosimilitud exacta. Otro tipo de autosimilitud, es la autosimilitud aproximada que normalmente aparece en objetos donde sus partes o conjuntos de esas partes son muy similares (aunque no ind\'{e}nticas) y en su mayor\'{i}a, aparecen en la naturaleza, como en las arterias o venas de la retina de un ojo. A diferencia de la autosimilitud exacta, la autosimilitud aproximada solo se puede replicar una cierta cantidad de veces y despu\'{e}s, se pierde esa autosimilitud.
+\clearpage
 
-Dicho todo lo anterior, podr\'{i}amos decir que un fractal es un objeto geom\'{e}trico en el que una misma estructura irregular o aparentemente fragmentada se repite a diferentes escalas y tamaños. 
+La cualidad (1), es decir la autosimilitud, implica observar como las mismas propiedades de un objeto se replican a distintas escalas. En fractales matem\'{a}ticos o puros como el conjunto de Mandelbrot, la autosimilitud es exactamente igual sin importar el n\'{u}mero de veces que se amplie, siempre se ver\'{a} lo mismo. A la autosimilitud anterior se le conoce como autosimilitud exacta. Otro tipo de autosimilitud, es la autosimilitud aproximada que normalmente aparece en objetos donde sus partes o conjuntos de esas partes son muy similares (aunque no ind\'{e}nticas) y en su mayor\'{i}a, aparecen en la naturaleza, como en las arterias o venas de la retina de un ojo. A diferencia de la autosimilitud exacta, la autosimilitud aproximada solo se puede replicar una cierta cantidad de veces y despu\'{e}s, se pierde esa autosimilitud.
+ 
+Respecto a la cualidad (2) de los fractales, esta es una generalización del concepto de dimensión topológica en geometría Euclidiana. Es decir, una dimensión fractal puede arrojar valores fraccionarios o decimales a diferencia de los valores enteros o discretos calculados en geometría clásica.
+
+Por último, la cualidad (3) se presente en curvas fractales que es, en términos generales, una curva matemática cuya forma conserva el mismo patrón de irregularidad (sin importar el grado de ampliación). Usualmente, las curvas fractales no posee derivadas en ningún punto y su longitud o nivel de complejidad es infinita, un ejemplo de curva fractal es la \textit{función de Weierstrass}.
 
 \section{Ley de potencia} 
 \label{sec:leypotencia}
@@ -64,7 +69,7 @@ La dimensi\'{o}n fractal de masa $D$ puede calcularse ajustando una l\'{i}nea re
 
 \subsection*{¿Qu\'{e} es un objeto monofractal?}
 
-Un objeto monofractal es un estructura que puede describirse mediante una \'{u}nica dimensi\'{o}n fractal. Esto implica que su complejidad o irregularidad es \textbf{uniforme} en todas las escalas y regiones del objeto. Por lo tanto, su pendiente es constante y el mismo valor de dimensi\'{o}n fractal describe la estructura en todas las partes del objeto. Un caso concreto de monofractalidad es el estudio presentado por Enright \textit{et al.}\cite{Enright2005}, donde no se observa un cambio de pendiente (ve\'{a}se la Figura \ref{fig:Enright-Fractal}), probablemente por la pequeña cantidad de puntos que se presentan en su an\'{a}lisis y la distancia que hay entre los puntos. Adem\'{a}s, Enright \textit{et al.} calcul\'{o} la dimensi\'{o}n fractal de masa como un promedio espacial (usando esferas conc\'{e}ntricas y $R_g$), lo que posiblemente captura esta monofractalidad.
+Un objeto monofractal es un estructura que puede describirse mediante una \'{u}nica dimensi\'{o}n fractal. Esto implica que su complejidad o irregularidad es \textbf{uniforme} en todas las escalas y regiones del objeto. Por lo tanto, su pendiente es constante y el mismo valor de dimensi\'{o}n fractal describe la estructura en todas las partes del objeto. Un caso concreto de monofractalidad es el estudio presentado por Enright \textit{et al.}\cite{Enright2005}, donde no se observa un cambio de pendiente (ve\'{a}se la Figura \ref{fig:Enright-Fractal}), probablemente por la pequeña cantidad de puntos que se presentan en su an\'{a}lisis y la distancia que hay entre los puntos. Adem\'{a}s, Enright \textit{et al.} calcularon la dimensi\'{o}n fractal de masa como un promedio espacial (usando esferas conc\'{e}ntricas y $R_g$), lo que posiblemente captura esta monofractalidad.
 
 \begin{figure}[H]
 	\begin{center}
@@ -77,16 +82,14 @@ Un objeto monofractal es un estructura que puede describirse mediante una \'{u}n
 \section{Multifractalidad}
 \label{sec:multif}
 
-Otro concepto desarrollado por B. Mandelbrot en su libro \textit{Fractal Geometry of Nature} fue la multifractalidad. La multifractalidad es una propiedad de ciertos sistemas o estructuras complejas que presentan un crecimiento fractal pero de manera heterog\'{e}nea en distintas regiones o escalas. A diferencia de los fractales, que son descritos con una \'{u}nica dimensi\'{o}n fractal (un valor constante que representa la relaci\'{o}n entre el detalle del patr\'{o}n y la escala), en un sistema multifractalidad existen multiples dimensiones fractales que reflejan la variablidad de la distribuci\'{o}n y concentraci\'{o}n de sus elementos. 
+Otro concepto desarrollado por B. Mandelbrot en su libro \textit{La Geometr\'ia fractal de la naturaleza} \cite{Mandelbrot1997}, fue la multifractalidad. La multifractalidad es una propiedad de ciertos sistemas o estructuras complejas que presentan un crecimiento fractal pero de manera heterog\'{e}nea en distintas regiones o escalas. A diferencia de los fractales, que son descritos con una \'{u}nica dimensi\'{o}n fractal (un valor constante que representa la relaci\'{o}n entre el detalle del patr\'{o}n y la escala), en un sistema multifractalidad existen multiples dimensiones fractales que reflejan la variablidad de la distribuci\'{o}n y concentraci\'{o}n de sus elementos. 
 
 En t\'{e}rminos simples, un sistema multifractal est\'{a} compuesto de distintas subestructuras que tienen diferentes grados de ``irregularidad'', lo que significa que cada regi\'{o}n del sistema podr\'{i}a necesitar una dimensi\'{o}n fractal espec\'{i}fica para describir su complejidad.
 
 \section{Objetos multifractales y sistemas magnetoreol\'{o}gicos}
 \label{sec:smagneto}
 
-Un objeto multifractal es una estructura fractal que requiere un conjunto de dimensiones fractales para ser descrita completamente. La complejidad del objeto var\'{i}a localmente y est\'{a} distribuida de manera heterog\'{e}nea, es decir, existen m\'{u}ltiples pendientes que dependen de la regi\'{o}n del objeto o de la medida que se est\'{e} analizando y es com\'{u}n en fen\'{o}menos naturales o en sistemas ca\'{o}ticos. Un ejemplo claro es el trabajo realizado por Carillo \textit{et al.} \cite{Carrillo2003}, donde los sistemas 
-magnetorreol\'{o}gicos y otros conglomerados formados por procesos de agregaci\'{o}n, mostraron multifractalidad, que se manifiesta en la variaci\'{o}n de la dimensi\'{o}n fractal a lo largo de diferentes etapas del proceso de formaci\'{o}n 
-de estructuras (v\'{e}ase la Figura \ref{fig:Carrillo-Fractal}). En t\'{e}rminos simples, en la Figura \ref{fig:Carrillo-Fractal}, se observa que en los puntos de $\log_{10}N(r)$ vs $\log_{10}r$ se pueden clasificar en tres conjuntos, cada conjunto sigue una relaci\'{o}n lineal con una pendiente definida, esto es, hay tres dimensiones fractales.
+Un objeto multifractal es una estructura fractal que requiere un conjunto de dimensiones fractales para ser descrita completamente. La complejidad del objeto var\'{i}a localmente y est\'{a} distribuida de manera heterog\'{e}nea, es decir, existen m\'{u}ltiples pendientes que dependen de la regi\'{o}n del objeto o de la medida que se est\'{e} analizando y es com\'{u}n en fen\'{o}menos naturales o en sistemas ca\'{o}ticos. Un ejemplo claro de multifractalidad son los  sistemas magnetoreol\'{o}gicos y otros conglomerados formados por procesos de agregaci\'{o}n, véase el trabajo  de Carillo \textit{et al.} \cite{Carrillo2003}. Los  sistemas magnetoreol\'{o}gicos son forman complejos que contienen part\'{i}culas magn\'{e}ticas (\'{o}xidos de metales) suspendidos en un l\'{i}quido (como aceite de silicona). La caracter\'{i}stica principal de estos sistemas es que sus propiedades mec\'{a}nicas cambian dr\'{a}sticamente cuando se aplica un campo magn\'{e}tico externo. En ausencia de este campo, el fluido se comporta como un l\'{i}quido ordinario, pero al aplicar un campo magn\'{e}tico, las part\'{i}culas magn\'{e}ticas se alinean y forman estructuras organizadas (cadenas o fibras) que transforman al fluido en una especie de gel envejecido o s\'{o}lido semirr\'{i}gido en cuesti\'{o}n de milisegundos. Carillo \textit{et al.} \cite{Carrillo2003}, reportaron la presencia de multifractalidad que se manifestó en la variaci\'{o}n de la dimensi\'{o}n fractal a lo largo de diferentes etapas del proceso de formaci\'{o}n de dichos sistemas (v\'{e}ase la Figura \ref{fig:Carrillo-Fractal}). En t\'{e}rminos simples, en la Figura \ref{fig:Carrillo-Fractal}, se observa que en los puntos de $\log_{10}N(r)$ vs $\log_{10}r$ se pueden clasificar en tres conjuntos, cada conjunto sigue una relaci\'{o}n lineal con una pendiente definida, esto es, hay tres dimensiones fractales.
 
 
 \begin{figure}[H]
@@ -96,10 +99,6 @@ de estructuras (v\'{e}ase la Figura \ref{fig:Carrillo-Fractal}). En t\'{e}rminos
 		\label{fig:Carrillo-Fractal}
 	\end{center}
 \end{figure}
-
-\clearpage
-
-Respecto a los sistemas magnetoreol\'{o}gicos, son fluidos complejos que contienen part\'{i}culas magn\'{e}ticas (\'{o}xidos de metales) suspendidos en un l\'{i}quido (como aceite de silicona). La caracter\'{i}stica principal de estos sistemas es que sus propiedades mec\'{a}nicas cambian dr\'{a}sticamente cuando se aplica un campo magn\'{e}tico externo. En ausencia de este campo, el ﬂuido se comporta como un l\'{i}quido ordinario, pero al aplicar un campo magn\'{e}tico, las part\'{i}culas magn\'{e}ticas se alinean y forman estructuras organizadas (como cadenas o ﬁbras) que transforman el ﬂuido en una especie de gel envegecido o s\'{o}lido semirr\'{i}gido en cuesti\'{o}n de milisegundos. 
 
 
 \begin{comment}
@@ -119,9 +118,10 @@ ser aprobados se ponen a disposici\'{o}n de forma gratuita bajo alg\'{u}n domini
 
 Como es bien sabido, las prote\'{i}nas son pol\'{i}meros lineales formados por amino\'{a}cidos y aunque en la c\'{e}lula se han identificado m\'{a}s de 60 amino\'{a}cidos diferentes, solo 20 de ellos son incorporados de manera habitual en la s\'{i}ntesis de proteica.
 
+\clearpage
+
 Cada amino\'{a}cido presente en las prote\'{i}nas tiene una estructura b\'{a}sica compuesta por un grupo amino (\ch{-NH2}), un grupo carboxilo (\ch{-COOH}), un \'{a}tomo de hidr\'{o}geno (\ch{-H}) y una cadena lateral o grupo R, todos ellos unidos a un \'{a}tomo de carbono central quiral (conocido como carbono $\alpha$). La uni\'{o}n covalente entre el grupo carboxilo de un amino\'{a}cido y el grupo amino de otro, con la liberaci\'{o}n de una mol\'{e}cula de agua (\ch{H2O}), da lugar al denominado enlace pept\'{i}dico, el cual constituye la base estructural de las cadenas polipept\'{i}dicas. Podemos describir a las prote\'{i}nas en cuatro niveles jer\'{a}rquicos (v\'{e}ase la Figura \ref{fig:nivelesP}):
 
-\clearpage
 
 \begin{itemize}
 
@@ -153,7 +153,7 @@ Para evaluar y comparar estructuras proteicas a los niveles de organizaci\'{o}n 
 
 \clearpage
 
-En la ecuaci\'{o}n \ref{eq:rmsd}, el vector \(\mathbf{r}_i(t)\) representa las coordenadas espaciales del i-\'{e}simo \'{a}tomo en el instante $t$, mientras que \(\mathbf{r}_i(t_0)\) corresponde a su posici\'{o}n de referencia. La suma se realiza sobre el conjunto de $N$ part\'{i}culas seleccionadas para el an\'{a}lisis. El uso del la \textit{rmsd} se extiende a diversas propiedades din\'{a}micas como velocidades at\'{o}micas y fuerzas interat\'{o}micas. Para comparaciones estructurales entre distintas moleculas, es necesario realizar operaciones de superposici\'{o}n geom\'{e}trica (traslaci\'{o}n y rotaci\'{o}n) que optimicen el alineamiento conformacional. En estudios proteicos, es com\'{u}n restringir el c\'{a}lculo a los carbonos $\alpha$, ya que estos forman parte de la estructura polipept\'{i}dica y proporcionan una representaci\'{o}n robusta del esqueleto proteico. Adem\'{a}s, la evoluci\'{o}n temporal del \textit{rmsd} exhibe comportamientos diferenciados seg\'{u}n el estado de agregaci\'{o}n: en sistemas s\'{o}lidos mantiene valores reducidos pero en fase l\'{i}quida presenta un crecimiento lineal inicial que eventualmente se estabiliza tras periodos prolongados. La gr\'{a}ﬁca que se observa en la Figura \ref{rmsd-graf} es producida mediante din\'{a}mica molecular y en ella, se estudia c\'{o}mo evolucionan las posiciones de los \'{a}tomos de una prote\'{i}na. Es importante señalar que la \textit{rmsd} es una medida  global. En la Figura \ref{rmsd-graf} no analiza si la estructura proteica se est\'{a} deshaciendo, se est\'{a} expandiendo o se est\'{a} torciendo. Solo es, cu\'{a}nto en promedio se desv\'{i}an los \'{a}tomos de su posici\'{o}n original.
+En la ecuaci\'{o}n \ref{eq:rmsd}, el vector \(\mathbf{r}_i(t)\) representa las coordenadas espaciales del i-\'{e}simo \'{a}tomo en el instante $t$, mientras que \(\mathbf{r}_i(t_0)\) corresponde a su posici\'{o}n de referencia. La suma se realiza sobre el conjunto de $N$ part\'{i}culas seleccionadas para el an\'{a}lisis. El uso del la \textit{rmsd} se extiende a diversas propiedades din\'{a}micas como velocidades at\'{o}micas y fuerzas interat\'{o}micas. Para comparaciones estructurales entre distintas moleculas, es necesario realizar operaciones de superposici\'{o}n geom\'{e}trica (traslaci\'{o}n y rotaci\'{o}n) que optimicen el alineamiento conformacional. En estudios proteicos, es com\'{u}n restringir el c\'{a}lculo a los carbonos $\alpha$, ya que estos forman parte de la estructura polipept\'{i}dica y proporcionan una representaci\'{o}n robusta del esqueleto proteico. Adem\'{a}s, la evoluci\'{o}n temporal del \textit{rmsd} exhibe comportamientos diferenciados seg\'{u}n el estado de agregaci\'{o}n: en sistemas s\'{o}lidos mantiene valores reducidos pero en fase l\'{i}quida presenta un crecimiento lineal inicial que eventualmente se estabiliza tras periodos prolongados. La gr\'{a}ﬁca que se observa en la Figura \ref{rmsd-graf} es producida mediante din\'{a}mica molecular y en ella, se estudia c\'{o}mo evolucionan las posiciones de los \'{a}tomos de una prote\'{i}na. Es importante señalar que la \textit{rmsd} es una medida  global. En la Figura \ref{rmsd-graf} no analiza si la estructura proteica se est\'{a} deshaciendo, se est\'{a} expandiendo o se est\'{a} torciendo. Solo mide, cu\'{a}nto en promedio se desv\'{i}an los \'{a}tomos de su posici\'{o}n original.
 
 	\begin{figure}[h!]
 		\centering
