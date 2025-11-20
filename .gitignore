@@ -15,6 +15,7 @@
 *.snm
 *.xdv
 tesis.pdf
+*.swp
 # Archivos temporales
 *~
 
