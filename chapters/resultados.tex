@@ -171,7 +171,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 
 	 \clearpage
 	 
-	  Adem\'{a}s de lo anterior, $\rho_{P}$ permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir las dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. El criterio $\rho_{P}$ calcula dos valores clave: (1) El volumen de cada esfera de radio $r_k$ y (2) la densidad de part\'{i}culas promedio presente en cada esfera de radio $r_k$. El volumen de cada esfera se calcula usando el radio $r_k$ de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{eq:volumen}.\\
+	  Adem\'{a}s de lo anterior, $\rho_{P}$ permite refinar la medici\'{o}n de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$, que a su vez son las relaciones que se utilizan para medir las dimensiones fractales y as\'{i}, determinar si existe o no multifractalidad en estructuras proteicas. El criterio $\rho_{P}$ calcula dos valores clave: (1) El volumen de cada esfera de radio $r_k$ y (2) la densidad de part\'{i}culas promedio presente en cada esfera de radio $r_k$. El volumen de cada esfera se calcula usando el radio $r_k$ de las esferas definidas anteriormente y a partir de la ecuaci\'{o}n \ref{eq:volumen}:\\
 	 
 	 
 	 \begin{equation}
@@ -179,7 +179,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 	\label{eq:volumen}
 	 \end{equation}
 	 
-	 La densidad de part\'{i}culas promedio se calcula a partir de la ecuaci\'{o}n \ref{eq:densidad}. Donde $\rho_{P}$ es la densidad de part\'{i}culas promedio presentes en la esfera de radio $r_k$. $\bar N(r_{k})$ es la cantidad promedio de part\'{i}culas presentes en una esfera de radio $r_k$. $V_{k}$ es el volumen de una esfera de radio $r_{k}$.
+	 La densidad de part\'{i}culas promedio se calcula a partir de la ecuaci\'{o}n \ref{eq:densidad}. Donde $\rho_{P}$ es la densidad de part\'{i}culas promedio presentes en la esfera de radio $r_k$ (ecuaci\'{o}n \ref{eq:densidad}). $\bar N(r_{k})$ es la cantidad promedio de part\'{i}culas presentes en una esfera de radio $r_k$. $V_{k}$ es el volumen de una esfera de radio $r_{k}$.
 	 
 	 \begin{equation}
 	 	\rho_P = \frac{\bar N(r_{k})}{V_{k}}
@@ -230,7 +230,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\label{eq:Nmeas}
  	\end{equation}
  	
- 	Por \'{u}ltimo, para calcular los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ se utilizan las ecuaciones \ref{eq:Np}, \ref{eq:Mp} y \ref{eq:Rgp}.
+ 	Por \'{u}ltimo, para calcular los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ se utilizan las ecuaciones \ref{eq:Np}, \ref{eq:Mp} y \ref{eq:Rgp}:
  	
  	\begin{equation}
  		\langle N(r_k) \rangle = \frac{1}{N_{\text{meas}}} 
@@ -301,6 +301,20 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\subsection{Densidad de part\'{i}culas promedio $\rho_{P}$}
  	\label{subsec:dpp}
  	
+	La implementaci\'{o}n del criterio, densidad de part\'{i}culas 
+ 	promedio $\rho_{P}$ (ver subsecci\'{o}n \ref{subsec:paso6}) 
+ 	fue realizada seleccionando 79 prote\'{i}nas, v\'{e}ase las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)} (provenientes del \textit{Protein Data Bank} con fecha de acceso: agosto de 2024) y con el uso del programa \emph{molmassfractaldim} 
+ 	(sin la aplicaci\'{o}n del bucle 6 $\longleftrightarrow$ 7 
+ 	del diagrama de flujo de la Figura \ref{dfMolFractalDim}) 
+ 	se proces\'{o} cada prote\'{i}na mencionada. 
+	
+	Una vez completada esta fase, se extrajeron los valores 
+ 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$
+ 	 junto con el n\'{u}mero de part\'{i}culas promedio $\langle N(r^{*}) \rangle$ 
+ 	  de las datos generados a partir del programa \emph{molmassfractaldim}.
+ 	   Con esta informaci\'{o}n, se procedi\'{o} al c\'{a}lculo de vol\'{u}menes y densidades 
+ 	   de part\'{i}culas promedio presentes en las 79 prote\'{i}nas. 
+	
  	\begin{table}[H]
  		\centering
  		\begin{footnotesize}
@@ -368,27 +382,13 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\caption{\'{I}ndice de prote\'{i}nas (ldx), identificadores del \emph{Protein Data Bank} (IdPDB) y nombre de las prote\'{i}nas (Parte 2).}
  		\label{Tabla:ids79(2)}
  	\end{table}
- 
- 	
- 	La implementaci\'{o}n del criterio, densidad de part\'{i}culas 
- 	promedio $\rho_{P}$ (ver subsecci\'{o}n \ref{subsec:paso6}) 
- 	fue realizada seleccionando 79 prote\'{i}nas, v\'{e}ase las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)} (provenientes del \textit{Protein Data Bank} con fecha de acceso: agosto de 2024) y con el uso del programa \emph{molmassfractaldim} 
- 	(sin la aplicaci\'{o}n del bucle 6 $\longleftrightarrow$ 7 
- 	del diagrama de flujo de la Figura \ref{dfMolFractalDim}) 
- 	se proces\'{o} cada prote\'{i}na mencionada. 
+
  
  	\clearpage
- 
- 	Una vez completada esta fase, se extrajeron los valores 
- 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$
- 	 junto con el n\'{u}mero de part\'{i}culas promedio $\langle N(r^{*}) \rangle$ 
- 	  de las datos generados a partir del programa \emph{molmassfractaldim}.
- 	   Con esta informaci\'{o}n, se procedi\'{o} al c\'{a}lculo de vol\'{u}menes y densidades 
- 	   de part\'{i}culas promedio presentes en las 79 prote\'{i}nas. 
  	
  	
  	A continuaci\'{o}n, se cre\'{o} una gr\'{a}fica para observar la distribuci\'{o}n 
- 	de los valores de $\rho_{P}$ en funci\'{o}n del \'{i}ndice de la 
+ 	de los valores de $\rho_{P}$ en funci\'{o}n del \'{i}ndice de cada
  	prote\'{i}na ldx de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)},
  	 as\'{i} como la densidad doblemente promediada, es decir, $\nu\equiv\bar{\rho_P}$ 
  	 y la desviaci\'{o}n est\'{a}ndar. Tanto $\nu$ como $\sigma$ se calcularon
@@ -399,8 +399,8 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\includegraphics[width=\linewidth]{graphs/ldx-dp.pdf}
  		\caption{Distribuci\'{o}n de la densidad de 
  			part\'{i}culas promedio ($\rho_P$) en funci\'{o}n del 
- 			\'{i}ndice de prote\'{i}nas (ldx) para los 
- 			archivos \emph{PDB} de las Tablas 
+ 			\'{i}ndice de prote\'{i}nas (ldx) para
+ 			las prote\'{i}nas de las Tablas 
  			\ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}. La l\'{i}nea negra horizontal 
  			discontinua representa la media ($\nu$) de   
  			$\rho_P$, mientras que las l\'{i}neas rojas horizontales discontinuas indican los l\'{i}mites de dos desviaciones est\'{a}ndar (\(\nu \pm 2\sigma\)) de ($\rho_P$).}
@@ -414,9 +414,11 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	
  	Se puede inferir que $\rho_P$ disminuye conforme aumenta el radio, cuyo comportamiento resulta consistente con el esperado en sistemas f\'{i}sicos, donde las part\'{i}culas tienden a estar m\'{a}s densamente distribuidas en las regiones pr\'{o}ximas al centro de un volumen esf\'{e}rico.
  	
+	\clearpage
+	
  	Es importante mencionar que pocos valores caen fuera del intervalo $\nu \pm 2\sigma$ (11 valores con $r^*$ = 5, 10, 15) por lo tanto, las variaciones significativas son limitadas y pueden representar anomal\'{i}as o efectos f\'{i}sicos menos frecuentes en tales prote\'{i}nas.
  	
- 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na arbitraria, se puede utilizar el valor de la densidad de part\'{i}culas $\rho_{p} \geq 0.34$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal de masa. 
+ 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na arbitraria, se puede utilizar el valor de la densidad de part\'{i}culas $\rho_{p} \geq 0.034$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal de masa. 
  	
  	
 	\subsection{Pruebas de fractalidad en prote\'{i}nas}
@@ -440,6 +442,8 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	
  	\subsection{Elecci\'{o}n de sistemas}
  	\label{subsec:eleccionsis}
+	
+		La selecci\'{o}n de los sistemas se realiz\'{o} aleatoriamente (utilizando como punto de partida las 79 pote\'{i}nas de las Tablas \ref{Tabla:ids79(1)}, \ref{Tabla:ids79(2)} y creando un nuevo \'{i}ndice de prote\'{i}nas para cada una de ellas), bajo la condici\'{o}n de que todos sistemas contaran con la secuencia completa de amino\'{a}cidos y evitando componentes externos como ligandos o disolventes que introducir\'{i}an ruido en el c\'{a}lculo de la dimensi\'{o}n fractal masa intr\'{i}nseca de las prote\'{i}nas. Los sistemas analizados se listan en la Tabla \ref{Tabla:ids9}.
  	
  	\begin{table}[H]
  		\centering
@@ -464,8 +468,6 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\end{table}
  	
  	
- 	
- 	La selecci\'{o}n de los sistemas se realiz\'{o} aleatoriamente (utilizando como punto de partida las 79 pote\'{i}nas de las Tablas \ref{Tabla:ids79(1)}, \ref{Tabla:ids79(2)} y creando un nuevo \'{i}ndice de prote\'{i}nas para cada una de ellas), bajo la condici\'{o}n de que todos sistemas contaran con la secuencia completa de amino\'{a}cidos y evitando componentes externos como ligandos o disolventes que introducir\'{i}an ruido en el c\'{a}lculo de la dimensi\'{o}n fractal masa intr\'{i}nseca de las prote\'{i}nas. Los sistemas analizados se listan en la Tabla \ref{Tabla:ids9}.
  
  	\clearpage
 	
@@ -512,7 +514,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 Y (2) $r_{max}$ (ecuaci\'{o}n \ref{eq:rmaxymin}) que determina 
 	cu\'{a}ntos radios $r_{k}$ se toman para la medici\'{o}n.
 	
-	En este an\'{a}lisis $N_{meas} = 200 $ y $r_{max} = 200$ fue para asegurar resultados 
+	En este an\'{a}lisis  la elecci\'{o}n de $N_{meas} = 200 $ y $r_{max} = 200$ se hizo para asegurar resultados 
 	representativos y detallados. Este procedimiento se aplic\'{o} en cada uno 
 	de los sistemas de la Tabla~\ref{Tabla:ids9}, correspondientes a 
 	los pasos descritos en la secci\'{o}n \ref{subsec:pfp}.
@@ -612,15 +614,6 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{figure}
 	
 	\clearpage
-
-	\subsection{Dimensiones fractales en distintas etapas}	
-	\label{subsec:DFE}
-	
-	En la Figura \ref{fig:Df-general}, las prote\'{i}nas Hemoglobina humana desoxidante cadena $\alpha$ y Hemoglobina embrionaria cadena $\alpha$ (1a3n y 1a9w) exhiben valores de dimensi\'{o}n fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa (se toman en cuenta las masas promedio de los \'{a}tomos en la medida) y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada durante la etapa de equilibrio del sistema. 
-	
-	Este comportamiento sugiere la coexistencia de al menos, dos dimensiones fractales diferenciadas en las prote\'{i}nas: (1a2b) Transformadora RHOA, (1b3e) Transferrina s\'{e}rica, (11gs) Glutati\'{o}n s-transferasa, (1auk) Arilsulfatasa A, (1a8m) Factor en necr\'{o}sis tumoral $\alpha$, (1a52) Receptor de estr\'{o}geno y (7khw) Translocon EspA en los intervalos de 1--2~$\textup{\r{A}}$ y 2--6~$\textup{\r{A}}$ que se muestran en todas las fases de simulaci\'{o}n. La variaci\'{o}n de $D$ evidenci\'{o} un comportamiento multifractal, donde la dimensi\'{o}n fractal de masa evoluciona progresivamente desde organizaciones locales hasta globales. Estos hallazgos confirman que cada etapa computacional (adicci\'{o}n, minimizaci\'{o}n, equilibrio y din\'{a}mica molecular) inciden en la reconfiguraci\'{o}n de la dimensi\'{o}n fractal proteica debido al tamaño del sistema.
-	
-	Es importante mencionar que en los sistemas proteicos: (1a3n) Hemoglobina humana desoxidante cadena $\alpha$ y (1a9w) Hemoglobina embrionaria cadena $\alpha$, tienen una estructura cuaternaria, es decir, para llevar a cabo su funci\'{o}n requieren de cuatro mon\'{o}meros perfectamente plegados que se unen por interacciones no covalentes para adquirir un car\'{a}cter funcional y a diferencia de los siete sistemas anteriores, (1a3n) y (1a9w) muestran tres dimensiones fractales en los intervalos de 1--2~$\textup{\r{A}}$, 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ persistentes en todas las fases de simulaci\'{o}n. Lo anterior sugiere que la medici\'{o}n podr\'{i}a ser lo suficientemente sensible como para detectar niveles superiores de organizaci\'{o}n proteica.
 	
 	\begin{figure}[H]
 		\subsection{Efecto de iones en la dimensi\'{o}n fractal de masa}
