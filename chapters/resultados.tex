@@ -1,7 +1,7 @@
 \chapter{Resultados y discusi\'{o}n}
 \label{chap:resulyd}
 
-Uno de los principales objetivos de esta tesis fue desarrollar un programa de c\'{o}mputo cient\'{i}fico para explorar la aplicaci\'{o}n del an\'{a}lisis multifractal en estructuras proteicas. Por lo tanto, el programa podr\'{i}a ser una herramienta \'{u}til para caracterizar las distintas etapas del plegamiento proteico, describi\'{e}ndolas en t\'{e}rminos de la din\'{a}mica de formaci\'{o}n de agregados estructurales, lo que permitir\'{i}a una comprensi\'{o}n m\'{a}s profunda de estos procesos. En la siguiente secci\'{o}n se describe el algoritmo del programa \textit{molmassfractraldim}. 
+Uno de los principales objetivos de esta tesis fue desarrollar un programa de c\'{o}mputo para explorar la aplicaci\'{o}n del an\'{a}lisis multifractal en estructuras proteicas. Por lo tanto, el programa podr\'{i}a ser una herramienta \'{u}til para caracterizar las distintas etapas del plegamiento proteico, describi\'{e}ndolas en t\'{e}rminos de la din\'{a}mica de formaci\'{o}n de agregados estructurales, que es importante desde el punto de vista científico, porque que permitir\'{i}a una comprensi\'{o}n profunda de estos procesos. En la siguiente secci\'{o}n se describe el algoritmo del programa \textit{molmassfractraldim}. 
  
  
 \section{Algoritmo (diseño del programa)}
@@ -12,7 +12,7 @@ El prop\'{o}sito principal del programa \textit{molmassfractaldim} es determinar
 \begin{itemize}
 	\item $r_{k}$ es el radio de medida centrado en posiciones aleatorias de una prote\'{i}na con valores m\'{i}nimos y m\'{a}ximos definidos como $r_{min}$ y $r_{max}$.
 	\item $\langle N(r_k) \rangle$ es el n\'{u}mero promedio de part\'{i}culas contenidas dentro de un radio $r_{k}$. 
-	\item  $\langle M(r_k) \rangle$ es el n\'{u}mero de masa promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
+	\item  $\langle M(r_k) \rangle$ es la suma de la masa promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 	\item  $\langle Rg(r_k) \rangle$ es el radio de giro promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 \end{itemize}
 
@@ -106,14 +106,14 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\end{equation}
 		
 		
-		\item \textbf{Radio de b\'{u}squeda}. Se establece un radio que asegure que los puntos de medici\'{o}n no se encuentren cerca de los l\'{i}mites del sistema (ecuaci\'{o}n \ref{eq:Rseek}), con un valor del 75\% tamaño de $\mathcal{M}$, donde $\alpha = 0.75$.
+		\item \textbf{Radio de b\'{u}squeda}. Se establece un radio que asegure que los puntos de medici\'{o}n no se encuentren cerca de los l\'{i}mites del sistema (ecuaci\'{o}n \ref{eq:Rseek}), con un valor del 75\% del tamaño de $\mathcal{M}$, donde $\alpha = 0.75$.
 		\begin{equation}
 			R_{\text{seek}} = \alpha \cdot R_{\text{max}}
 			\label{eq:Rseek}
 		\end{equation}
 		
 		
-		\item \textbf{Radio de medici\'{o}n}. Se describe un conjunto de radios de medici\'{o}n como $n_{r}$ con un incremento radial $dr$ (ecuaciones \ref{eq:nr} y \ref{eq:dr}).
+		\item \textbf{Radio de medici\'{o}n}. Se define un conjunto de radios de medici\'{o}n como $n_{r}$ con un incremento radial $dr$ (ecuaciones \ref{eq:nr} y \ref{eq:dr}).
 		\begin{equation}
 			n_{r} = 50 
 			\label{eq:nr}
@@ -222,7 +222,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\subsection{Paso 9 del diagrama de flujo general}
  		\label{subsec:paso9}
  	
- 	\textbf{C\'{a}lculo de valores promedio sobre m\'{u}ltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (ve\'{a}se la ecuaci\'{o}n \ref{eq:Nmeas}) que puede modificarse a conteos menores (donde los promedios fluctuaran m\'{a}s) o conteos mayores (los promedios ser\'{a}n muy parecido entre s\'{i}). 
+ 	\textbf{C\'{a}lculo de valores promedio sobre m\'{u}ltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (ve\'{a}se la ecuaci\'{o}n \ref{eq:Nmeas}) que pueden modificarse a conteos menores (donde los promedios fluctuaran m\'{a}s) o conteos mayores (los promedios ser\'{a}n muy parecido entre s\'{i}). 
  	
  	
  	\begin{equation}
@@ -250,7 +250,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\label{eq:Rgp}
  	\end{equation}
  	
- 	Donde $	N_{\text{meas}}$ es el n\'{u}mero de centros aleatorios sobre los que se promedia.
+ 	donde \textbf{$N_{\text{meas}}$ es el n\'{u}mero de centros aleatorios sobre los que se promedia}.
  	$\mathbf{r}_{c_j}$ es el vector de posici\'{o}n del j-\'{e}simo centro de medici\'{o}n y
  	$\langle\cdot\rangle$ es el promedio sobre todos los centros.	
 
@@ -288,9 +288,9 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\end{minipage}
 		
 		\caption{
-			Gr\'{a}ficos obtenido mediante el programa \textit{molfractaldim} de $\log_{10}r$ vs $\log_{10}Z(r)$ donde $\log_{10}Z(r)$ 
+			Gr\'{a}ficos obtenido de $\log_{10}r$ vs $\log_{10}Z(r)$ donde $\log_{10}Z(r)$ 
 			corresponde a $\langle M(r_k) \rangle$, $\langle N(r_k) \rangle$ 
-			o $\langle Rg(r_k) \rangle$. }
+			o $\langle Rg(r_k) \rangle$, seg\'{u}n corresponda}
 		\label{fig:GrafD}
 	\end{figure}
 
@@ -309,7 +309,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	se proces\'{o} cada prote\'{i}na mencionada. 
 	
 	Una vez completada esta fase, se extrajeron los valores 
- 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$
+ 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$,
  	 junto con el n\'{u}mero de part\'{i}culas promedio $\langle N(r^{*}) \rangle$ 
  	  de las datos generados a partir del programa \emph{molmassfractaldim}.
  	   Con esta informaci\'{o}n, se procedi\'{o} al c\'{a}lculo de vol\'{u}menes y densidades 
@@ -418,7 +418,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
  	Es importante mencionar que pocos valores caen fuera del intervalo $\nu \pm 2\sigma$ (11 valores con $r^*$ = 5, 10, 15) por lo tanto, las variaciones significativas son limitadas y pueden representar anomal\'{i}as o efectos f\'{i}sicos menos frecuentes en tales prote\'{i}nas.
  	
- 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na arbitraria, se puede utilizar el valor de la densidad de part\'{i}culas $\rho_{p} \geq 0.034$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal de masa. 
+ 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na cualquiera, se puede utilizar el valor de la densidad de part\'{i}culas $\rho_{p} \geq 0.034$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal de masa. 
  	
  	
 	\subsection{Pruebas de fractalidad en prote\'{i}nas}
@@ -533,7 +533,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\end{minipage}
 		
 		\caption{
-			Gr\'{a}ficos de $\log_{10}r$ vs $\log_{10}N(r)$ correspondientes la prote\'{i}na \textit{Tubulina mutada} despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el n\'{u}mero de medidas en  $N_{means}$ = 1 y 200 (izquierda a derecha). Donde $N_{means}$ establece el n\'{u}mero de medidas para obtener $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.}
+			Gr\'{a}ficos de $\log_{10}r$ vs $\log_{10}N(r)$ correspondientes a la prote\'{i}na \textit{Tubulina mutada}, despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el n\'{u}mero de medidas en  $N_{means}$ = 1 y 200 (izquierda a derecha). Donde $N_{means}$ establece el n\'{u}mero de medidas para obtener $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.}
 		\label{fig:Nmeasp}
 	\end{figure}
 	
@@ -576,7 +576,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	
 	
-	La selecci\'on del intervalo 2--6~$\textup{\r{A}}$ utilizado para la medici\'on o implementaci\'on de ajustes lineales en el an\'alisis multifractal tiene su origen en el di\'ametro promedio de los amino\'acidos ($d_p$) reportado por Siyuan Liu \textit{et al.} \cite{Liu2020} siendo $d_p \approx$ 4,188 $\textup{\r{A}}$. Posteriomente, la elecci\'{o}n de los intervalos parciales 1--2~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ fueron elegidos heur\'{i}sticamente, observando las gr\'{a}ficas de $\log_{10}r$ vs $\log_{10}M(r)$ de cada prote\'{i}na de la Tabla \ref{Tabla:ids9}.
+	La selecci\'on del intervalo 2--6~$\textup{\r{A}}$, utilizado para la medici\'on o implementaci\'on de ajustes lineales en el an\'alisis multifractal, tiene su origen en el di\'ametro promedio de los amino\'acidos ($d_p$) reportado por Siyuan Liu \textit{et al.} \cite{Liu2020} siendo $d_p \approx$ 4,188 $\textup{\r{A}}$. Posteriomente, la elecci\'{o}n de los intervalos parciales 1--2~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ fue  heur\'{i}stica, observando las gr\'{a}ficas de $\log_{10}r$ vs $\log_{10}M(r)$ de cada prote\'{i}na de la Tabla \ref{Tabla:ids9}.
 	
 	\section{Discusi\'{o}n de resultados}	
 	\label{sec:disresult}
@@ -708,12 +708,12 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{figure}
 	
 	
-	La comparaci\'{o}n presentada en la Figura~\ref{fig:Tubs} examina dos variantes estructurales: (1) Una prote\'{i}na nativa con 6,812 \'{a}tomos (estructura de referencia) y (2) una variante mutada con 6,816 \'{a}tomos (reemplazo de un residuo aminoac\'{i}dico).
+	La comparaci\'{o}n presentada en la Figura~\ref{fig:Tubs} se refiere a dos variantes estructurales: (1) Una prote\'{i}na nativa con 6,812 \'{a}tomos (estructura de referencia) y (2) una variante mutada con 6,816 \'{a}tomos (reemplazo de un residuo aminoac\'{i}dico).
 	
-	Los resultados obtenidos demostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns). Esta diferencia estructural se observa a pesar de la alta similitud global entre ambas variantes.
+	Los resultados obtenidos mostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns). Esta diferencia estructural se observa a pesar de la alta semejanza global entre ambas variantes.
 	La detecci\'{o}n de estas diferencias sutiles, valida la sensibilidad del m\'{e}todo propuesto para discriminar modificaciones estructurales m\'{i}nimas en sistemas proteicos.
 	
-	Con base en la evidencia discutida en esta subsecci\'{o}n y las anteriores (subsecci\'{o}n \ref{subsec:DFE} a \ref{subsec:tubulinas}), se puede establecer que las prote\'{i}nas, en general, presentan un comportamiento multifractal. Este fen\'{o}meno se manifiesta en intervalos espec\'{i}ficos, los cuales han sido caracterizados en el an\'{a}lisis. Las prote\'{i}nas restantes del estudio exhiben un comportamiento an\'{a}logo. Para una revisi\'{o}n detallada, se remite al lector al Ap\'{e}ndice \ref{chap:9P} para examinar los detalles particulares de cada sistema.
+	Con base en la evidencia discutida en esta subsecci\'{o}n y las anteriores (subsecci\'{o}n \ref{subsec:DFE} a \ref{subsec:tubulinas}), se puede establecer que las prote\'{i}nas, en general, presentan un comportamiento multifractal. Esta caracter\'{i}stica se manifiesta en intervalos espec\'{i}ficos, los cuales han sido analizados. Las prote\'{i}nas restantes del estudio exhiben un comportamiento an\'{a}logo. Para una revisi\'{o}n detallada, se remite al lector al Ap\'{e}ndice \ref{chap:9P} para examinar los detalles particulares de cada sistema.
 	
 	
 	\color{black}
