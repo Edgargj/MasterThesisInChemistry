@@ -158,7 +158,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 \subsection{Paso 6 y 7 del diagrama de flujo general}
 	 \label{subsec:paso6}
 	 
-	 En este paso se utiliza un criterio llamado densidad de part\'{i}culas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal masa. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la prote\'{i}na tiene una $\rho_{P} < 0.034$ (en la secci\'{o}n \ref{subsec:dpp} se discute a detalle la raz\'{o}n del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}. 
+	 En este paso se utiliza un criterio llamado densidad de part\'{i}culas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal masa. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la prote\'{i}na tiene una $\rho_{P} < 0.034$ (en la secci\'{o}n \ref{subsec:dpp} se discute a detalle la raz\'{o}n del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}.  
 	 	 \color{black}
 	 
 	 	\begin{figure}[H]
@@ -222,35 +222,35 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\subsection{Paso 9 del diagrama de flujo general}
  		\label{subsec:paso9}
  	
- 	\textbf{C\'{a}lculo de valores promedio sobre m\'{u}ltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (ve\'{a}se la ecuaci\'{o}n \ref{eq:Nmeans}) que pueden modificarse a conteos menores (donde los promedios fluctuar\'{a}n m\'{a}s) o conteos mayores (los promedios ser\'{a}n parecidos entre s\'{i}). 
+ 	\textbf{C\'{a}lculo de valores promedio sobre m\'{u}ltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (ve\'{a}se la ecuaci\'{o}n \ref{eq:Nmean}) que pueden modificarse a conteos menores (donde los promedios fluctuar\'{a}n m\'{a}s) o conteos mayores (los promedios ser\'{a}n parecidos entre s\'{i}). 
  	
  	
  	\begin{equation}
- 		N_{\text{means}} = 30  
- 		\label{eq:Nmeans}
+ 		N_{\text{mean}} = 30  
+ 		\label{eq:Nmean}
  	\end{equation}
  	
  	Por \'{u}ltimo, para calcular los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ se utilizan las ecuaciones \ref{eq:Np}, \ref{eq:Mp} y \ref{eq:Rgp}:
  	
  	\begin{equation}
- 		\langle N(r_k) \rangle = \frac{1}{N_{\text{means}}} 
- 		\sum_{j=1}^{N_{\text{means}}} N(\mathbf{r}_{c_j}, r_k)
+ 		\langle N(r_k) \rangle = \frac{1}{N_{\text{mean}}} 
+ 		\sum_{j=1}^{N_{\text{mean}}} N(\mathbf{r}_{c_j}, r_k)
  		\label{eq:Np}
  	\end{equation}
  	
  	\begin{equation}
- 		\langle M(r_k) \rangle = \frac{1}{N_{\text{means}}} 
- 		\sum_{j=1}^{N_{\text{means}}} M(\mathbf{r}_{c_j}, r_k)
+ 		\langle M(r_k) \rangle = \frac{1}{N_{\text{mean}}} 
+ 		\sum_{j=1}^{N_{\text{mean}}} M(\mathbf{r}_{c_j}, r_k)
  		\label{eq:Mp}
  	\end{equation}
  	
  	\begin{equation}
- 		\langle R_g(r_k) \rangle = \frac{1}{N_{\text{means}}} 
- 		\sum_{j=1}^{N_{\text{means}}} R_g(\mathbf{r}_{c_j}, r_k),
+ 		\langle R_g(r_k) \rangle = \frac{1}{N_{\text{mean}}} 
+ 		\sum_{j=1}^{N_{\text{mean}}} R_g(\mathbf{r}_{c_j}, r_k),
  		\label{eq:Rgp}
  	\end{equation}
  	
- 	donde \textbf{$N_{\text{means}}$ es el n\'{u}mero de centros aleatorios sobre los que se promedia}.
+ 	donde \textbf{$N_{\text{mean}}$ es el n\'{u}mero de centros aleatorios sobre los que se promedia}.
  	$\mathbf{r}_{c_j}$ es el vector de posici\'{o}n del j-\'{e}simo centro de medici\'{o}n y
  	$\langle\cdot\rangle$ es el promedio sobre todos los centros.	
 
@@ -295,6 +295,8 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{figure}
 
  	
+ 	\clearpage
+ 	
  	\section{Metodolog\'{i}a}
  	\label{sec:paso8}
  	
@@ -307,13 +309,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	(sin la aplicaci\'{o}n del bucle 6 $\longleftrightarrow$ 7 
  	del diagrama de flujo de la Figura \ref{dfMolFractalDim}) 
  	se proces\'{o} cada prote\'{i}na mencionada. 
-	
-	Una vez completada esta fase, se extrajeron los valores 
- 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$,
- 	 junto con el n\'{u}mero de part\'{i}culas promedio $\langle N(r^{*}) \rangle$ 
- 	  de las datos generados a partir del programa \emph{molmassfractaldim}.
- 	   Con esta informaci\'{o}n, se procedi\'{o} al c\'{a}lculo de vol\'{u}menes y densidades 
- 	   de part\'{i}culas promedio presentes en las 79 prote\'{i}nas. 
+
 	
  	\begin{table}[H]
  		\centering
@@ -382,7 +378,13 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\caption{\'{I}ndice de prote\'{i}nas (ldx), identificadores del \emph{Protein Data Bank} (IdPDB) y nombre de las prote\'{i}nas (Parte 2).}
  		\label{Tabla:ids79(2)}
  	\end{table}
-
+	
+		Una vez completada esta fase, se extrajeron los valores 
+	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$,
+	junto con el n\'{u}mero de part\'{i}culas promedio $\langle N(r^{*}) \rangle$ 
+	de las datos generados a partir del programa \emph{molmassfractaldim}.
+	Con esta informaci\'{o}n, se procedi\'{o} al c\'{a}lculo de vol\'{u}menes y densidades 
+	de part\'{i}culas promedio presentes en las 79 prote\'{i}nas. 
  
  	\clearpage
  	
@@ -479,7 +481,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 \begin{enumerate}
 	 	\item La dimensi\'{o}n fractal de masa $M(r)$ captura la distribuci\'{o}n real de masa en un sistema. 
 	 	
-	 	En una prote\'{i}na se presentan \'{a}tomos que tienen masas at\'{o}micas muy diferentes, adem\'{a}s de localizadas y centradas en los n\'{u}cleos (ejemplo de lo anterior son: H $\sim$1 g mol$^{-1}$, C $\sim$12 g mol$^{-1}$, N $\sim$14 g mol$^{-1}$, O $\sim$16 g mol$^{-1}$, S $\sim$32 g mol$^{-1}$). Ignorar esta heterogeneidad, como hace la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas $N(r)$, arrojar\'{i}a un an\'{a}lisis incompleto o diferente. Dos posibles escenarios al realizar una medida de $M(r)$ y $N(r)$ son los siguientes:
+	 	En una prote\'{i}na se presentan \'{a}tomos que tienen masas at\'{o}micas muy diferentes, adem\'{a}s de localizadas y centradas en los n\'{u}cleos (ejemplo de lo anterior son: H $\sim$1 g mol$^{-1}$, C $\sim$12 g mol$^{-1}$, N $\sim$14 g mol$^{-1}$, O $\sim$16 g mol$^{-1}$, S $\sim$32 g mol$^{-1}$). Ignorar esta heterogeneidad, como hace la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas $N(r)$, arrojar\'{i}a un an\'{a}lisis incompleto o diferente. Existen dos posibles escenarios al realizar una medida de $M(r)$ y $N(r)$ son los siguientes:
 	 	 
 	 	 \begin{itemize}
 	 	 	\item Una zona con gran cantidad de \'{a}tomos de hidr\'{o}geno (baja masa) contribuir\'{a} mayormente a la medida de $N(r)$ pero menor a la medida $M(r)$.
@@ -503,18 +505,18 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	como $\langle M(r_{k}) \rangle$. 
 	Para llevar a cabo este an\'{a}lisis, se hizo uso del programa creado
 	\textit{molfractaldim}. Ajustando dos par\'{a}metros
-	clave: (1) $N_{means}$ (ecuaci\'{o}n \ref{eq:Nmeans}) que define cu\'{a}ntos 
+	clave: (1) $N_{mean}$ (ecuaci\'{o}n \ref{eq:Nmean}) que define cu\'{a}ntos 
 	valores se promedian para obtener el valor de $\langle M(r_{k}) \rangle$,
-	cuando $N_{means} = 1$, los valores promediados presentan una mayor 
+	cuando $N_{mean} = 1$, los valores promediados presentan una mayor 
 	variabilidad, como puede observarse en la primera gr\'{a}fica de la 
 	Figura \ref{fig:Nmeasp}. En cambio, al aumentar el n\'{u}mero de mediciones 
-	a $N_{means} = 200$, las fluctuaciones disminuyen considerablemente,
+	a $N_{mean} = 200$, las fluctuaciones disminuyen considerablemente,
 	 y los valores promediados tienden a ser muy similares entre s\'{i}, como se 
 	 muestra en la segunda gr\'{a}fica de la Figura \ref{fig:Nmeasp}.
 	 Y (2) $r_{max}$ (ecuaci\'{o}n \ref{eq:rmaxymin}) que determina 
 	cu\'{a}ntos radios $r_{k}$ se toman para la medici\'{o}n.
 	
-	En este an\'{a}lisis  la elecci\'{o}n de $N_{means} = 200 $ y $r_{max} = 200$ se hizo para asegurar resultados 
+	En este an\'{a}lisis  la elecci\'{o}n de $N_{mean} = 200 $ y $r_{max} = 200$ se hizo para asegurar resultados 
 	representativos y detallados. Este procedimiento se aplic\'{o} en cada uno 
 	de los sistemas de la Tabla~\ref{Tabla:ids9}, correspondientes a 
 	los pasos descritos en la secci\'{o}n \ref{subsec:pfp}.
@@ -533,7 +535,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\end{minipage}
 		
 		\caption{
-			Gr\'{a}ficos de $\log_{10}r$ vs $\log_{10}N(r)$ correspondientes a la prote\'{i}na \textit{Tubulina mutada}, despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el n\'{u}mero de medidas en  $N_{means}$ = 1 y 200 (izquierda a derecha). Donde $N_{means}$ establece el n\'{u}mero de medidas para obtener $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.}
+			Gr\'{a}ficos de $\log_{10}r$ vs $\log_{10}N(r)$ correspondientes a la prote\'{i}na \textit{Tubulina mutada}, despu\'{e}s de una din\'{a}mica molecular de 10 ns, estableciendo el n\'{u}mero de medidas en  $N_{mean}$ = 1 y 200 (izquierda a derecha). Donde $N_{mean}$ establece el n\'{u}mero de medidas para obtener $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$.}
 		\label{fig:Nmeasp}
 	\end{figure}
 	
