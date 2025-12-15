@@ -1,10 +1,10 @@
 \chapter{Resultados y discusi\'{o}n}
 \label{chap:resulyd}
 
-Uno de los principales objetivos de esta tesis fue desarrollar un programa de c\'{o}mputo para explorar la aplicaci\'{o}n del an\'{a}lisis multifractal en estructuras proteicas. Por lo tanto, el programa podr\'{i}a ser una herramienta \'{u}til para caracterizar las distintas etapas del plegamiento proteico, describi\'{e}ndolas en t\'{e}rminos de la din\'{a}mica de formaci\'{o}n de agregados estructurales, que es importante desde el punto de vista científico, porque que permitir\'{i}a una comprensi\'{o}n profunda de estos procesos. En la siguiente secci\'{o}n se describe el algoritmo del programa \textit{molmassfractraldim}. 
+Uno de los principales objetivos de esta tesis fue desarrollar un programa de c\'{o}mputo llamado \textit{molmassfractaldim} para explorar la aplicaci\'{o}n del an\'{a}lisis multifractal en estructuras proteicas. Por lo tanto, el programa podr\'{i}a ser una herramienta \'{u}til para caracterizar las distintas etapas del plegamiento proteico, describi\'{e}ndolas en t\'{e}rminos de la din\'{a}mica de formaci\'{o}n de agregados estructurales, que es importante desde el punto de vista científico, porque que permitir\'{i}a una comprensi\'{o}n profunda de estos procesos. En la siguiente secci\'{o}n se describe el algoritmo para determinar la dimensión fractal de masa en sistemas proteicos. 
  
  
-\section{Algoritmo (diseño del programa)}
+\section{Algoritmo para el cálculo de la dimensión fractal de masa en proteínas}
 \label{sec:algoritmo}
 
 El prop\'{o}sito principal del programa \textit{molmassfractaldim} es determinar la dimensi\'{o}n fractal de masa mediante la caracterizaci\'{o}n de la geometr\'{i}a interna de un sistema proteico. Esto se logra construyendo una tabla de $r_{k}$, $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ donde;
@@ -16,18 +16,18 @@ El prop\'{o}sito principal del programa \textit{molmassfractaldim} es determinar
 	\item  $\langle Rg(r_k) \rangle$ es el radio de giro promedio de las part\'{i}culas contenidas en el radio $r_{k}$.
 \end{itemize}
 
-Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. El algoritmo general del programa se describe en el diagrama de flujo de la figura \ref{dfMolFractalDim}, cuyos pasos se explican en las siguientes subsecciones. Para una consulta general sobre las opciones disponibles de \textit{molmassfractaldim}, v\'{e}ase el ap\'{e}ndice \ref{chap:funcmolmass}.
+Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle$ y $\langle Rg(r_k) \rangle$ pueden analizarse mediante regresiones lineales para determinar la dimensi\'{o}n fractal de masa. El algoritmo general del programa se describe en el diagrama de flujo de la figura \ref{dfmolmassfractaldim}, cuyos pasos se explican en las siguientes subsecciones. Para una consulta general sobre las opciones disponibles del programa \textit{molmassfractaldim}, v\'{e}ase el ap\'{e}ndice \ref{chap:funcmolmass}.
 
  \begin{figure}[h!]
  	\begin{center}
  		\includegraphics[width=\textwidth]{graphs/dfMolFractalDim}
- 		\caption{Diagrama de flujo general del programa \textit{molmassfractaldim}.}
- 		\label{dfMolFractalDim}
+ 		\caption{Diagrama de flujo para determinar la dimensión fractal de masa en proteínas.}
+ 		\label{dfmolmassfractaldim}
  	\end{center}
  \end{figure}
  
 
- \subsection {Pasos 1, 2, 3 y 4 del diagrama de flujo general}
+ \subsection {Pasos 1, 2, 3 y 4 del diagrama de flujo}
  \label{subsec:paso1a4}
  
 	\begin{itemize}
@@ -60,7 +60,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		Donde la $i$-\'{e}sima fila es la traspuesta $\mathbf{r}_i^{\mathsf T}$.
 		
 		
-		\item \textbf{Paso 3}: El centro de masas $\mathbf{r}_{\text{cm}}$ del sistema $\mathcal{M}$ se calcula con la ecuaci\'{o}n \ref{eq:cm}.
+		\item \textbf{Paso 3}: El centro de masa $\mathbf{r}_{\text{cm}}$ del sistema $\mathcal{M}$ se calcula con la ecuaci\'{o}n \ref{eq:cm}.
 		\begin{equation}
 			\mathbf{r}_{\text{cm}}
 			= \frac{\displaystyle \sum_{i=1}^{N_{\text{at}}} m_i \mathbf{r}_i}
@@ -93,12 +93,12 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{itemize}
 
 
-	\subsection{Paso 5 del diagrama de flujo general}
+	\subsection{Paso 5 del diagrama de flujo}
 	 \label{subsec:paso5}
 	
 	\begin{itemize}
 		
-		\item \textbf{Radio m\'{a}ximo}. Se define el radio m\'{a}ximo del sistema $\mathcal{M}$, calculado como la distancia m\'{a}xima desde el origen hasta la part\'{i}cula m\'{a}s lejana del sistema, ve\'{a}se la ecuaci\'{o}n \ref{eq:Rmax}.
+		\item \textbf{Radio m\'{a}ximo}. Se define el radio m\'{a}ximo del sistema $\mathcal{M}$, calculado como la distancia m\'{a}xima desde el origen hasta la part\'{i}cula m\'{a}s lejana del sistema, v\'{e}ase la ecuaci\'{o}n \ref{eq:Rmax}.
 		
 		\begin{equation}
 			R_{\text{max}} = \max_i \|\mathbf{r}_i'\|
@@ -155,16 +155,16 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 
 	 
 
-	 \subsection{Paso 6 y 7 del diagrama de flujo general}
+	 \subsection{Paso 6 y 7 del diagrama de flujo}
 	 \label{subsec:paso6}
 	 
-	 En este paso se utiliza un criterio llamado densidad de part\'{i}culas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfMolFractalDim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal masa. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la prote\'{i}na tiene una $\rho_{P} < 0.034$ (en la secci\'{o}n \ref{subsec:dpp} se discute a detalle la raz\'{o}n del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfMolFractalDim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}.  
+	 En este paso se utiliza un criterio llamado densidad de part\'{i}culas promedio $\rho_{P}$ que tiene como objetivo determinar cuando un centro local $(r_c)$(ver paso 6 del diagrama de flujo presentado en la Fig. \ref{dfmolmassfractaldim}) no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal masa. Por ejemplo, si una esfera de cierto radio centrada en alg\'{u}n punto de la prote\'{i}na tiene una $\rho_{P} < 0.034$ (en la secci\'{o}n \ref{subsec:dpp} se discute a detalle la raz\'{o}n del valor anterior), ser\'{i}a altamente probable que la esfera intersecte en una zona considerada como un hueco de la prote\'{i}na. Por lo tanto, un centro con tales caracter\'{i}sticas podr\'{i}a ser descartado hasta que se encuentre otro centro adecuado (ver bucle 6 $\longleftrightarrow$ 7 en la Figura \ref{dfmolmassfractaldim}). Visualmente este criterio se observa en la Figura \ref{fig:centrob}.  
 	 	 \color{black}
 	 
 	 	\begin{figure}[H]
 	 	\centering
 	 	\includegraphics[width=0.5\linewidth]{graphs/centrob4.pdf}
-	 	\caption{Diagrama 2D del c\'{a}lculo de la dimensi\'{o}n fractal de masa en prote\'{i}nas mediante \textit{molfractaldim}. (1) Se define un radio m\'{a}ximo en la prote\'{i}na ($R_{max}$) alrededor del centro de masa del sistema, (2) se determina si un centro local es adecuado ($\rho_{p} \geq 0.034$). Estas cantidades se utilizan para calcular la masa promedio de las part\'{i}culas $\bar{M}(r_k)$.}
+	 	\caption{Diagrama 2D del c\'{a}lculo de la dimensi\'{o}n fractal de masa en prote\'{i}nas mediante \textit{molmassfractaldim}. (1) Se define un radio m\'{a}ximo en la prote\'{i}na ($R_{max}$) alrededor del centro de masa del sistema, (2) se determina si un centro local es adecuado ($\rho_{p} \geq 0.034$). Estas cantidades se utilizan para calcular la masa promedio de las part\'{i}culas $\bar{M}(r_k)$.}
 	 	\label{fig:centrob}
 	 \end{figure}
 	 
@@ -187,7 +187,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 \end{equation}
 	 
 
-	\subsection{Paso 8 del diagrama de flujo general}
+	\subsection{Paso 8 del diagrama de flujo}
 	\label{subsec:paso8}
 
 	Para cada radio $r_k$ en la malla $\{r_{\text{min}}, r_{\text{min}} + \Delta r, \ldots, r_{\text{max}}\}$, se definen las ecuaciones \ref{eq:N}, \ref{eq:M} y \ref{eq:Rg}.
@@ -214,15 +214,15 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{equation}
 	
 	Donde $\mathbf{r}_c$ es el centro de muestreo dentro del sistema $\mathcal{M}$,
-	$\mathbf{r}_i'$ es la posici\'{o}n del part\'{i}cula $i$ respecto al centro de masa, 
-	$m_i$ es la masa del part\'{i}cula $i$. $\Theta(x)$ es la funci\'{o}n de Heaviside que permite contar s\'{o}lo los \'{a}tomos dentro de la esfera, igual a $1$ si $x \ge 0$ y $0$ si $x < 0$, $N(\mathbf{r}_c, r_k)$ es n\'{u}mero de part\'{i}culas dentro de la esfera de radio $r_k$, $M(\mathbf{r}_c, r_k)$ es la masa total dentro de la esfera y 
-	$R_g(\mathbf{r}_c, r_k)$ es radio de giro de las part\'{i}culas de la esfera.
+	$\mathbf{r}_i'$ es la posici\'{o}n de la  part\'{i}cula $i$ respecto al centro de masa, 
+	$m_i$ es la masa de la part\'{i}cula $i$. $\Theta(x)$ es la funci\'{o}n de Heaviside que permite contar s\'{o}lo los \'{a}tomos dentro de la esfera, igual a $1$ si $x \ge 0$ y $0$ si $x < 0$, $N(\mathbf{r}_c, r_k)$ es  el n\'{u}mero de part\'{i}culas dentro de la esfera de radio $r_k$, $M(\mathbf{r}_c, r_k)$ es la masa total dentro de la esfera y 
+	$R_g(\mathbf{r}_c, r_k)$ es el radio de giro de las part\'{i}culas en la esfera.
 	
 	 	
- 	\subsection{Paso 9 del diagrama de flujo general}
+ 	\subsection{Paso 9 del diagrama de flujo}
  		\label{subsec:paso9}
  	
- 	\textbf{C\'{a}lculo de valores promedio sobre m\'{u}ltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (ve\'{a}se la ecuaci\'{o}n \ref{eq:Nmean}) que pueden modificarse a conteos menores (donde los promedios fluctuar\'{a}n m\'{a}s) o conteos mayores (los promedios ser\'{a}n parecidos entre s\'{i}). 
+ 	\textbf{C\'{a}lculo de valores promedio sobre m\'{u}ltiples centros}. Se seleccionan aleatoriamente centros de muestreo en $\{\mathbf{r}_{c_j}\}$ (v\'{e}ase la ecuaci\'{o}n \ref{eq:Nmean}) que pueden modificarse a conteos menores (donde los promedios fluctuar\'{a}n m\'{a}s) o conteos mayores (los promedios ser\'{a}n parecidos entre s\'{i}). 
  	
  	
  	\begin{equation}
@@ -255,7 +255,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	$\langle\cdot\rangle$ es el promedio sobre todos los centros.	
 
  	
- 	\subsection{Paso 10 del diagrama de flujo general}
+ 	\subsection{Paso 10 del diagrama de flujo}
  	\label{subsec:paso10}
  	
  	\textbf{Determinaci\'{o}n de la dimensi\'{o}n fractal de masa.}	 
@@ -288,9 +288,9 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\end{minipage}
 		
 		\caption{
-			Gr\'{a}ficos obtenido de $\log_{10}r$ vs $\log_{10}Z(r)$ donde $\log_{10}Z(r)$ 
+			Gr\'{a}ficos obtenidos de $\log_{10}r$ vs $\log_{10}Z(r)$ donde $\log_{10}Z(r)$ 
 			corresponde a $\langle M(r_k) \rangle$, $\langle N(r_k) \rangle$ 
-			o $\langle Rg(r_k) \rangle$, seg\'{u}n corresponda}
+			o $\langle Rg(r_k) \rangle$, seg\'{u}n corresponda.}
 		\label{fig:GrafD}
 	\end{figure}
 
@@ -307,7 +307,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	promedio $\rho_{P}$ (ver subsecci\'{o}n \ref{subsec:paso6}) 
  	fue realizada seleccionando 79 prote\'{i}nas, v\'{e}ase las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)} (provenientes del \textit{Protein Data Bank} con fecha de acceso: agosto de 2024) y con el uso del programa \emph{molmassfractaldim} 
  	(sin la aplicaci\'{o}n del bucle 6 $\longleftrightarrow$ 7 
- 	del diagrama de flujo de la Figura \ref{dfMolFractalDim}) 
+ 	del diagrama de flujo de la Figura \ref{dfmolmassfractaldim}) 
  	se proces\'{o} cada prote\'{i}na mencionada. 
 
 	
@@ -382,7 +382,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		Una vez completada esta fase, se extrajeron los valores 
 	de los radios $r^*{=}$ 5, 10, 15, 20, 25, 30 $\textup{\r{A}}$,
 	junto con el n\'{u}mero de part\'{i}culas promedio $\langle N(r^{*}) \rangle$ 
-	de las datos generados a partir del programa \emph{molmassfractaldim}.
+	de los datos generados a partir del programa \emph{molmassfractaldim}.
 	Con esta informaci\'{o}n, se procedi\'{o} al c\'{a}lculo de vol\'{u}menes y densidades 
 	de part\'{i}culas promedio presentes en las 79 prote\'{i}nas. 
  
@@ -409,10 +409,8 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  		\label{index-vs-density}
  	\end{figure}
  	
- 	
  	De la Figura \ref{index-vs-density} se observ\'{o} que la mayor\'{i}a de las prote\'{i}nas de las Tablas \ref{Tabla:ids79(1)} y \ref{Tabla:ids79(2)}  presentan una $\rho_P$ entre 0.002 y 0.070. 
  	Se distingue, adem\'{a}s, una distribuci\'{o}n moderadamente sesgada de $\rho_P$ hacia valores de radios menores ($r^* \leq 20$). Es decir, los valores de \(\rho_P\) se encuentran cerca de la media (0.034) especialmente con valores de $r^*{=}$ 5, 10, 15, 20. Pero existe un intervalo considerable que se extiende hacia valores menores a partir de $r^*$= 25, 30.
- 	
  	
  	Se puede inferir que $\rho_P$ disminuye conforme aumenta el radio, cuyo comportamiento resulta consistente con el esperado en sistemas f\'{i}sicos, donde las part\'{i}culas tienden a estar m\'{a}s densamente distribuidas en las regiones pr\'{o}ximas al centro de un volumen esf\'{e}rico.
  	
@@ -420,26 +418,38 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
  	Es importante mencionar que pocos valores caen fuera del intervalo $\nu \pm 2\sigma$ (11 valores con $r^*$ = 5, 10, 15) por lo tanto, las variaciones significativas son limitadas y pueden representar anomal\'{i}as o efectos f\'{i}sicos menos frecuentes en tales prote\'{i}nas.
  	
- 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na cualquiera, se puede utilizar el valor de la densidad de part\'{i}culas $\rho_{p} \geq 0.034$ como criterio para determinar cu\'{a}ndo un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal de masa. 
+ 	De la informaci\'{o}n anterior, rescatamos que al analizar una prote\'{i}na cualquiera, se puede utilizar el valor de la densidad de part\'{i}culas $\rho_{p} \geq 0.034$ como criterio para determinar cuando un centro no es adecuado para realizar la medici\'{o}n de la dimensi\'{o}n fractal de masa. 
  	
  	
 	\subsection{Pruebas de fractalidad en prote\'{i}nas}
 	\label{subsec:pfp}
-
- 	
- 	El an\'{a}lisis fractal fue realizado tomando como punto de partida 9 de las 79 estructuras que se utilizaron anteriormente aplicando la restricci\'{o}n de la densidad de part\'{i}culas  promedio ($\rho_{p} \geq 0.034$) como criterio para determinar cuando un centro no es adecuado para realizar el conteo de part\'{i}culas y posteriormente, la cuantificaci\'{o}n de la masa como funci\'{o}n del radio de las esferas. Adem\'{a}s, se hizo uso del programa de din\'{a}mica molecular \textit{GROMACS}\cite{Lemkul2024, Abraham2015} que permite realizar simulaciones moleculares, con el fin de comparar diferentes estados de los sistemas proteicos. Los pasos esenciales de este proceso fueron los siguientes: (1) Preparaci\'{o}n de la topolog\'{i´}a del sistema. (2) Creaci\'{o}n de la caja y solvataci\'{o}n, (3) adici\'{o}n de iones para la neutralizaci\'{o}n de la carga, (4) minimizaci\'{o}n de la energ\'{i}a del sistema, (5) equilibrio del sistema, (6) simulaci\'{o}n de producci\'{o}n y (7) resultados.
- 	
- 	
- 	
- 	Hecho lo anterior, se extrajeron las estructuras correspondientes a la \'{u}ltima 
- 	geometr\'{i}a de los siguientes procesos, para una comparaci\'{o}n posterior.
+	
+ 	El an\'{a}lisis fractal fue realizado tomando como punto de partida 9 de las 79 estructuras que se utilizaron anteriormente aplicando la restricci\'{o}n de la densidad de part\'{i}culas  promedio ($\rho_{p} \geq 0.034$) como criterio para determinar cuando un centro no es adecuado para realizar el conteo de part\'{i}culas y posteriormente, la cuantificaci\'{o}n de la masa como funci\'{o}n del radio de las esferas. 
+ 		Adem\'{a}s, para comparar diferentes estados conformacionales de los sistemas proteicos, se realizaron simulaciones de din\'{a}mica molecular empleando el programa \textit{GROMACS} \cite{Lemkul2024, Abraham2015}. La dinámica molecular es una t\'{e}cnica computacional que resuelve num\'{e}ricamente las ecuaciones del movimiento de Newton para un sistema de part\'{i}culas (\'{a}tomos), permitiendo estudiar la evoluci\'{o}n temporal de una prote\'{i}na en una escala de tiempo accesible por simulaci\'{o}n. Esto genera una trayectoria que captura su comportamiento din\'{a}mico y termodin\'{a}mico. El proceso de simulaci\'{o}n sigui\'{o} un protocolo estandarizado para garantizar la estabilidad f\'{i}sica y la relevancia bioqu\'{i}mica de los resultados. Los pasos para la din\'{a}mica molecular fueron los siguientes:
  	
  	\begin{enumerate}
- 		\item Despu\'{e}s de adicionar \'{a}tomos de hidr\'{o}geno al sistema proteico. 
- 		\item Tras finalizar el proceso de minimizaci\'{o}n de la energ\'{i}a.
- 		\item Luego de completarse la etapa de equilibrio del sistema.
- 		\item Completada la din\'{a}mica molecular durante 1 ns.
+ 		\item \textbf{Preparaci\'{o}n de la topolog\'{i}a del sistema:} Se definieron todos los par\'{a}metros de fuerza (campos de fuerza, como \textit{AMBER99} o \textit{CHARMM27}) que describen las interacciones intramoleculares (enlaces, \'{a}ngulos, diedros) e intermoleculares (Van der Waals o  electrost\'{a}ticas) para la prote\'{i}na.
+ 		
+ 		\item \textbf{Creaci\'{o}n de la caja y solvataci\'{o}n:} La prote\'{i}na se sumergi\'{o} en una caja de simulaci\'{o}n tridimensional en presencia de mol\'{e}culas de agua (generalmente modelos como  \textit{TIP3P} o \textit{SPC/E}), recreando as\'{i} un entorno fisiol\'{o}gico acuoso.
+ 		
+ 		\item \textbf{Adici\'{o}n de iones para la neutralizaci\'{o}n de la carga:} Se reemplazaron las mol\'{e}culas de agua por iones (habitualmente Na\textsuperscript{+} y Cl\textsuperscript{$-$}) para neutralizar la carga neta del sistema y alcanzar una concentraci\'{o}n salina fisiol\'{o}gica t\'{i}pica (\textit{e. gr.}, 0.15 M), mejorando la estabilidad electrost\'{a}tica de la simulaci\'{o}n.
+ 		
+ 		\item \textbf{Minimizaci\'{o}n de la energ\'{i}a del sistema:} Se utiliz\'{o} un algoritmo para relajar la estructura y eliminar conflictos est\'{e}ricos o tensiones geom\'{e}tricas artificiales, llevando el sistema a un m\'{i}nimo energ\'{e}tico local y previniendo inestabilidades num\'{e}ricas.
+ 		
+ 		\item \textbf{Equilibrio del sistema:} Esta fase consta normalmente de dos etapas: primero, un equilibrio en el ensamble NVT (n\'{u}mero de part\'{i}culas, volumen y temperatura constantes), tambi\'{e}n conocido como \textit{ensamble can\'{o}nico}. En este ensamble, la temperatura del sistema se acopla a un termostato externo (como el Berendsen o \textit{Velocity-Rescaling}) para mantenerla en el valor deseado (e.g., 300 K), permitiendo que las velocidades de las part\'{i}culas se ajusten correctamente. Posteriormente, continua la segunda etapa en el ensamble NPT (n\'{u}mero de part\'{i}culas, presi\'{o}n y temperatura constantes) para ajustar la densidad del disolvente a condiciones ambientales.
+ 		
+ 		\item \textbf{Simulaci\'{o}n de producci\'{o}n:} Una vez equilibrado, el sistema se simuló en el ensamble NPT o NVT durante un tiempo extenso (del orden de nanosegundos a microsegundos en tiempo real). Esta fase genera la trayectoria principal que se analizó para extraer propiedades termodin\'{a}micas, din\'{a}micas y estructurales.
+ 		
+ 		\item \textbf{Resultados:} La trayectoria de producci\'{o}n se procesa para calcular medidas observables de inter\'{e}s, tales como  $R_{g}$ o \textit{rmsd}.
  	\end{enumerate}
+ 
+ 	Hecho lo anterior, se extrajeron las estructuras correspondientes a la \'{u}ltima 
+ 	geometr\'{i}a de los siguientes procesos, para una comparaci\'{o}n posterior.
+ 	(1) Despu\'{e}s de adicionar \'{a}tomos de hidr\'{o}geno al sistema proteico. 
+ 	(2) Tras finalizar el proceso de minimizaci\'{o}n de la energ\'{i}a.
+ 	(3) Luego de completarse la etapa de equilibrio del sistema.
+ 	(4) Completada la din\'{a}mica molecular durante 1 ns.
+
  	
  	
  	\subsection{Elecci\'{o}n de sistemas}
@@ -481,7 +491,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 \begin{enumerate}
 	 	\item La dimensi\'{o}n fractal de masa $M(r)$ captura la distribuci\'{o}n real de masa en un sistema. 
 	 	
-	 	En una prote\'{i}na se presentan \'{a}tomos que tienen masas at\'{o}micas muy diferentes, adem\'{a}s de localizadas y centradas en los n\'{u}cleos (ejemplo de lo anterior son: H $\sim$1 g mol$^{-1}$, C $\sim$12 g mol$^{-1}$, N $\sim$14 g mol$^{-1}$, O $\sim$16 g mol$^{-1}$, S $\sim$32 g mol$^{-1}$). Ignorar esta heterogeneidad, como hace la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas $N(r)$, arrojar\'{i}a un an\'{a}lisis incompleto o diferente. Existen dos posibles escenarios al realizar una medida de $M(r)$ y $N(r)$ son los siguientes:
+	 	La dimensión fractal de masa $M(r)$  representa la masa acumulada dentro de un radio $r$ y caracteriza la distribución espacial de la masa real en un sistema, como una proteína. A diferencia de la dimensión fractal del número de partículas $N(r)$, la cual trata todos los átomos por igual, $M(r)$ pondera cada átomo según su masa atómica, capturando así la heterogeneidad química del sistema proteico. Por ejemplo: En una prote\'{i}na se presentan \'{a}tomos que tienen masas at\'{o}micas muy diferentes, adem\'{a}s de localizadas y centradas en los n\'{u}cleos (ejemplo de lo anterior son: H $\sim$1 g mol$^{-1}$, C $\sim$12 g mol$^{-1}$, N $\sim$14 g mol$^{-1}$, O $\sim$16 g mol$^{-1}$, S $\sim$32 g mol$^{-1}$). Ignorar esta heterogeneidad, como hace la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas $N(r)$, arrojar\'{i}a un an\'{a}lisis incompleto o diferente. Dicho lo anterior, existen dos posibles escenarios al realizar una medida de $M(r)$ y $N(r)$ son los siguientes:
 	 	 
 	 	 \begin{itemize}
 	 	 	\item Una zona con gran cantidad de \'{a}tomos de hidr\'{o}geno (baja masa) contribuir\'{a} mayormente a la medida de $N(r)$ pero menor a la medida $M(r)$.
@@ -491,8 +501,8 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	 	 
 		\item Relaci\'{o}n con multifractalidad.
 		
-		La multifractalidad surge de la heterogeneidad en un objeto de an\'{a}lisis. Al usar la masa como medida $M(r)$, se asegura una heterogeneidad adicional y f\'{i}sicamente significativa respecto a solo contar part\'{i}culas ($N(r)$, es decir, tratar a todos los \'{a}tomos por igual). Por lo tanto, la medida de $M(r)$ incluye informaci\'{o}n de las masas at\'{o}micas.
-	 	 
+		La multifractalidad reflejan la variabilidad de la distribuci\'{o}n y concentraci\'{o}n de sus elementos. Al usar la masa como medida $M(r)$, se asegura una heterogeneidad adicional y f\'{i}sicamente significativa respecto a solo contar part\'{i}culas ($N(r)$, es decir, tratar a todos los \'{a}tomos por igual). Por lo tanto, la medida de $M(r)$ incluye informaci\'{o}n de las masas at\'{o}micas.
+
 	 \end{enumerate}
 	
 	\clearpage
@@ -503,16 +513,16 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	Se calcul\'{o} la masa promedio de las part\'{i}culas 
 	contenidas dentro de las esferas de radio $r_k$, definida 
 	como $\langle M(r_{k}) \rangle$. 
-	Para llevar a cabo este an\'{a}lisis, se hizo uso del programa creado
-	\textit{molfractaldim}. Ajustando dos par\'{a}metros
+	Para llevar a cabo este an\'{a}lisis, se hizo uso del programa creado \textit{molmassfractaldim}. 
+	Ajustando dos par\'{a}metros
 	clave: (1) $N_{mean}$ (ecuaci\'{o}n \ref{eq:Nmean}) que define cu\'{a}ntos 
 	valores se promedian para obtener el valor de $\langle M(r_{k}) \rangle$,
 	cuando $N_{mean} = 1$, los valores promediados presentan una mayor 
-	variabilidad, como puede observarse en la primera gr\'{a}fica de la 
+	variabilidad, como puede observarse en la gr\'{a}fica a) de la 
 	Figura \ref{fig:Nmeasp}. En cambio, al aumentar el n\'{u}mero de mediciones 
 	a $N_{mean} = 200$, las fluctuaciones disminuyen considerablemente,
 	 y los valores promediados tienden a ser muy similares entre s\'{i}, como se 
-	 muestra en la segunda gr\'{a}fica de la Figura \ref{fig:Nmeasp}.
+	 muestra en la gr\'{a}fica b) de la Figura \ref{fig:Nmeasp}.
 	 Y (2) $r_{max}$ (ecuaci\'{o}n \ref{eq:rmaxymin}) que determina 
 	cu\'{a}ntos radios $r_{k}$ se toman para la medici\'{o}n.
 	
@@ -580,11 +590,43 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	
 	La selecci\'on del intervalo 2--6~$\textup{\r{A}}$, utilizado para la medici\'on o implementaci\'on de ajustes lineales en el an\'alisis multifractal, tiene su origen en el di\'ametro promedio de los amino\'acidos ($d_p$) reportado por Siyuan Liu \textit{et al.} \cite{Liu2020} siendo $d_p \approx$ 4,188 $\textup{\r{A}}$. Posteriormente, la elecci\'{o}n de los intervalos parciales 1--2~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ fue  heur\'{i}stica, observando las gr\'{a}ficas de $\log_{10}r$ vs $\log_{10}M(r)$ de cada prote\'{i}na de la Tabla \ref{Tabla:ids9}.
 	
+	\clearpage	
+	
 	\section{Discusi\'{o}n de resultados}	
 	\label{sec:disresult}
 	
 	\subsection{Dimensiones fractales en distintas etapas}
 	\label{subsec:DFE}
+	
+	En la Figura \ref{fig:Df-general}, las prote\'{i}nas Hemoglobina humana desoxidante cadena $\alpha$ y 
+	Hemoglobina embrionaria cadena $\alpha$ (1a3n y 1a9w) exhiben valores de dimensi\'{o}n 
+	fractal $b \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta b < 0.2$) posterior al equilibrio
+	termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $b \approx 3.5$  es contraintuitivo, pero 
+	podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa 
+	(se toman en cuenta las masas promedio de los \'{a}tomos en la medida)
+	y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las
+	part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph
+	{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada 
+	durante la etapa de equilibrio del sistema.
+	
+	Este comportamiento sugiere la coexistencia de al menos, dos dimensiones fractales diferenciadas en las 
+	prote\'{i}nas: (1a2b) Transformadora RHOA, (1b3e) Transferrina s\'{e}rica, (11gs) Glutati\'{o}n s-transferasa, (1auk) Aril
+	sulfatasa A, (1a8m) Factor en necr\'{o}sis tumoral $\alpha$, (1a52) Receptor de estr\'{o}geno y (7khw) Translocon Esp
+	A en los intervalos de 1--2~$\textup{\r{A}}$ y 2--6~$\textup{\r{A}}$ que se muestran en todas las fases de 
+	simulaci\'{o}n. La variaci\'{o}n de $b$ evidenci\'{o} un comportamiento multifractal, donde la dimensi\'{o}n fractal de masa 
+	evoluciona progresivamente desde organizaciones locales hasta globales. Estos hallazgos confirman que cada etapa 
+	computacional (adici\'{o}n, minimizaci\'{o}n, equilibrio y din\'{a}mica molecular) inciden en la reconfiguraci\'{o}n de la
+	dimensi\'{o}n fractal proteica debido al tamaño del sistema.
+	
+	\clearpage
+	
+	Es importante mencionar que en los sistemas proteicos: (1a3n) Hemoglobina humana desoxidante cadena $\alpha$
+	y (1a9w) Hemoglobina embrionaria cadena $\alpha$, tienen una estructura cuaternaria, es decir, para llevar a cabo su
+	funci\'{o}n requieren de cuatro mon\'{o}meros perfectamente plegados que se unen por interacciones no covalentes para
+	adquirir un car\'{a}cter funcional y a diferencia de los siete sistemas anteriores, (1a3n) y (1a9w) muestran tres dimensiones 
+	fractales en los intervalos de 1--2~$\textup{\r{A}}$, 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ persistentes 
+	en todas las fases de simulaci\'{o}n. Lo anterior sugiere que la medici\'{o}n podr\'{i}a ser lo suficientemente 
+	sensible como para detectar niveles superiores de organizaci\'{o}n proteica.
 	
 	\begin{figure}[H]
 		\centering
@@ -614,44 +656,16 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 			\caption{(4)}
 		\end{subfigure}
 		
-		\caption{Valores de dimensi\'{o}n fractal de masa $D$ vs identificadores de prote\'{i}nas (IdPDB) para las prote\'{i}nas ilustradas en la Tabla \ref{Tabla:ids9}, correspondientes a cuatro etapas de procesamiento: (1) Adici\'{o}n de \'{a}tomos de hidr\'{o}geno al sistema proteico, (2) al minimizar la energ\'{i´}a de la estructura molecular, (3) equilibrando el sistema bajo condiciones termodin\'{a}micas  y (4) despu\'{e}s de una din\'{a}mica molecular de 1 ns. Las l\'{i}neas azules, verdes y rojas representan $D$ en los intervalos de 1 a 2~$\textup{\r{A}}$, 2 a 6~$\textup{\r{A}}$ y 6 a 20~$\textup{\r{A}}$, respectivamente.}
+		\caption{Valores de dimensi\'{o}n fractal de masa $b$ vs identificadores de prote\'{i}nas (IdPDB) para las prote\'{i}nas ilustradas en la Tabla \ref{Tabla:ids9}, correspondientes a cuatro etapas de procesamiento: (1) Adici\'{o}n de \'{a}tomos de hidr\'{o}geno al sistema proteico, (2) al minimizar la energ\'{i´}a de la estructura molecular, (3) equilibrando el sistema bajo condiciones termodin\'{a}micas  y (4) despu\'{e}s de una din\'{a}mica molecular de 1 ns. Las l\'{i}neas azules, negras y anaranjadas representan $b$ en los intervalos de 1 a 2~$\textup{\r{A}}$, 2 a 6~$\textup{\r{A}}$ y 6 a 20~$\textup{\r{A}}$, respectivamente.}
 		\label{fig:Df-general}
 	\end{figure}
 	
 		\clearpage
-	
-		En la Figura \ref{fig:Df-general}, las prote\'{i}nas Hemoglobina humana desoxidante cadena $\alpha$ y 
-		Hemoglobina embrionaria cadena $\alpha$ (1a3n y 1a9w) exhiben valores de dimensi\'{o}n 
-		fractal $D \approx 3.5$ en todas las etapas, con una reducci\'{o}n  ($\Delta D < 0.2$) posterior al equilibrio
-		 termodin\'{a}mico y una din\'{a}mica molecular de 1ns. El valor $D \approx 3.5$  es contraintuitivo, pero 
-		 podr\'{i}a deberse a que nuestro estudio se ha enfocado en analizar la dimensi\'{o}n fractal de masa 
-		 (se toman en cuenta las masas promedio de los \'{a}tomos en la medida)
-		y no la dimensi\'{o}n fractal del n\'{u}mero de part\'{i}culas (es decir, que no depende de la masa promedio de las
-		part\'{i}culas presentes en la estructura proteica). Adem\'{a}s, se identific\'{o} una correlaci\'{o}n inversa (\emph
-		{relaci\'{o}n tipo espejo}) entre los intervalos 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$, particularmente marcada 
-		durante la etapa de equilibrio del sistema.
 		
-		Este comportamiento sugiere la coexistencia de al menos, dos dimensiones fractales diferenciadas en las 
-		prote\'{i}nas: (1a2b) Transformadora RHOA, (1b3e) Transferrina s\'{e}rica, (11gs) Glutati\'{o}n s-transferasa, (1auk) Aril
-		sulfatasa A, (1a8m) Factor en necr\'{o}sis tumoral $\alpha$, (1a52) Receptor de estr\'{o}geno y (7khw) Translocon Esp
-		A en los intervalos de 1--2~$\textup{\r{A}}$ y 2--6~$\textup{\r{A}}$ que se muestran en todas las fases de 
-		simulaci\'{o}n. La variaci\'{o}n de $D$ evidenci\'{o} un comportamiento multifractal, donde la dimensi\'{o}n fractal de masa 
-		evoluciona progresivamente desde organizaciones locales hasta globales. Estos hallazgos confirman que cada etapa 
-		computacional (adici\'{o}n, minimizaci\'{o}n, equilibrio y din\'{a}mica molecular) inciden en la reconfiguraci\'{o}n de la
-		dimensi\'{o}n fractal proteica debido al tamaño del sistema.
-		
-		Es importante mencionar que en los sistemas proteicos: (1a3n) Hemoglobina humana desoxidante cadena $\alpha$
-		y (1a9w) Hemoglobina embrionaria cadena $\alpha$, tienen una estructura cuaternaria, es decir, para llevar a cabo su
-		funci\'{o}n requieren de cuatro mon\'{o}meros perfectamente plegados que se unen por interacciones no covalentes para
-		adquirir un car\'{a}cter funcional y a diferencia de los siete sistemas anteriores, (1a3n) y (1a9w) muestran tres dimensiones 
-		fractales en los intervalos de 1--2~$\textup{\r{A}}$, 2--6~$\textup{\r{A}}$ y 6--20~$\textup{\r{A}}$ persistentes 
-		en todas las fases de simulaci\'{o}n. Lo anterior sugiere que la medici\'{o}n podr\'{i}a ser lo suficientemente 
-		sensible como para detectar niveles superiores de organizaci\'{o}n proteica.
-	
+				\subsection{Efecto de iones en la dimensi\'{o}n fractal de masa}
+			\label{subsec:EfectoIones}	
 	
 	\begin{figure}[H]
-		\subsection{Efecto de iones en la dimensi\'{o}n fractal de masa}
-		\label{subsec:EfectoIones}	
 		\centering
 		\begin{subfigure}{0.49\textwidth}
 			\centering
@@ -667,8 +681,7 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\caption{Gr\'{a}ficos de $\log_{10}r$ vs $\log_{10}M(r)$ correspondientes a dos etapas de procesamiento de la prote\'{i}na \textit{Translocon EsA}  de la Tabla \ref{Tabla:ids9} (con iones Na$^{+}$ en su estructura) despu\'{e}s de (1) equilibrar el sistema bajo condiciones termodin\'{a}micas  y (2) de una din\'{a}mica molecular de 1 ns. Los valores de $b$ en cada gr\'{a}fica representan la dimensi\'{o}n fractal de masa en los intervalos 1 a 2~$\textup{\r{A}}$, 2 a 6~$\textup{\r{A}}$ y 6 a 20~$\textup{\r{A}}$.}
 		\label{fig:7khw-wions}
 	\end{figure}
-	
-	
+
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}{0.49\textwidth}
@@ -686,41 +699,47 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 		\label{fig:7khw-oions}
 	\end{figure}
 	
+	En las Figuras \ref{fig:7khw-wions} y \ref{fig:7khw-oions}, se compara la distribuci\'{o}n de masa de la prote\'{i}na \textit{Translocon EsA} (7khw) en dos etapas: Tras el equilibrio estructural y luego de una din\'{a}mica molecular de 1~ns. La Figura \ref{fig:7khw-wions} considera la estructura proteica con iones presentes, revelando tres pendientes en la regresi\'{o}n de $\log_{10}r$ vs $\log_{10}M(r)$, lo que sugiere un comportamiento multifractal en 3 intervalos (ver Tabla \ref{tab:tab-7khw}). Sin embargo, en la Figura \ref{fig:7khw-oions}, 250 iones de sodio que no pertenec\'{i}an a la estructura intr\'{i}nseca de la prote\'{i}na fueron eliminados, con el fin de validar la reproducibilidad de los resultados. Sorprendentemente, en el \'{u}ltimo caso solo se observaron dos pendientes, aunque la estructura original conten\'{i}a  un excedente de 250 \'{a}tomos de sodio (aproximadamente el 0.19\% comparado con los 131,200 \'{a}tomos presentes en la estructura proteica). Por lo tanto, la dimensión fractal de masa resultó ser un parámetro lo suficientemente sensible como para detectar cambios estructurales mínimos, permitiendo distinguir entre dos estados conformacionales (equilibrio estructural y dinámica molecular) en una proteína de gran tamaño (~131,200 átomos), incluso cuando sus estructuras son prácticamente idénticas (con una diferencia del 0.19\% en átomos). 
+	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{lllSS}
-			\multicolumn{5}{c}{\textbf{Proteina Translocon EsA (idPDB: 7khw)}} \\
-			\midrule
-			\textbf{Estado de la prote\'{i}na} & \textbf{Etapa} & \textbf{Intervalo (\AA)} & \textbf{$R^{2}$} & \textbf{Pendiente ($b$)} \\
-			\midrule
-			\multirow{6}{*}{\centering Con Na$^{+}$}
-			&            & 1-2 & 0.933264 & 1.67544 \\
-			& Equilibrio & 2-6 & 0.997049 & 2.58655 \\
-			&            & 6-20 & 0.999965 & 2.76119 \\
-			\cmidrule(lr){2-5}
-			&                    & 1-2 & 0.938494 & 1.59519 \\
-			& Din\'{a}mica (1ns) & 2-6 & 0.997471 & 2.5893 \\
-			&                    & 6-20 & 0.999977 & 2.77564 \\
-			
-			\cmidrule(lr){2-5}
-			\multirow{6}{*}{\centering Sin Na$^{+}$}
-			&            & 1-2 & 0.930791 & 1.52684 \\
-			& Equilibrio & 2-6 & 0.996961 & 2.60358 \\
-			&            & 6-20 & 0.999988 & 2.79052 \\
-			\cmidrule(lr){2-5}
-			&                    & 1-2 & 0.929409 & 1.59215 \\
-			& Din\'{a}mica (1ns) & 2-6 & 0.99807 & 2.64238 \\
-			&                    & 6-20 & 0.999938 & 2.78170 \\
-			\bottomrule
-		\end{tabular}
+		\begin{footnotesize}
+			\begin{tabular}{lllSS}
+				\multicolumn{5}{c}{\textbf{Proteina Translocon EsA (idPDB: 7khw)}} \\
+				\midrule
+				\textbf{Estado de la prote\'{i}na} & \textbf{Etapa} & \textbf{Intervalo (\AA)} & \textbf{$R^{2}$} & \textbf{Pendiente ($b$)} \\
+				\midrule
+				\multirow{6}{*}{\centering Con Na$^{+}$}
+				&            & 1-2 & 0.933264 & 1.67544 \\
+				& Equilibrio & 2-6 & 0.997049 & 2.58655 \\
+				&            & 6-20 & 0.999965 & 2.76119 \\
+				\cmidrule(lr){2-5}
+				&                    & 1-2 & 0.938494 & 1.59519 \\
+				& Din\'{a}mica (1ns) & 2-6 & 0.997471 & 2.5893 \\
+				&                    & 6-20 & 0.999977 & 2.77564 \\
+				
+				\cmidrule(lr){2-5}
+				\multirow{6}{*}{\centering Sin Na$^{+}$}
+				&            & 1-2 & 0.930791 & 1.52684 \\
+				& Equilibrio & 2-6 & 0.996961 & 2.60358 \\
+				&            & 6-20 & 0.999988 & 2.79052 \\
+				\cmidrule(lr){2-5}
+				&                    & 1-2 & 0.929409 & 1.59215 \\
+				& Din\'{a}mica (1ns) & 2-6 & 0.99807 & 2.64238 \\
+				&                    & 6-20 & 0.999938 & 2.78170 \\
+				\bottomrule
+			\end{tabular}
+		\end{footnotesize}
 		\caption{Resumen de datos de las regresiones lineales de $\log_{10}r$ vs $\log_{10}M(r)$ de las Figuras \ref{fig:7khw-wions} y \ref{fig:7khw-oions}.}
 		\label{tab:tab-7khw}
 	\end{table}
 	
-	En las Figuras \ref{fig:7khw-wions} y \ref{fig:7khw-oions}, se compara la distribuci\'{o}n de masa de la prote\'{i}na \textit{Translocon EsA} (7khw) en dos etapas: Tras el equilibrio estructural y luego de una din\'{a}mica molecular de 1~ns. La Figura \ref{fig:7khw-wions} considera la estructura proteica con iones presentes, revelando tres pendientes en la regresi\'{o}n de $\log_{10}r$ vs $\log_{10}M(r)$, lo que sugiere un comportamiento multifractal en 3 intervalos. Sin embargo, en la Figura \ref{fig:7khw-oions}, 250 iones de sodio que no pertenec\'{i}an a la estructura intr\'{i}nseca de la prote\'{i}na fueron eliminados, con el fin de validar la reproducibilidad de los resultados. Sorprendentemente, en el \'{u}ltimo caso solo se observaron dos pendientes, aunque la estructura original conten\'{i}a  un excedente de 250 \'{a}tomos de sodio (aproximadamente el 0.19\% comparado con los 131,200 \'{a}tomos presentes en la estructura proteica). Por lo tanto, esta comparaci\'{o}n muestra que la estimaci\'{o}n de la dimensi\'{o}n fractal de masa es sensible a modificaciones estructurales m\'{i}nimas. %Estos resultados respaldan el uso potencial de dicha medida como herramienta de caracterizaci\'{o}n estructural en prote\'{i}nas. 
+	%En resumen, la dimensión fractal de masa es una medida lo suficientemente precisa para discriminar entre dos fases estructurales muy similares (con una diferencia del 0.19% en átomos) en una proteína de ~131k átomos, destacando su utilidad para capturar modificaciones conformacionales mínimas.
+	
+	%Por lo tanto, esta comparaci\'{o}n muestra que la estimaci\'{o}n de la dimensi\'{o}n fractal de masa es sensible a modificaciones estructurales m\'{i}nimas, es decir, esta medida puede diferenciar entre dos etapas (equilibrio estructural y dinámica molecular) en una proteína de 131, 200 \'{a}tomos, a pesar de la similitud entre ellas (con una diferencia de 0.19\% de excedente en átomos). %Estos resultados respaldan el uso potencial de dicha medida como herramienta de caracterizaci\'{o}n estructural en prote\'{i}nas. 
 	
 	
-	\subsection{Caso particular de estudio:tubulinas}
+	\subsection{Caso particular de estudio: tubulinas}
 	\label{subsec:tubulinas}
 	
 	\begin{figure}[H]
@@ -742,11 +761,13 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\end{figure}
 	
 	
-	La comparaci\'{o}n presentada en la Figura~\ref{fig:Tubs} se refiere a dos variantes estructurales: (1) Una prote\'{i}na nativa con 6,812 \'{a}tomos (estructura de referencia) y (2) una variante mutada con 6,816 \'{a}tomos (reemplazo de un residuo aminoac\'{i}dico).
+	La comparaci\'{o}n presentada en la Figura~\ref{fig:Tubs} se refiere a dos variantes estructurales: (1) Una prote\'{i}na nativa con 6,812 \'{a}tomos (estructura de referencia) y (2) una variante mutada con 6,816 \'{a}tomos (reemplazo de un residuo aminoac\'{i}dico). Además, esta variación estructural proteica tiene una relevancia médica debido a que este cambio sutil, provoca una enfermedad neurodegenerativa.
 	
 	Los resultados obtenidos mostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns). Esta diferencia estructural se observa a pesar de la alta semejanza global entre ambas variantes.
 	La detecci\'{o}n de estas diferencias sutiles, valida la sensibilidad del m\'{e}todo propuesto para discriminar modificaciones estructurales m\'{i}nimas en sistemas proteicos.
-	
+
+	\clearpage
+
 	Con base en la evidencia discutida en esta subsecci\'{o}n y las anteriores (subsecci\'{o}n \ref{subsec:DFE} a \ref{subsec:tubulinas}), se puede establecer que las prote\'{i}nas, en general, presentan un comportamiento multifractal. Esta caracter\'{i}stica se manifiesta en intervalos espec\'{i}ficos, los cuales han sido analizados. Las prote\'{i}nas restantes del estudio exhiben un comportamiento an\'{a}logo. Para una revisi\'{o}n detallada, se remite al lector al Ap\'{e}ndice \ref{chap:9P} para examinar los detalles particulares de cada sistema.
 	
 	
