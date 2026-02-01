@@ -259,16 +259,16 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
  	\label{subsec:paso10}
  	
  	\textbf{Determinaci\'{o}n de la dimensi\'{o}n fractal de masa.}	 
- 	Para calcular la dimensi\'{o}n fractal de masa $D$, 
+ 	Para calcular la dimensi\'{o}n fractal de masa $b$, 
  	se asume un comportamiento de ley de potencia, 
  	ver ecuaci\'{o}n \ref{eq:leyp2}.
  	
  	\begin{equation}
- 		\langle Z(r_{k}) \rangle \propto r^{D}_{k}
+ 		\langle Z(r_{k}) \rangle \propto r^{b}_{k}
  		\label{eq:leyp2}
  	\end{equation}
  	
- 	El exponente de escala $D$ relaciona $\langle Z(r) \rangle$ 
+ 	El exponente de escala $b$ relaciona $\langle Z(r) \rangle$ 
  	con $r_{k}$ donde $\langle Z(r) \rangle$ representa $\langle M(r_k) \rangle$,
  	 $\langle N(r_k) \rangle$ o $\langle Rg(r_k) \rangle$. 
  	Por \'{u}ltimo, se crea una gr\'{a}fica de  $\log_{10}r_{k}$ vs $\log_{10}Z(r_k)$ 
@@ -425,20 +425,21 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\label{subsec:pfp}
 	
  	El an\'{a}lisis fractal fue realizado tomando como punto de partida 9 de las 79 estructuras que se utilizaron anteriormente aplicando la restricci\'{o}n de la densidad de part\'{i}culas  promedio ($\rho_{p} \geq 0.034$) como criterio para determinar cuando un centro no es adecuado para realizar el conteo de part\'{i}culas y posteriormente, la cuantificaci\'{o}n de la masa como funci\'{o}n del radio de las esferas. 
- 		Adem\'{a}s, para comparar diferentes estados conformacionales de los sistemas proteicos, se realizaron simulaciones de din\'{a}mica molecular empleando el programa \textit{GROMACS} \cite{Lemkul2024, Abraham2015}. La dinámica molecular es una t\'{e}cnica computacional que resuelve num\'{e}ricamente las ecuaciones del movimiento de Newton para un sistema de part\'{i}culas (\'{a}tomos), permitiendo estudiar la evoluci\'{o}n temporal de una prote\'{i}na en una escala de tiempo accesible por simulaci\'{o}n. Esto genera una trayectoria que captura su comportamiento din\'{a}mico y termodin\'{a}mico. El proceso de simulaci\'{o}n sigui\'{o} un protocolo estandarizado para garantizar la estabilidad f\'{i}sica y la relevancia bioqu\'{i}mica de los resultados. Los pasos para la din\'{a}mica molecular fueron los siguientes:
+ 		Adem\'{a}s, para comparar diferentes estados conformacionales de los sistemas proteicos, se realizaron simulaciones de din\'{a}mica molecular empleando el programa \textit{GROMACS} \cite{Lemkul2024, Abraham2015}. La dinámica molecular es una t\'{e}cnica computacional que resuelve num\'{e}ricamente las ecuaciones del movimiento de Newton para un sistema de part\'{i}culas (\'{a}tomos), permitiendo estudiar la evoluci\'{o}n temporal de una prote\'{i}na en una escala de tiempo accesible por simulaci\'{o}n. Esto genera una trayectoria que captura el comportamiento din\'{a}mico y termodin\'{a}mico. El proceso de simulaci\'{o}n sigui\'{o} un protocolo estandarizado para garantizar la estabilidad f\'{i}sica y la relevancia bioqu\'{i}mica de los resultados. Los pasos para la din\'{a}mica molecular fueron los siguientes:
  	
  	\begin{enumerate}
- 		\item \textbf{Preparaci\'{o}n de la topolog\'{i}a del sistema:} Se definieron todos los par\'{a}metros de fuerza (campos de fuerza, como \textit{AMBER99} o \textit{CHARMM27}) que describen las interacciones intramoleculares (enlaces, \'{a}ngulos, diedros) e intermoleculares (Van der Waals o  electrost\'{a}ticas) para la prote\'{i}na.
+ 		\item \textbf{Preparaci\'{o}n de la topolog\'{i}a del sistema:} Se definieron todos los par\'{a}metros de fuerza (campos de fuerza como \textit{AMBER99} o \textit{CHARMM27}) que describen las interacciones intramoleculares (enlaces, \'{a}ngulos, diedros) e intermoleculares (Van der Waals o  electrost\'{a}ticas) para la prote\'{i}na.
  		
- 		\item \textbf{Creaci\'{o}n de la caja y solvataci\'{o}n:} La prote\'{i}na se sumergi\'{o} en una caja de simulaci\'{o}n tridimensional en presencia de mol\'{e}culas de agua (generalmente modelos como  \textit{TIP3P} o \textit{SPC/E}), recreando as\'{i} un entorno fisiol\'{o}gico acuoso.
+ 		\item \textbf{Creaci\'{o}n de la caja y solvataci\'{o}n:} Las prote\'{i}nas se sumergieron en una caja de simulaci\'{o}n tridimensional en presencia de mol\'{e}culas de agua (modelos como  \textit{TIP3P} o \textit{SPC/E}), recreando as\'{i} un entorno fisiol\'{o}gico acuoso.
  		
  		\item \textbf{Adici\'{o}n de iones para la neutralizaci\'{o}n de la carga:} Se reemplazaron las mol\'{e}culas de agua por iones (habitualmente Na\textsuperscript{+} y Cl\textsuperscript{$-$}) para neutralizar la carga neta del sistema y alcanzar una concentraci\'{o}n salina fisiol\'{o}gica t\'{i}pica (\textit{e. gr.}, 0.15 M), mejorando la estabilidad electrost\'{a}tica de la simulaci\'{o}n.
  		
- 		\item \textbf{Minimizaci\'{o}n de la energ\'{i}a del sistema:} Se utiliz\'{o} un algoritmo para relajar la estructura y eliminar conflictos est\'{e}ricos o tensiones geom\'{e}tricas artificiales, llevando el sistema a un m\'{i}nimo energ\'{e}tico local y previniendo inestabilidades num\'{e}ricas.
+ 		\item \textbf{Minimizaci\'{o}n de la energ\'{i}a del sistema:} Se utiliz\'{o} un algoritmo para relajar la estructura y eliminar conflictos est\'{e}ricos o tensiones geom\'{e}tricas artificiales, llevando el sistema a un m\'{i}nimo energ\'{e}tico local. 
+ 		%previniendo inestabilidades num\'{e}ricas.
  		
- 		\item \textbf{Equilibrio del sistema:} Esta fase consta normalmente de dos etapas: primero, un equilibrio en el ensamble NVT (n\'{u}mero de part\'{i}culas, volumen y temperatura constantes), tambi\'{e}n conocido como \textit{ensamble can\'{o}nico}. En este ensamble, la temperatura del sistema se acopla a un termostato externo (como el Berendsen o \textit{Velocity-Rescaling}) para mantenerla en el valor deseado (e.g., 300 K), permitiendo que las velocidades de las part\'{i}culas se ajusten correctamente. Posteriormente, continua la segunda etapa en el ensamble NPT (n\'{u}mero de part\'{i}culas, presi\'{o}n y temperatura constantes) para ajustar la densidad del disolvente a condiciones ambientales.
+ 		\item \textbf{Equilibrio del sistema:} Esta fase consta normalmente de dos etapas: primero, un equilibrio en el ensamble NVT (n\'{u}mero de part\'{i}culas, volumen y temperatura constante), tambi\'{e}n conocido como \textit{ensamble can\'{o}nico}. En este ensamble, la temperatura del sistema se acopla a un termostato externo (como el Berendsen o \textit{Velocity-Rescaling}) para mantenerla en el valor deseado (e.g., 300 K), permitiendo que las velocidades de las part\'{i}culas se ajusten correctamente. Posteriormente, continua la segunda etapa en un ensamble NPT (n\'{u}mero de part\'{i}culas, presi\'{o}n y temperatura constantes) para ajustar la densidad del disolvente a condiciones ambientales.
  		
- 		\item \textbf{Simulaci\'{o}n de producci\'{o}n:} Una vez equilibrado, el sistema se simuló en el ensamble NPT o NVT durante un tiempo extenso (del orden de nanosegundos a microsegundos en tiempo real). Esta fase genera la trayectoria principal que se analizó para extraer propiedades termodin\'{a}micas, din\'{a}micas y estructurales.
+ 		\item \textbf{Simulaci\'{o}n de producci\'{o}n:} Una vez equilibrado el sistema, se simuló en un ensamble NPT o NVT durante un tiempo extenso (del orden de nanosegundos a microsegundos en tiempo real). Esta fase genera la trayectoria principal que se analizó para extraer propiedades termodin\'{a}micas, din\'{a}micas y estructurales.
  		
  		\item \textbf{Resultados:} La trayectoria de producci\'{o}n se procesa para calcular medidas observables de inter\'{e}s, tales como  $R_{g}$ o \textit{rmsd}.
  	\end{enumerate}
@@ -742,7 +743,20 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 	\subsection{Caso particular de estudio: tubulinas}
 	\label{subsec:tubulinas}
 	
-	\begin{figure}[H]
+		\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=1\linewidth]{graphs/Tubs.pdf}
+			\caption{Comparación estructural de \textit{Tubulina nativa} (alanina) y \textit{Tubulina mutada} (treonina).La diferencia entre ambas proteínas es el remplazo de un residuo aminoacídico.}
+			\label{fig:tubs}
+		\end{center}
+	\end{figure}
+	
+	
+	La comparaci\'{o}n presentada en la Figura~\ref{fig:tubs} se refiere a dos variantes estructurales: (1) Una prote\'{i}na nativa con 6,812 \'{a}tomos (estructura de referencia) y (2) una variante mutada con 6,816 \'{a}tomos (reemplazo de un residuo aminoac\'{i}dico ). Además de esta variación estructural proteica, este sistema tiene una relevancia médica debido a que este cambio sutil, provoca una enfermedad neurodegenerativa.
+
+	\clearpage
+	
+		\begin{figure}[H]
 		\hspace{-0.3cm} 
 		\begin{minipage}{0.49\textwidth}
 			\centering
@@ -754,21 +768,16 @@ Posteriormente, los valores de $\langle N(r_k) \rangle$, $\langle M(r_k) \rangle
 			\includegraphics[width=\linewidth,page=1]{graphs/PDBs/Tubb4/TubMut10ns.pdf}
 		\end{minipage}
 		
-		
 		\caption{
 			Gr\'{a}ficos de $\log_{10}r$ vs $\log_{10}M(r)$ correspondientes a dos prote\'{i}nas diferentes: \textit{Tubulina nativa} (alanina) y \textit{Tubulina mutada} (treonina) despu\'{e}s de una din\'{a}mica molecular de 10 ns. Los valores de $b$ en cada gr\'{a}fica representan la dimensi\'{o}n fractal de masa en los intervalos 1 a 2~$\textup{\r{A}}$, 2 a 6~$\textup{\r{A}}$ y 6 a 20~$\textup{\r{A}}$.}
 		\label{fig:Tubs}
 	\end{figure}
 	
-	
-	La comparaci\'{o}n presentada en la Figura~\ref{fig:Tubs} se refiere a dos variantes estructurales: (1) Una prote\'{i}na nativa con 6,812 \'{a}tomos (estructura de referencia) y (2) una variante mutada con 6,816 \'{a}tomos (reemplazo de un residuo aminoac\'{i}dico). Además, esta variación estructural proteica tiene una relevancia médica debido a que este cambio sutil, provoca una enfermedad neurodegenerativa.
-	
-	Los resultados obtenidos mostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns). Esta diferencia estructural se observa a pesar de la alta semejanza global entre ambas variantes.
-	La detecci\'{o}n de estas diferencias sutiles, valida la sensibilidad del m\'{e}todo propuesto para discriminar modificaciones estructurales m\'{i}nimas en sistemas proteicos.
-
-	\clearpage
-
-	Con base en la evidencia discutida en esta subsecci\'{o}n y las anteriores (subsecci\'{o}n \ref{subsec:DFE} a \ref{subsec:tubulinas}), se puede establecer que las prote\'{i}nas, en general, presentan un comportamiento multifractal. Esta caracter\'{i}stica se manifiesta en intervalos espec\'{i}ficos, los cuales han sido analizados. Las prote\'{i}nas restantes del estudio exhiben un comportamiento an\'{a}logo. Para una revisi\'{o}n detallada, se remite al lector al Ap\'{e}ndice \ref{chap:9P} para examinar los detalles particulares de cada sistema.
+		Los resultados obtenidos de las dos variantes estructurales de la Figura \ref{fig:tubs}, mostraron diferencias en las pendientes de la regresi\'{o}n lineal analizadas espec\'{i}ficamente en la etapa final del procesamiento (despu\'{e}s de una din\'{a}mica molecular de 10 ns), ver Figura \ref{fig:Tubs}. Esta diferencia estructural se observa a pesar de la alta semejanza global entre ambas variantes. La detecci\'{o}n de estas diferencias sutiles, valida la sensibilidad del m\'{e}todo propuesto para discriminar modificaciones estructurales m\'{i}nimas en sistemas proteicos.
+		
+		\vspace{.5cm}
+		
+		Con base en la evidencia discutida en esta subsecci\'{o}n y las anteriores (subsecci\'{o}n \ref{subsec:DFE} a \ref{subsec:tubulinas}), se puede establecer que las prote\'{i}nas, en general, presentan un comportamiento multifractal. Esta caracter\'{i}stica se manifiesta en intervalos espec\'{i}ficos, los cuales han sido analizados. Las prote\'{i}nas restantes del estudio exhiben un comportamiento an\'{a}logo. Para una revisi\'{o}n detallada, se remite al lector al Ap\'{e}ndice \ref{chap:9P} para examinar los detalles particulares de cada sistema.
 	
 	
 	\color{black}
